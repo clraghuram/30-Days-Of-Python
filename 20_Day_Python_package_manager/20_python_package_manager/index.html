@@ -1,0 +1,1900 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Python learning guide for beginners">
+      
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/20_Day_Python_package_manager/20_python_package_manager/">
+      
+      
+        <link rel="prev" href="../../19_Day_File_handling/19_file_handling/">
+      
+      
+        <link rel="next" href="../../21_Day_Classes_and_objects/21_classes_and_objects/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/python-favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Day 20 - Package Manager - 30 Days of Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-20" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="30 Days of Python" class="md-header__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            30 Days of Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 20 - Package Manager
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01_Day_Introduction/helloworld.md" class="md-tabs__link">
+          
+  
+  
+  Days
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="30 Days of Python" class="md-nav__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    30 Days of Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Days
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Days
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Day_Introduction/helloworld.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Day_Variables_builtin_functions/02_variables_builtin_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 - Variables &amp; Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Day_Operators/03_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 - Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Day_Strings/04_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 - Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Day_Lists/05_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 - Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Day_Tuples/06_tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 6 - Tuples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07_Day_Sets/07_sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 7 - Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_Day_Dictionaries/08_dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 8 - Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09_Day_Conditionals/09_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 9 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10_Day_Loops/10_loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 10 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11_Day_Functions/11_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 11 - Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12_Day_Modules/12_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 12 - Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13_Day_List_comprehension/13_list_comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 13 - List Comprehension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14_Day_Higher_order_functions/14_higher_order_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 14 - Higher Order Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15_Day_Python_type_errors/15_python_type_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 15 - Type Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16_Day_Python_date_time/16_python_datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 16 - Date &amp; Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17_Day_Exception_handling/17_exception_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 17 - Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18_Day_Regular_expressions/18_regular_expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 18 - Regular Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19_Day_File_handling/19_file_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 19 - File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Package Manager
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Package Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#python-pip-python-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python PIP - Python Package Manager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python PIP - Python Package Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is PIP ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing PIP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-packages-using-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing packages using pip
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstalling-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uninstalling Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List of Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pip-freeze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PIP Freeze
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-from-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading from URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-information-about-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Information About Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-day-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Day 20
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 21 - Classes &amp; Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22_Day_Web_scraping/22_web_scraping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 22 - Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../23_Day_Virtual_environment/23_virtual_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 23 - Virtual Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../24_Day_Statistics/24_statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25_Day_Pandas/25_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../26_Day_Python_web/26_python_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 26 - Python Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27_Day_Python_with_mongodb/27_python_with_mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 27 - MongoDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../28_Day_API/28_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 28 - API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../29_Day_Building_API/29_building_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 29 - Building API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30_Day_Conclusions/30_conclusions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 30 - Conclusions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div align="center">
+  <h1> 30 Days Of Python: Day 20 - PIP </h1>
+  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
+  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&amp;logo=linkedin&amp;style=social">
+  </a>
+  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
+  </a>
+
+<sub>Author:
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+<small>Second Edition: July, 2021</small>
+</sub>
+</div>
+
+<p><a href="../../19_Day_File_handling/19_file_handling/">&lt;&lt; Day 19</a> | <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/">Day 21 &gt;&gt;</a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/30DaysOfPython_banner3@2x.png" data-desc-position="bottom"><img alt="30DaysOfPython" src="../images/30DaysOfPython_banner3@2x.png"></a></p>
+<ul>
+<li><a href="#-day-20">📘 Day 20</a></li>
+<li><a href="#python-pip---python-package-manager">Python PIP - Python Package Manager</a><ul>
+<li><a href="#what-is-pip-">What is PIP ?</a></li>
+<li><a href="#installing-pip">Installing PIP</a></li>
+<li><a href="#installing-packages-using-pip">Installing packages using pip</a></li>
+<li><a href="#uninstalling-packages">Uninstalling Packages</a></li>
+<li><a href="#list-of-packages">List of Packages</a></li>
+<li><a href="#show-package">Show Package</a></li>
+<li><a href="#pip-freeze">PIP Freeze</a></li>
+<li><a href="#reading-from-url">Reading from URL</a></li>
+<li><a href="#creating-a-package">Creating a Package</a></li>
+<li><a href="#further-information-about-packages">Further Information About Packages</a></li>
+</ul>
+</li>
+<li><a href="#exercises-day-20">Exercises: Day 20</a></li>
+</ul>
+<h1 id="day-20">📘 Day 20<a class="headerlink" href="#day-20" title="Permanent link">¶</a></h1>
+<h2 id="python-pip-python-package-manager">Python PIP - Python Package Manager<a class="headerlink" href="#python-pip-python-package-manager" title="Permanent link">¶</a></h2>
+<h3 id="what-is-pip">What is PIP ?<a class="headerlink" href="#what-is-pip" title="Permanent link">¶</a></h3>
+<p>PIP stands for Preferred installer program. We use <em>pip</em> to install different Python packages.
+Package is a Python module that can contain one or more modules or other packages. A module or modules that we can install to our application is a package.
+In programming, we do not have to write every utility program, instead we install packages and import them to our applications.</p>
+<h3 id="installing-pip">Installing PIP<a class="headerlink" href="#installing-pip" title="Permanent link">¶</a></h3>
+<p>If you did not install pip, let us install it now. Go to your terminal or command prompt and copy and paste this:</p>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pip
+</code></pre></div>
+<p>Check if pip is installed by writing</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>--version
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">asabeneh</span><span class="nd">@Asabeneh</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">pip</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">pip</span> <span class="mf">21.1.3</span> <span class="kn">from</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pip</span> <span class="p">(</span><span class="n">python</span> <span class="mf">3.9.6</span><span class="p">)</span>
+</code></pre></div>
+<p>As you can see, I am using pip version 21.1.3, if you see some number a bit below or above that, means you have pip installed.</p>
+<p>Let us check some of the packages used in the Python community for different purposes. Just to let you know that there are lots of packages available for use with different applications.</p>
+<h3 id="installing-packages-using-pip">Installing packages using pip<a class="headerlink" href="#installing-packages-using-pip" title="Permanent link">¶</a></h3>
+<p>Let us try to install <em>numpy</em>, called numeric python. It is one of the most popular packages in machine learning and data science community.</p>
+<ul>
+<li>NumPy is the fundamental package for scientific computing with Python. It contains among other things:</li>
+<li>a powerful N-dimensional array object</li>
+<li>sophisticated (broadcasting) functions</li>
+<li>tools for integrating C/C++ and Fortran code</li>
+<li>useful linear algebra, Fourier transform, and random number capabilities</li>
+</ul>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+</code></pre></div>
+<p>Let us start using numpy. Open your python interactive shell, write python and then import numpy as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asabeneh</span><span class="nd">@Asabeneh</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">python</span>
+<span class="n">Python</span> <span class="mf">3.9.6</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Jun</span> <span class="mi">28</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">21</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Clang</span> <span class="mf">11.0.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1100.0.33.8</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
+<span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">version</span>
+<span class="s1">'1.20.1'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_arr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_arr</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">np_arr</span><span class="p">)</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_arr</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">array</span><span class="p">([</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_arr</span>  <span class="o">+</span> <span class="mi">2</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div>
+<p>Pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. Let us install the big brother of numpy, <em>pandas</em>:</p>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">asabeneh</span><span class="nd">@Asabeneh</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">python</span>
+<span class="n">Python</span> <span class="mf">3.9.6</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Jun</span> <span class="mi">28</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">21</span><span class="p">)</span>
+<span class="p">[</span><span class="n">Clang</span> <span class="mf">11.0.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1100.0.33.8</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
+<span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>
+</code></pre></div>
+<p>This section is not about numpy nor pandas, here we are trying to learn how to install packages and how to import them. If it is needed, we will talk about different packages in other sections.</p>
+<p>Let us import a web browser module, which can help us to open any website. We do not need to install this module, it is already installed by default with Python 3. For instance if you like to open any number of websites at any time or if you like to schedule something, this <em>webbrowser</em> module can be used.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">webbrowser</span> <span class="c1"># web browser module to open websites</span>
+
+<span class="c1"># list of urls: python</span>
+<span class="n">url_lists</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'http://www.python.org'</span><span class="p">,</span>
+    <span class="s1">'https://www.linkedin.com/in/asabeneh/'</span><span class="p">,</span>
+    <span class="s1">'https://github.com/Asabeneh'</span><span class="p">,</span>
+    <span class="s1">'https://twitter.com/Asabeneh'</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># opens the above list of websites in a different tab</span>
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">url_lists</span><span class="p">:</span>
+    <span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="uninstalling-packages">Uninstalling Packages<a class="headerlink" href="#uninstalling-packages" title="Permanent link">¶</a></h3>
+<p>If you do not like to keep the installed packages, you can remove them using the following command.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>uninstall<span class="w"> </span>packagename
+</code></pre></div>
+<h3 id="list-of-packages">List of Packages<a class="headerlink" href="#list-of-packages" title="Permanent link">¶</a></h3>
+<p>To see the installed packages on our machine. We can use pip followed by list.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>list
+</code></pre></div>
+<h3 id="show-package">Show Package<a class="headerlink" href="#show-package" title="Permanent link">¶</a></h3>
+<p>To show information about a package</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>show<span class="w"> </span>packagename
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~$<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>pandas
+Name:<span class="w"> </span>pandas
+Version:<span class="w"> </span><span class="m">1</span>.2.3
+Summary:<span class="w"> </span>Powerful<span class="w"> </span>data<span class="w"> </span>structures<span class="w"> </span><span class="k">for</span><span class="w"> </span>data<span class="w"> </span>analysis,<span class="w"> </span><span class="nb">time</span><span class="w"> </span>series,<span class="w"> </span>and<span class="w"> </span>statistics
+Home-page:<span class="w"> </span>http://pandas.pydata.org
+Author:<span class="w"> </span>None
+Author-email:<span class="w"> </span>None
+License:<span class="w"> </span>BSD
+Location:<span class="w"> </span>/usr/local/lib/python3.7/site-packages
+Requires:<span class="w"> </span>python-dateutil,<span class="w"> </span>pytz,<span class="w"> </span>numpy
+Required-by:
+</code></pre></div>
+<p>If we want even more details, just add --verbose</p>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~$<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>--verbose<span class="w"> </span>pandas
+Name:<span class="w"> </span>pandas
+Version:<span class="w"> </span><span class="m">1</span>.2.3
+Summary:<span class="w"> </span>Powerful<span class="w"> </span>data<span class="w"> </span>structures<span class="w"> </span><span class="k">for</span><span class="w"> </span>data<span class="w"> </span>analysis,<span class="w"> </span><span class="nb">time</span><span class="w"> </span>series,<span class="w"> </span>and<span class="w"> </span>statistics
+Home-page:<span class="w"> </span>http://pandas.pydata.org
+Author:<span class="w"> </span>None
+Author-email:<span class="w"> </span>None
+License:<span class="w"> </span>BSD
+Location:<span class="w"> </span>/usr/local/lib/python3.7/site-packages
+Requires:<span class="w"> </span>numpy,<span class="w"> </span>pytz,<span class="w"> </span>python-dateutil
+Required-by:
+Metadata-Version:<span class="w"> </span><span class="m">2</span>.1
+Installer:<span class="w"> </span>pip
+Classifiers:
+<span class="w">  </span>Development<span class="w"> </span>Status<span class="w"> </span>::<span class="w"> </span><span class="m">5</span><span class="w"> </span>-<span class="w"> </span>Production/Stable
+<span class="w">  </span>Environment<span class="w"> </span>::<span class="w"> </span>Console
+<span class="w">  </span>Operating<span class="w"> </span>System<span class="w"> </span>::<span class="w"> </span>OS<span class="w"> </span>Independent
+<span class="w">  </span>Intended<span class="w"> </span>Audience<span class="w"> </span>::<span class="w"> </span>Science/Research
+<span class="w">  </span>Programming<span class="w"> </span>Language<span class="w"> </span>::<span class="w"> </span>Python
+<span class="w">  </span>Programming<span class="w"> </span>Language<span class="w"> </span>::<span class="w"> </span>Python<span class="w"> </span>::<span class="w"> </span><span class="m">3</span>
+<span class="w">  </span>Programming<span class="w"> </span>Language<span class="w"> </span>::<span class="w"> </span>Python<span class="w"> </span>::<span class="w"> </span><span class="m">3</span>.5
+<span class="w">  </span>Programming<span class="w"> </span>Language<span class="w"> </span>::<span class="w"> </span>Python<span class="w"> </span>::<span class="w"> </span><span class="m">3</span>.6
+<span class="w">  </span>Programming<span class="w"> </span>Language<span class="w"> </span>::<span class="w"> </span>Python<span class="w"> </span>::<span class="w"> </span><span class="m">3</span>.7
+<span class="w">  </span>Programming<span class="w"> </span>Language<span class="w"> </span>::<span class="w"> </span>Python<span class="w"> </span>::<span class="w"> </span><span class="m">3</span>.8
+<span class="w">  </span>Programming<span class="w"> </span>Language<span class="w"> </span>::<span class="w"> </span>Cython
+<span class="w">  </span>Topic<span class="w"> </span>::<span class="w"> </span>Scientific/Engineering
+Entry-points:
+<span class="w">  </span><span class="o">[</span>pandas_plotting_backends<span class="o">]</span>
+<span class="w">  </span><span class="nv">matplotlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>pandas:plotting._matplotlib
+</code></pre></div>
+<h3 id="pip-freeze">PIP Freeze<a class="headerlink" href="#pip-freeze" title="Permanent link">¶</a></h3>
+<p>Generate installed Python packages with their version and the output is suitable to use it in a requirements file. A requirements.txt file is a file that should contain all the installed Python packages in a Python project.</p>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~$<span class="w"> </span>pip<span class="w"> </span>freeze
+<span class="nv">docutils</span><span class="o">==</span><span class="m">0</span>.11
+<span class="nv">Jinja2</span><span class="o">==</span><span class="m">2</span>.7.2
+<span class="nv">MarkupSafe</span><span class="o">==</span><span class="m">0</span>.19
+<span class="nv">Pygments</span><span class="o">==</span><span class="m">1</span>.6
+<span class="nv">Sphinx</span><span class="o">==</span><span class="m">1</span>.2.2
+</code></pre></div>
+<p>The pip freeze gave us the packages used, installed and their version. We use it with requirements.txt file for deployment.</p>
+<h3 id="reading-from-url">Reading from URL<a class="headerlink" href="#reading-from-url" title="Permanent link">¶</a></h3>
+<p>By now you are familiar with how to read or write on a file located on you local machine. Sometimes, we would like to read from a website using url or from an API.
+API stands for Application Program Interface. It is a means to exchange structured data between servers primarily as json data. To open a network connection, we need a package called <em>requests</em> - it allows to open a network connection and to implement CRUD(create, read, update and delete) operations. In this section, we will cover only reading ore getting part of a CRUD.</p>
+<p>Let us install <em>requests</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asabeneh</span><span class="nd">@Asabeneh</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
+</code></pre></div>
+<p>We will see <em>get</em>, <em>status_code</em>, <em>headers</em>, <em>text</em> and <em>json</em> methods in <em>requests</em> module:
+  - <em>get()</em>: to open a network and fetch data from url - it returns a response object
+  - <em>status_code</em>: After we fetched data, we can check the status of the operation (success, error, etc)
+  - <em>headers</em>: To check the header types
+  - <em>text</em>: to extract the text from the fetched response object 
+  - <em>json</em>: to extract json data
+Let's read a txt file from this website, https://www.w3.org/TR/PNG/iso_8859-1.txt.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span> <span class="c1"># importing the request module</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://www.w3.org/TR/PNG/iso_8859-1.txt'</span> <span class="c1"># text from a website</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># opening a network and fetching a data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> <span class="c1"># status code, success:200</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>     <span class="c1"># headers information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1"># gives all the text from the page</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;Response<span class="w"> </span><span class="o">[</span><span class="m">200</span><span class="o">]</span>&gt;
+<span class="m">200</span>
+<span class="o">{</span><span class="s1">'date'</span>:<span class="w"> </span><span class="s1">'Sun, 08 Dec 2019 18:00:31 GMT'</span>,<span class="w"> </span><span class="s1">'last-modified'</span>:<span class="w"> </span><span class="s1">'Fri, 07 Nov 2003 05:51:11 GMT'</span>,<span class="w"> </span><span class="s1">'etag'</span>:<span class="w"> </span><span class="s1">'"17e9-3cb82080711c0;50c0b26855880-gzip"'</span>,<span class="w"> </span><span class="s1">'accept-ranges'</span>:<span class="w"> </span><span class="s1">'bytes'</span>,<span class="w"> </span><span class="s1">'cache-control'</span>:<span class="w"> </span><span class="s1">'max-age=31536000'</span>,<span class="w"> </span><span class="s1">'expires'</span>:<span class="w"> </span><span class="s1">'Mon, 07 Dec 2020 18:00:31 GMT'</span>,<span class="w"> </span><span class="s1">'vary'</span>:<span class="w"> </span><span class="s1">'Accept-Encoding'</span>,<span class="w"> </span><span class="s1">'content-encoding'</span>:<span class="w"> </span><span class="s1">'gzip'</span>,<span class="w"> </span><span class="s1">'access-control-allow-origin'</span>:<span class="w"> </span><span class="s1">'*'</span>,<span class="w"> </span><span class="s1">'content-length'</span>:<span class="w"> </span><span class="s1">'1616'</span>,<span class="w"> </span><span class="s1">'content-type'</span>:<span class="w"> </span><span class="s1">'text/plain'</span>,<span class="w"> </span><span class="s1">'strict-transport-security'</span>:<span class="w"> </span><span class="s1">'max-age=15552000; includeSubdomains; preload'</span>,<span class="w"> </span><span class="s1">'content-security-policy'</span>:<span class="w"> </span><span class="s1">'upgrade-insecure-requests'</span><span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Let us read from an API. API stands for Application Program Interface. It is a means to exchange structure data between servers primarily a json data. An example of an API:https://restcountries.eu/rest/v2/all. Let us read this API using <em>requests</em> module.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://restcountries.eu/rest/v2/all'</span>  <span class="c1"># countries api</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># opening a network and fetching a data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="c1"># response object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c1"># status code, success:200</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">countries</span><span class="p">[:</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># we sliced only the first country, remove the slicing to see all countries</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;Response<span class="w"> </span><span class="o">[</span><span class="m">200</span><span class="o">]</span>&gt;
+<span class="m">200</span>
+<span class="o">[{</span><span class="s1">'alpha2Code'</span>:<span class="w"> </span><span class="s1">'AF'</span>,
+<span class="w">  </span><span class="s1">'alpha3Code'</span>:<span class="w"> </span><span class="s1">'AFG'</span>,
+<span class="w">  </span><span class="s1">'altSpellings'</span>:<span class="w"> </span><span class="o">[</span><span class="s1">'AF'</span>,<span class="w"> </span><span class="s1">'Afġānistān'</span><span class="o">]</span>,
+<span class="w">  </span><span class="s1">'area'</span>:<span class="w"> </span><span class="m">652230</span>.0,
+<span class="w">  </span><span class="s1">'borders'</span>:<span class="w"> </span><span class="o">[</span><span class="s1">'IRN'</span>,<span class="w"> </span><span class="s1">'PAK'</span>,<span class="w"> </span><span class="s1">'TKM'</span>,<span class="w"> </span><span class="s1">'UZB'</span>,<span class="w"> </span><span class="s1">'TJK'</span>,<span class="w"> </span><span class="s1">'CHN'</span><span class="o">]</span>,
+<span class="w">  </span><span class="s1">'callingCodes'</span>:<span class="w"> </span><span class="o">[</span><span class="s1">'93'</span><span class="o">]</span>,
+<span class="w">  </span><span class="s1">'capital'</span>:<span class="w"> </span><span class="s1">'Kabul'</span>,
+<span class="w">  </span><span class="s1">'cioc'</span>:<span class="w"> </span><span class="s1">'AFG'</span>,
+<span class="w">  </span><span class="s1">'currencies'</span>:<span class="w"> </span><span class="o">[{</span><span class="s1">'code'</span>:<span class="w"> </span><span class="s1">'AFN'</span>,<span class="w"> </span><span class="s1">'name'</span>:<span class="w"> </span><span class="s1">'Afghan afghani'</span>,<span class="w"> </span><span class="s1">'symbol'</span>:<span class="w"> </span><span class="s1">'؋'</span><span class="o">}]</span>,
+<span class="w">  </span><span class="s1">'demonym'</span>:<span class="w"> </span><span class="s1">'Afghan'</span>,
+<span class="w">  </span><span class="s1">'flag'</span>:<span class="w"> </span><span class="s1">'https://restcountries.eu/data/afg.svg'</span>,
+<span class="w">  </span><span class="s1">'gini'</span>:<span class="w"> </span><span class="m">27</span>.8,
+<span class="w">  </span><span class="s1">'languages'</span>:<span class="w"> </span><span class="o">[{</span><span class="s1">'iso639_1'</span>:<span class="w"> </span><span class="s1">'ps'</span>,
+<span class="w">                 </span><span class="s1">'iso639_2'</span>:<span class="w"> </span><span class="s1">'pus'</span>,
+<span class="w">                 </span><span class="s1">'name'</span>:<span class="w"> </span><span class="s1">'Pashto'</span>,
+<span class="w">                 </span><span class="s1">'nativeName'</span>:<span class="w"> </span><span class="s1">'پښتو'</span><span class="o">}</span>,
+<span class="w">                </span><span class="o">{</span><span class="s1">'iso639_1'</span>:<span class="w"> </span><span class="s1">'uz'</span>,
+<span class="w">                 </span><span class="s1">'iso639_2'</span>:<span class="w"> </span><span class="s1">'uzb'</span>,
+<span class="w">                 </span><span class="s1">'name'</span>:<span class="w"> </span><span class="s1">'Uzbek'</span>,
+<span class="w">                 </span><span class="s1">'nativeName'</span>:<span class="w"> </span><span class="s1">'Oʻzbek'</span><span class="o">}</span>,
+<span class="w">                </span><span class="o">{</span><span class="s1">'iso639_1'</span>:<span class="w"> </span><span class="s1">'tk'</span>,
+<span class="w">                 </span><span class="s1">'iso639_2'</span>:<span class="w"> </span><span class="s1">'tuk'</span>,
+<span class="w">                 </span><span class="s1">'name'</span>:<span class="w"> </span><span class="s1">'Turkmen'</span>,
+<span class="w">                 </span><span class="s1">'nativeName'</span>:<span class="w"> </span><span class="s1">'Türkmen'</span><span class="o">}]</span>,
+<span class="w">  </span><span class="s1">'latlng'</span>:<span class="w"> </span><span class="o">[</span><span class="m">33</span>.0,<span class="w"> </span><span class="m">65</span>.0<span class="o">]</span>,
+<span class="w">  </span><span class="s1">'name'</span>:<span class="w"> </span><span class="s1">'Afghanistan'</span>,
+<span class="w">  </span><span class="s1">'nativeName'</span>:<span class="w"> </span><span class="s1">'افغانستان'</span>,
+<span class="w">  </span><span class="s1">'numericCode'</span>:<span class="w"> </span><span class="s1">'004'</span>,
+<span class="w">  </span><span class="s1">'population'</span>:<span class="w"> </span><span class="m">27657145</span>,
+<span class="w">  </span><span class="s1">'region'</span>:<span class="w"> </span><span class="s1">'Asia'</span>,
+<span class="w">  </span><span class="s1">'regionalBlocs'</span>:<span class="w"> </span><span class="o">[{</span><span class="s1">'acronym'</span>:<span class="w"> </span><span class="s1">'SAARC'</span>,
+<span class="w">                     </span><span class="s1">'name'</span>:<span class="w"> </span><span class="s1">'South Asian Association for Regional Cooperation'</span>,
+<span class="w">                     </span><span class="s1">'otherAcronyms'</span>:<span class="w"> </span><span class="o">[]</span>,
+<span class="w">                     </span><span class="s1">'otherNames'</span>:<span class="w"> </span><span class="o">[]}]</span>,
+<span class="w">  </span><span class="s1">'subregion'</span>:<span class="w"> </span><span class="s1">'Southern Asia'</span>,
+<span class="w">  </span><span class="s1">'timezones'</span>:<span class="w"> </span><span class="o">[</span><span class="s1">'UTC+04:30'</span><span class="o">]</span>,
+<span class="w">  </span><span class="s1">'topLevelDomain'</span>:<span class="w"> </span><span class="o">[</span><span class="s1">'.af'</span><span class="o">]</span>,
+<span class="w">  </span><span class="s1">'translations'</span>:<span class="w"> </span><span class="o">{</span><span class="s1">'br'</span>:<span class="w"> </span><span class="s1">'Afeganistão'</span>,
+<span class="w">                   </span><span class="s1">'de'</span>:<span class="w"> </span><span class="s1">'Afghanistan'</span>,
+<span class="w">                   </span><span class="s1">'es'</span>:<span class="w"> </span><span class="s1">'Afganistán'</span>,
+<span class="w">                   </span><span class="s1">'fa'</span>:<span class="w"> </span><span class="s1">'افغانستان'</span>,
+<span class="w">                   </span><span class="s1">'fr'</span>:<span class="w"> </span><span class="s1">'Afghanistan'</span>,
+<span class="w">                   </span><span class="s1">'hr'</span>:<span class="w"> </span><span class="s1">'Afganistan'</span>,
+<span class="w">                   </span><span class="s1">'it'</span>:<span class="w"> </span><span class="s1">'Afghanistan'</span>,
+<span class="w">                   </span><span class="s1">'ja'</span>:<span class="w"> </span><span class="s1">'アフガニスタン'</span>,
+<span class="w">                   </span><span class="s1">'nl'</span>:<span class="w"> </span><span class="s1">'Afghanistan'</span>,
+<span class="w">                   </span><span class="s1">'pt'</span>:<span class="w"> </span><span class="s1">'Afeganistão'</span><span class="o">}}]</span>
+</code></pre></div>
+<p>We use <em>json()</em> method from response object, if the we are fetching JSON data. For txt, html, xml and other file formats we can use <em>text</em>.</p>
+<h3 id="creating-a-package">Creating a Package<a class="headerlink" href="#creating-a-package" title="Permanent link">¶</a></h3>
+<p>We organize a large number of files in different folders and sub-folders based on some criteria, so that we can find and manage them easily. As you know, a module can contain multiple objects, such as classes, functions, etc. A package can contain one or more relevant modules. A package is actually a folder containing one or more module files. Let us create a package named mypackage, using the following steps:</p>
+<p>Create a new folder named mypackage inside 30DaysOfPython folder
+Create an empty <strong><strong>init</strong></strong>.py file in the mypackage folder.
+Create modules arithmetic.py and greet.py with following code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># mypackage/arithmetics.py</span>
+<span class="c1"># arithmetics.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">multiple</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">division</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">remainder</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">**</span> <span class="n">b</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># mypackage/greet.py</span>
+<span class="c1"># greet.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet_person</span><span class="p">(</span><span class="n">firstname</span><span class="p">,</span> <span class="n">lastname</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">firstname</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">lastname</span><span class="si">}</span><span class="s1">, welcome to 30DaysOfPython Challenge!'</span>
+</code></pre></div>
+<p>The folder structure of your package should look like this:</p>
+<div class="highlight"><pre><span></span><code>─<span class="w"> </span>mypackage
+<span class="w">    </span>├──<span class="w"> </span>__init__.py
+<span class="w">    </span>├──<span class="w"> </span>arithmetic.py
+<span class="w">    </span>└──<span class="w"> </span>greet.py
+</code></pre></div>
+<p>Now let's open the python interactive shell and try the package we have created:</p>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~/Desktop/30DaysOfPython$<span class="w"> </span>python
+Python<span class="w"> </span><span class="m">3</span>.9.6<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>Jun<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">2021</span>,<span class="w"> </span><span class="m">15</span>:26:21<span class="o">)</span>
+<span class="o">[</span>Clang<span class="w"> </span><span class="m">11</span>.0.0<span class="w"> </span><span class="o">(</span>clang-1100.0.33.8<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
+Type<span class="w"> </span><span class="s2">"help"</span>,<span class="w"> </span><span class="s2">"copyright"</span>,<span class="w"> </span><span class="s2">"credits"</span><span class="w"> </span>or<span class="w"> </span><span class="s2">"license"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>from<span class="w"> </span>mypackage<span class="w"> </span>import<span class="w"> </span>arithmetics
+&gt;&gt;&gt;<span class="w"> </span>arithmetics.add_numbers<span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">5</span><span class="o">)</span>
+<span class="m">11</span>
+&gt;&gt;&gt;<span class="w"> </span>arithmetics.subtract<span class="o">(</span><span class="m">5</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<span class="m">2</span>
+&gt;&gt;&gt;<span class="w"> </span>arithmetics.multiple<span class="o">(</span><span class="m">5</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<span class="m">15</span>
+&gt;&gt;&gt;<span class="w"> </span>arithmetics.division<span class="o">(</span><span class="m">5</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<span class="m">1</span>.6666666666666667
+&gt;&gt;&gt;<span class="w"> </span>arithmetics.remainder<span class="o">(</span><span class="m">5</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<span class="m">2</span>
+&gt;&gt;&gt;<span class="w"> </span>arithmetics.power<span class="o">(</span><span class="m">5</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<span class="m">125</span>
+&gt;&gt;&gt;<span class="w"> </span>from<span class="w"> </span>mypackage<span class="w"> </span>import<span class="w"> </span>greet
+&gt;&gt;&gt;<span class="w"> </span>greet.greet_person<span class="o">(</span><span class="s1">'Asabeneh'</span>,<span class="w"> </span><span class="s1">'Yetayeh'</span><span class="o">)</span>
+<span class="s1">'Asabeneh Yetayeh, welcome to 30DaysOfPython Challenge!'</span>
+&gt;&gt;&gt;
+</code></pre></div>
+<p>As you can see our package works perfectly. The package folder contains a special file called <strong><strong>init</strong></strong>.py - it stores the package's content. If we put <strong><strong>init</strong></strong>.py in the package folder, python start recognizes it as a package.
+The <strong><strong>init</strong></strong>.py exposes specified resources from its modules to be imported to other python files. An empty <strong><strong>init</strong></strong>.py file makes all functions available when a package is imported. The <strong><strong>init</strong></strong>.py is essential for the folder to be recognized by Python as a package.</p>
+<h3 id="further-information-about-packages">Further Information About Packages<a class="headerlink" href="#further-information-about-packages" title="Permanent link">¶</a></h3>
+<ul>
+<li>Database</li>
+<li>SQLAlchemy or SQLObject - Object oriented access to several different database systems<ul>
+<li><em>pip install SQLAlchemy</em></li>
+</ul>
+</li>
+<li>Web Development</li>
+<li>Django - High-level web framework.<ul>
+<li><em>pip install django</em></li>
+</ul>
+</li>
+<li>Flask - micro framework for Python based on Werkzeug, Jinja 2. (It's BSD licensed)<ul>
+<li><em>pip install flask</em></li>
+</ul>
+</li>
+<li>HTML Parser</li>
+<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup</a> - HTML/XML parser designed for quick turnaround projects like screen-scraping, will accept bad markup.<ul>
+<li><em>pip install beautifulsoup4</em></li>
+</ul>
+</li>
+<li>
+<p>PyQuery - implements jQuery in Python; faster than BeautifulSoup, apparently.</p>
+</li>
+<li>
+<p>XML Processing</p>
+</li>
+<li>ElementTree - The Element type is a simple but flexible container object, designed to store hierarchical data structures, such as simplified XML infosets, in memory. --Note: Python 2.5 and up has ElementTree in the Standard Library</li>
+<li>GUI</li>
+<li>PyQt - Bindings for the cross-platform Qt framework.</li>
+<li>TkInter - The traditional Python user interface toolkit.</li>
+<li>Data Analysis, Data Science and Machine learning</li>
+<li>Numpy: Numpy(numeric python) is known as one of the most popular machine learning library in Python.</li>
+<li>Pandas: is a data analysis, data science and a machine learning library in Python that provides data structures of high-level and a wide variety of tools for analysis.</li>
+<li>SciPy: SciPy is a machine learning library for application developers and engineers. SciPy library contains modules for optimization, linear algebra, integration, image processing, and statistics.</li>
+<li>Scikit-Learn: It is NumPy and SciPy. It is considered as one of the best libraries for working with complex data.</li>
+<li>TensorFlow: is a machine learning library built by Google.</li>
+<li>Keras: is considered as one of the coolest machine learning libraries in Python. It provides an easier mechanism to express neural networks. Keras also provides some of the best utilities for compiling models, processing data-sets, visualization of graphs, and much more.</li>
+<li>Network:</li>
+<li>requests: is a package which we can use to send requests to a server(GET, POST, DELETE, PUT)<ul>
+<li><em>pip install requests</em></li>
+</ul>
+</li>
+</ul>
+<p>🌕 You are always progressing and you are a head of 20 steps to your way to greatness. Now do some exercises for your brain and muscles.</p>
+<h2 id="exercises-day-20">Exercises: Day 20<a class="headerlink" href="#exercises-day-20" title="Permanent link">¶</a></h2>
+<ol>
+<li>Read this url and find the 10 most frequent words. romeo_and_juliet = 'http://www.gutenberg.org/files/1112/1112.txt'</li>
+<li>Read the cats API and cats_api = 'https://api.thecatapi.com/v1/breeds' and find :</li>
+<li>the min, max, mean, median, standard deviation of cats' weight in metric units.</li>
+<li>the min, max, mean, median, standard deviation of cats' lifespan in years.</li>
+<li>Create a frequency table of country and breed of cats</li>
+<li>Read the <a href="https://restcountries.eu/rest/v2/all">countries API</a> and find</li>
+<li>the 10 largest countries</li>
+<li>the 10 most spoken languages</li>
+<li>the total number of languages in the countries API</li>
+<li>UCI is one of the most common places to get data sets for data science and machine learning. Read the content of UCL (https://archive.ics.uci.edu/ml/datasets.php). Without additional libraries it will be difficult, so you may try it with BeautifulSoup4</li>
+</ol>
+<p>🎉 CONGRATULATIONS ! 🎉</p>
+<p><a href="../../19_Day_File_handling/19_file_handling/">&lt;&lt; Day 19</a> | <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/">Day 21 &gt;&gt;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

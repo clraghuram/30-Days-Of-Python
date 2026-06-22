@@ -1,0 +1,2285 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Python learning guide for beginners">
+      
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/24_Day_Statistics/24_statistics/">
+      
+      
+        <link rel="prev" href="../../23_Day_Virtual_environment/23_virtual_environment/">
+      
+      
+        <link rel="next" href="../../25_Day_Pandas/25_pandas/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/python-favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Day 24 - Statistics - 30 Days of Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-24" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="30 Days of Python" class="md-header__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            30 Days of Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 24 - Statistics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01_Day_Introduction/helloworld.md" class="md-tabs__link">
+          
+  
+  
+  Days
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="30 Days of Python" class="md-nav__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    30 Days of Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Days
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Days
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Day_Introduction/helloworld.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Day_Variables_builtin_functions/02_variables_builtin_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 - Variables &amp; Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Day_Operators/03_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 - Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Day_Strings/04_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 - Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Day_Lists/05_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 - Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Day_Tuples/06_tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 6 - Tuples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07_Day_Sets/07_sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 7 - Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_Day_Dictionaries/08_dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 8 - Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09_Day_Conditionals/09_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 9 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10_Day_Loops/10_loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 10 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11_Day_Functions/11_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 11 - Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12_Day_Modules/12_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 12 - Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13_Day_List_comprehension/13_list_comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 13 - List Comprehension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14_Day_Higher_order_functions/14_higher_order_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 14 - Higher Order Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15_Day_Python_type_errors/15_python_type_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 15 - Type Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16_Day_Python_date_time/16_python_datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 16 - Date &amp; Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17_Day_Exception_handling/17_exception_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 17 - Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18_Day_Regular_expressions/18_regular_expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 18 - Regular Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19_Day_File_handling/19_file_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 19 - File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_Day_Python_package_manager/20_python_package_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Package Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 21 - Classes &amp; Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22_Day_Web_scraping/22_web_scraping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 22 - Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../23_Day_Virtual_environment/23_virtual_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 23 - Virtual Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Statistics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#python-for-statistical-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python for Statistical Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistics-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistics Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25_Day_Pandas/25_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../26_Day_Python_web/26_python_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 26 - Python Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27_Day_Python_with_mongodb/27_python_with_mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 27 - MongoDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../28_Day_API/28_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 28 - API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../29_Day_Building_API/29_building_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 29 - Building API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30_Day_Conclusions/30_conclusions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 30 - Conclusions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div align="center">
+  <h1> 30 Days Of Python: Day 24 - Statistics</h1>
+  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
+  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&amp;logo=linkedin&amp;style=social">
+  </a>
+  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
+  </a>
+
+<sub>Author:
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+<small>Second Edition: July, 2021</small>
+</sub>
+</div>
+
+<p><a href="../../23_Day_Virtual_environment/23_virtual_environment/">&lt;&lt; Day 23</a> | <a href="../../25_Day_Pandas/25_pandas/">Day 25 &gt;&gt;</a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/30DaysOfPython_banner3@2x.png" data-desc-position="bottom"><img alt="30DaysOfPython" src="../images/30DaysOfPython_banner3@2x.png"></a></p>
+<ul>
+<li><a href="#-day-24">📘 Day 24</a></li>
+<li><a href="#python-for-statistical-analysis">Python for Statistical Analysis</a></li>
+<li><a href="#statistics">Statistics</a></li>
+<li><a href="#data">Data</a></li>
+<li><a href="#statistics-module">Statistics Module</a></li>
+<li><a href="#numpy">NumPy</a></li>
+</ul>
+<h1 id="day-24">📘 Day 24<a class="headerlink" href="#day-24" title="Permanent link">¶</a></h1>
+<h2 id="python-for-statistical-analysis">Python for Statistical Analysis<a class="headerlink" href="#python-for-statistical-analysis" title="Permanent link">¶</a></h2>
+<h2 id="statistics">Statistics<a class="headerlink" href="#statistics" title="Permanent link">¶</a></h2>
+<p>Statistics is the discipline that studies the <em>collection</em>, <em>organization</em>, <em>displaying</em>, <em>analysing</em>, <em>interpretation</em> and <em>presentation</em> of data.
+Statistics is a branch of Mathematics that is recommended to be a prerequisite for data science and machine learning. Statistics is a very broad field but we will focus in this section only on the most relevant part.
+After completing this challenge, you may go onto the web development, data analysis, machine learning and data science path. Whatever path you may follow, at some point in your career you will get data which you may work on. Having some statistical knowledge will help you to make decisions based on data, <em>data tells as they say</em>.</p>
+<h2 id="data">Data<a class="headerlink" href="#data" title="Permanent link">¶</a></h2>
+<p>What is data? Data is any set of characters that is gathered and translated for some purpose, usually analysis. It can be any character, including text and numbers, pictures, sound, or video. If data is not put in a context, it doesn't make any sense to a human or computer. To make sense from data we need to work on the data using different tools.</p>
+<p>The work flow of data analysis, data science or machine learning starts from data. Data can be provided from some data source or it can be created. There are structured and unstructured data.</p>
+<p>Data can be found in small or big format. Most of the data types we will get have been covered in the file handling section.</p>
+<h2 id="statistics-module">Statistics Module<a class="headerlink" href="#statistics-module" title="Permanent link">¶</a></h2>
+<p>The Python <em>statistics</em> module provides functions for calculating mathematical statistics of numerical data. The module is not intended to be a competitor to third-party libraries such as NumPy, SciPy, or proprietary full-featured statistics packages aimed at professional statisticians such as Minitab, SAS and Matlab. It is aimed at the level of graphing and scientific calculators.</p>
+<h1 id="numpy">NumPy<a class="headerlink" href="#numpy" title="Permanent link">¶</a></h1>
+<p>In the first section we defined Python as a great general-purpose programming language on its own, but with the help of other popular libraries as(numpy, scipy, matplotlib, pandas etc) it becomes a powerful environment for scientific computing.</p>
+<p>NumPy is the core library for scientific computing in Python. It provides a high-performance multidimensional array object, and tools for working with arrays.</p>
+<p>So far, we have been using vscode but from now on I would recommend using Jupyter Notebook. To access jupyter notebook let's install <a href="https://www.anaconda.com/">anaconda</a>. If you are using anaconda most of the common packages are included and you don't have install packages if you installed anaconda.</p>
+<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~/Desktop/30DaysOfPython$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+</code></pre></div>
+<h2 id="importing-numpy">Importing NumPy<a class="headerlink" href="#importing-numpy" title="Permanent link">¶</a></h2>
+<p>Jupyter notebook is available if your are in favor of <a href="https://github.com/Asabeneh/data-science-for-everyone/blob/master/numpy/numpy.ipynb">jupyter notebook</a></p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># How to import numpy</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+    <span class="c1"># How to check the version of the numpy package</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'numpy:'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+    <span class="c1"># Checking the available methods</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">np</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="creating-numpy-array-using">Creating numpy array using<a class="headerlink" href="#creating-numpy-array-using" title="Permanent link">¶</a></h2>
+<h3 id="creating-int-numpy-arrays">Creating int numpy arrays<a class="headerlink" href="#creating-int-numpy-arrays" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Creating python List</span>
+    <span class="n">python_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+    <span class="c1"># Checking data types</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Type:'</span><span class="p">,</span> <span class="nb">type</span> <span class="p">(</span><span class="n">python_list</span><span class="p">))</span> <span class="c1"># &lt;class 'list'&gt;</span>
+    <span class="c1">#</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">python_list</span><span class="p">)</span> <span class="c1"># [1, 2, 3, 4, 5]</span>
+
+    <span class="n">two_dimensional_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">two_dimensional_list</span><span class="p">)</span>  <span class="c1"># [[0, 1, 2], [3, 4, 5], [6, 7, 8]]</span>
+
+    <span class="c1"># Creating Numpy(Numerical Python) array from python list</span>
+
+    <span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">python_list</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">numpy_array_from_list</span><span class="p">))</span>   <span class="c1"># &lt;class 'numpy.ndarray'&gt;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numpy_array_from_list</span><span class="p">)</span> <span class="c1"># array([1, 2, 3, 4, 5])</span>
+</code></pre></div>
+<h3 id="creating-float-numpy-arrays">Creating float numpy arrays<a class="headerlink" href="#creating-float-numpy-arrays" title="Permanent link">¶</a></h3>
+<p>Creating a float numpy array from list with a float data type parameter</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Python list</span>
+    <span class="n">python_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+    <span class="n">numy_array_from_list2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">python_list</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numy_array_from_list2</span><span class="p">)</span> <span class="c1"># array([1., 2., 3., 4., 5.])</span>
+</code></pre></div>
+<h3 id="creating-boolean-numpy-arrays">Creating boolean numpy arrays<a class="headerlink" href="#creating-boolean-numpy-arrays" title="Permanent link">¶</a></h3>
+<p>Creating a boolean a numpy array from list</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">numpy_bool_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numpy_bool_array</span><span class="p">)</span> <span class="c1"># array([False,  True,  True, False, False])</span>
+</code></pre></div>
+<h3 id="creating-multidimensional-array-using-numpy">Creating multidimensional array using numpy<a class="headerlink" href="#creating-multidimensional-array-using-numpy" title="Permanent link">¶</a></h3>
+<p>A numpy array may have one or multiple rows and columns</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">two_dimensional_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span>
+    <span class="n">numpy_two_dimensional_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">two_dimensional_list</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">numpy_two_dimensional_list</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numpy_two_dimensional_list</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>&lt;class<span class="w"> </span><span class="s1">'numpy.ndarray'</span>&gt;
+<span class="w">    </span><span class="o">[[</span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="o">]]</span>
+</code></pre></div>
+<h3 id="converting-numpy-array-to-list">Converting numpy array to list<a class="headerlink" href="#converting-numpy-array-to-list" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># We can always convert an array back to a python list using tolist().</span>
+<span class="n">np_to_list</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">np_to_list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'one dimensional array:'</span><span class="p">,</span> <span class="n">np_to_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'two dimensional array: '</span><span class="p">,</span> <span class="n">numpy_two_dimensional_list</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>&lt;class<span class="w"> </span><span class="s1">'list'</span>&gt;
+<span class="w">    </span>one<span class="w"> </span>dimensional<span class="w"> </span>array:<span class="w"> </span><span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span>two<span class="w"> </span>dimensional<span class="w"> </span>array:<span class="w">  </span><span class="o">[[</span><span class="m">0</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span><span class="o">]</span>,<span class="w"> </span><span class="o">[</span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>,<span class="w"> </span><span class="o">[</span><span class="m">6</span>,<span class="w"> </span><span class="m">7</span>,<span class="w"> </span><span class="m">8</span><span class="o">]]</span>
+</code></pre></div>
+<h3 id="creating-numpy-array-from-tuple">Creating numpy array from tuple<a class="headerlink" href="#creating-numpy-array-from-tuple" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Numpy array from tuple</span>
+<span class="c1"># Creating tuple in Python</span>
+<span class="n">python_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">python_tuple</span><span class="p">))</span> <span class="c1"># &lt;class 'tuple'&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'python_tuple: '</span><span class="p">,</span> <span class="n">python_tuple</span><span class="p">)</span> <span class="c1"># python_tuple:  (1, 2, 3, 4, 5)</span>
+
+<span class="n">numpy_array_from_tuple</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">python_tuple</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">numpy_array_from_tuple</span><span class="p">))</span> <span class="c1"># &lt;class 'numpy.ndarray'&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'numpy_array_from_tuple: '</span><span class="p">,</span> <span class="n">numpy_array_from_tuple</span><span class="p">)</span> <span class="c1"># numpy_array_from_tuple:  [1 2 3 4 5]</span>
+</code></pre></div>
+<h3 id="shape-of-numpy-array">Shape of numpy array<a class="headerlink" href="#shape-of-numpy-array" title="Permanent link">¶</a></h3>
+<p>The shape method provide the shape of the array as a tuple. The first is the row and the second is the column. If the array is just one dimensional it returns the size of the array.</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">nums</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'shape of nums: '</span><span class="p">,</span> <span class="n">nums</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">numpy_two_dimensional_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numpy_two_dimensional_list</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'shape of numpy_two_dimensional_list: '</span><span class="p">,</span> <span class="n">numpy_two_dimensional_list</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">three_by_four_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">three_by_four_array</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'shape of three_by_four_array: '</span><span class="p">,</span> <span class="n">three_by_four_array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span>shape<span class="w"> </span>of<span class="w"> </span>nums:<span class="w">  </span><span class="o">(</span><span class="m">5</span>,<span class="o">)</span>
+<span class="w">    </span><span class="o">[[</span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="o">]]</span>
+<span class="w">    </span>shape<span class="w"> </span>of<span class="w"> </span>numpy_two_dimensional_list:<span class="w">  </span><span class="o">(</span><span class="m">3</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<span class="w">    </span><span class="o">(</span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span><span class="o">)</span>
+</code></pre></div>
+<h3 id="data-type-of-numpy-array">Data type of numpy array<a class="headerlink" href="#data-type-of-numpy-array" title="Permanent link">¶</a></h3>
+<p>Type of data types: str, int, float, complex, bool, list, None</p>
+<div class="highlight"><pre><span></span><code><span class="n">int_lists</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">int_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">int_lists</span><span class="p">)</span>
+<span class="n">float_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">int_lists</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">int_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">int_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">float_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">float_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">[</span>-3<span class="w"> </span>-2<span class="w"> </span>-1<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="o">]</span>
+<span class="w">    </span>int64
+<span class="w">    </span><span class="o">[</span>-3.<span class="w"> </span>-2.<span class="w"> </span>-1.<span class="w">  </span><span class="m">0</span>.<span class="w">  </span><span class="m">1</span>.<span class="w">  </span><span class="m">2</span>.<span class="w">  </span><span class="m">3</span>.<span class="o">]</span>
+<span class="w">    </span>float64
+</code></pre></div>
+<h3 id="size-of-a-numpy-array">Size of a numpy array<a class="headerlink" href="#size-of-a-numpy-array" title="Permanent link">¶</a></h3>
+<p>In numpy to know the number of items in a numpy array list we use size</p>
+<div class="highlight"><pre><span></span><code><span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">two_dimensional_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                              <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The size:'</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="c1"># 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The size:'</span><span class="p">,</span> <span class="n">two_dimensional_list</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># 3</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>The<span class="w"> </span>size:<span class="w"> </span><span class="m">5</span>
+<span class="w">    </span>The<span class="w"> </span>size:<span class="w"> </span><span class="m">9</span>
+</code></pre></div>
+<h2 id="mathematical-operation-using-numpy">Mathematical Operation using numpy<a class="headerlink" href="#mathematical-operation-using-numpy" title="Permanent link">¶</a></h2>
+<p>NumPy array is not like exactly like python list. To do mathematical operation in Python list we have to loop through the items but numpy can allow to do any mathematical operation without looping.
+Mathematical Operation:</p>
+<ul>
+<li>Addition (+)</li>
+<li>Subtraction (-)</li>
+<li>Multiplication (*)</li>
+<li>Division (/)</li>
+<li>Modules (%)</li>
+<li>Floor Division(//)</li>
+<li>Exponential(**)</li>
+</ul>
+<h3 id="addition">Addition<a class="headerlink" href="#addition" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mathematical Operation</span>
+<span class="c1"># Addition</span>
+<span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'original array: '</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="p">)</span>
+<span class="n">ten_plus_original</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span>  <span class="o">+</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ten_plus_original</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>original<span class="w"> </span>array:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">15</span><span class="o">]</span>
+</code></pre></div>
+<h3 id="subtraction">Subtraction<a class="headerlink" href="#subtraction" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Subtraction</span>
+<span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'original array: '</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="p">)</span>
+<span class="n">ten_minus_original</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span>  <span class="o">-</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ten_minus_original</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>original<span class="w"> </span>array:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-9<span class="w"> </span>-8<span class="w"> </span>-7<span class="w"> </span>-6<span class="w"> </span>-5<span class="o">]</span>
+</code></pre></div>
+<h3 id="multiplication">Multiplication<a class="headerlink" href="#multiplication" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Multiplication</span>
+<span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'original array: '</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="p">)</span>
+<span class="n">ten_times_original</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ten_times_original</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>original<span class="w"> </span>array:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span><span class="m">10</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="m">50</span><span class="o">]</span>
+</code></pre></div>
+<h3 id="division">Division<a class="headerlink" href="#division" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Division</span>
+<span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'original array: '</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="p">)</span>
+<span class="n">ten_times_original</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span> <span class="o">/</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ten_times_original</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>original<span class="w"> </span>array:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span><span class="m">0</span>.1<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="m">0</span>.3<span class="w"> </span><span class="m">0</span>.4<span class="w"> </span><span class="m">0</span>.5<span class="o">]</span>
+</code></pre></div>
+<h3 id="modulus">Modulus<a class="headerlink" href="#modulus" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Modulus; Finding the remainder</span>
+<span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'original array: '</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="p">)</span>
+<span class="n">ten_times_original</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ten_times_original</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>original<span class="w"> </span>array:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="o">]</span>
+</code></pre></div>
+<h3 id="floor-division">Floor Division<a class="headerlink" href="#floor-division" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Floor division: the division result without the remainder</span>
+<span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'original array: '</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="p">)</span>
+<span class="n">ten_times_original</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span> <span class="o">//</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ten_times_original</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="exponential">Exponential<a class="headerlink" href="#exponential" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exponential is finding some number the power of another:</span>
+<span class="n">numpy_array_from_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'original array: '</span><span class="p">,</span> <span class="n">numpy_array_from_list</span><span class="p">)</span>
+<span class="n">ten_times_original</span> <span class="o">=</span> <span class="n">numpy_array_from_list</span>  <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ten_times_original</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>original<span class="w"> </span>array:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span><span class="o">[</span><span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">25</span><span class="o">]</span>
+</code></pre></div>
+<h2 id="checking-data-types">Checking data types<a class="headerlink" href="#checking-data-types" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1">#Int,  Float numbers</span>
+<span class="n">numpy_int_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">numpy_float_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span><span class="mf">3.2</span><span class="p">])</span>
+<span class="n">numpy_bool_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">'bool'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numpy_int_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numpy_float_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numpy_bool_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>int64
+<span class="w">    </span>float64
+<span class="w">    </span>bool
+</code></pre></div>
+<h3 id="converting-types">Converting types<a class="headerlink" href="#converting-types" title="Permanent link">¶</a></h3>
+<p>We can convert the data types of numpy array</p>
+<ol>
+<li>Int to Float</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">numpy_int_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">'float'</span><span class="p">)</span>
+<span class="n">numpy_int_arr</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([1., 2., 3., 4.])
+</code></pre></div>
+<ol>
+<li>Float to Int</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">numpy_int_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">'int'</span><span class="p">)</span>
+<span class="n">numpy_int_arr</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span><span class="o">])</span>
+</code></pre></div>
+<ol>
+<li>Int ot boolean</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">'bool'</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="w"> </span>True,<span class="w">  </span>True,<span class="w"> </span>False,<span class="w">  </span>True,<span class="w">  </span>True,<span class="w">  </span>True<span class="o">])</span>
+</code></pre></div>
+<ol>
+<li>Int to str</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">numpy_float_list</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="s1">'1'</span>,<span class="w"> </span><span class="s1">'2'</span>,<span class="w"> </span><span class="s1">'3'</span><span class="o">]</span>,<span class="w"> </span><span class="nv">dtype</span><span class="o">=</span><span class="s1">'&lt;U21'</span><span class="o">)</span>
+</code></pre></div>
+<h2 id="multi-dimensional-arrays">Multi-dimensional Arrays<a class="headerlink" href="#multi-dimensional-arrays" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 2 Dimension Array</span>
+<span class="n">two_dimension_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">two_dimension_array</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Shape: '</span><span class="p">,</span> <span class="n">two_dimension_array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Size:'</span><span class="p">,</span> <span class="n">two_dimension_array</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Data type:'</span><span class="p">,</span> <span class="n">two_dimension_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>&lt;class<span class="w"> </span><span class="s1">'numpy.ndarray'</span>&gt;
+<span class="w">    </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="o">]]</span>
+<span class="w">    </span>Shape:<span class="w">  </span><span class="o">(</span><span class="m">3</span>,<span class="w"> </span><span class="m">3</span><span class="o">)</span>
+<span class="w">    </span>Size:<span class="w"> </span><span class="m">9</span>
+<span class="w">    </span>Data<span class="w"> </span>type:<span class="w"> </span>int64
+</code></pre></div>
+<h3 id="getting-items-from-a-numpy-array">Getting items from a numpy array<a class="headerlink" href="#getting-items-from-a-numpy-array" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 2 Dimension Array</span>
+<span class="n">two_dimension_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="n">first_row</span> <span class="o">=</span> <span class="n">two_dimension_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">second_row</span> <span class="o">=</span> <span class="n">two_dimension_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">third_row</span> <span class="o">=</span> <span class="n">two_dimension_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'First row:'</span><span class="p">,</span> <span class="n">first_row</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Second row:'</span><span class="p">,</span> <span class="n">second_row</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Third row: '</span><span class="p">,</span> <span class="n">third_row</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>First<span class="w"> </span>row:<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">    </span>Second<span class="w"> </span>row:<span class="w"> </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]</span>
+<span class="w">    </span>Third<span class="w"> </span>row:<span class="w">  </span><span class="o">[</span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="o">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">first_column</span><span class="o">=</span> <span class="n">two_dimension_array</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">second_column</span> <span class="o">=</span> <span class="n">two_dimension_array</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">third_column</span> <span class="o">=</span> <span class="n">two_dimension_array</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'First column:'</span><span class="p">,</span> <span class="n">first_column</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Second column:'</span><span class="p">,</span> <span class="n">second_column</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Third column: '</span><span class="p">,</span> <span class="n">third_column</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>First<span class="w"> </span>column:<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">7</span><span class="o">]</span>
+<span class="w">    </span>Second<span class="w"> </span>column:<span class="w"> </span><span class="o">[</span><span class="m">2</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">8</span><span class="o">]</span>
+<span class="w">    </span>Third<span class="w"> </span>column:<span class="w">  </span><span class="o">[</span><span class="m">3</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">9</span><span class="o">]</span>
+<span class="w">    </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="o">]]</span>
+</code></pre></div>
+<h2 id="slicing-numpy-array">Slicing Numpy array<a class="headerlink" href="#slicing-numpy-array" title="Permanent link">¶</a></h2>
+<p>Slicing in numpy is similar to slicing in python list</p>
+<div class="highlight"><pre><span></span><code><span class="n">two_dimension_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="n">first_two_rows_and_columns</span> <span class="o">=</span> <span class="n">two_dimension_array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_two_rows_and_columns</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="o">]]</span>
+</code></pre></div>
+<h3 id="how-to-reverse-the-rows-and-the-whole-array">How to reverse the rows and the whole array?<a class="headerlink" href="#how-to-reverse-the-rows-and-the-whole-array" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">two_dimension_array</span><span class="p">[::]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">6</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">7</span>,<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="m">9</span><span class="o">]])</span>
+</code></pre></div>
+<h3 id="reverse-the-row-and-column-positions">Reverse the row and column positions<a class="headerlink" href="#reverse-the-row-and-column-positions" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>    <span class="n">two_dimension_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+    <span class="n">two_dimension_array</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([[</span><span class="m">9</span>,<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="m">7</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">6</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">4</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">3</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">1</span><span class="o">]])</span>
+</code></pre></div>
+<h2 id="how-to-represent-missing-values">How to represent missing values ?<a class="headerlink" href="#how-to-represent-missing-values" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>    <span class="nb">print</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">)</span>
+    <span class="n">two_dimension_array</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">55</span>
+    <span class="n">two_dimension_array</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span><span class="mi">44</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="o">]]</span>
+<span class="w">    </span><span class="o">[[</span><span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">55</span><span class="w"> </span><span class="m">44</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="w"> </span><span class="m">7</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">9</span><span class="o">]]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Numpy Zeroes</span>
+    <span class="c1"># numpy.zeros(shape, dtype=float, order='C')</span>
+    <span class="n">numpy_zeroes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
+    <span class="n">numpy_zeroes</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([[</span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span><span class="o">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Numpy Zeroes</span>
+<span class="n">numpy_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numpy_ones</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="o">]]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">twoes</span> <span class="o">=</span> <span class="n">numpy_ones</span> <span class="o">*</span> <span class="mi">2</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Reshape</span>
+<span class="c1"># numpy.reshape(), numpy.flatten()</span>
+<span class="n">first_shape</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_shape</span><span class="p">)</span>
+<span class="n">reshaped</span> <span class="o">=</span> <span class="n">first_shape</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]]</span>
+<span class="w">    </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">flattened</span> <span class="o">=</span> <span class="n">reshaped</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">flattened</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">6</span><span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="c1">## Horitzontal Stack</span>
+    <span class="n">np_list_one</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">np_list_two</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">np_list_one</span> <span class="o">+</span> <span class="n">np_list_two</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Horizontal Append:'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np_list_one</span><span class="p">,</span> <span class="n">np_list_two</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">[</span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">9</span><span class="o">]</span>
+<span class="w">    </span>Horizontal<span class="w"> </span>Append:<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="c1">## Vertical Stack</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Vertical Append:'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">np_list_one</span><span class="p">,</span> <span class="n">np_list_two</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>Vertical<span class="w"> </span>Append:<span class="w"> </span><span class="o">[[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">     </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]]</span>
+</code></pre></div>
+<h4 id="generating-random-numbers">Generating Random Numbers<a class="headerlink" href="#generating-random-numbers" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Generate a random float  number</span>
+    <span class="n">random_float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="n">random_float</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">0</span>.018929887384753874
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Generate a random float  number</span>
+    <span class="n">random_floats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">random_floats</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="m">0</span>.26392192,<span class="w"> </span><span class="m">0</span>.35842215,<span class="w"> </span><span class="m">0</span>.87908478,<span class="w"> </span><span class="m">0</span>.41902195,<span class="w"> </span><span class="m">0</span>.78926418<span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Generating a random integers between 0 and 10</span>
+
+    <span class="n">random_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="n">random_int</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">4</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Generating a random integers between 2 and 11, and creating a one row array</span>
+    <span class="n">random_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">random_int</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="m">8</span>,<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="m">2</span><span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Generating a random integers between 0 and 10</span>
+    <span class="n">random_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">random_int</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([[</span><span class="m">3</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">7</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">6</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">3</span><span class="o">]])</span>
+</code></pre></div>
+<h3 id="generationg-random-numbers">Generationg random numbers<a class="headerlink" href="#generationg-random-numbers" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># np.random.normal(mu, sigma, size)</span>
+    <span class="n">normal_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="n">normal_array</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="w"> </span><span class="m">89</span>.49990595,<span class="w">  </span><span class="m">82</span>.06056961,<span class="w"> </span><span class="m">107</span>.21445842,<span class="w">  </span><span class="m">38</span>.69307086,
+<span class="w">            </span><span class="m">47</span>.85259157,<span class="w">  </span><span class="m">93</span>.07381061,<span class="w">  </span><span class="m">76</span>.40724259,<span class="w">  </span><span class="m">78</span>.55675184,
+<span class="w">            </span><span class="m">72</span>.17358173,<span class="w">  </span><span class="m">47</span>.9888899<span class="w"> </span>,<span class="w">  </span><span class="m">65</span>.10370622,<span class="w">  </span><span class="m">76</span>.29696568,
+<span class="w">            </span><span class="m">95</span>.58234254,<span class="w">  </span><span class="m">68</span>.14897213,<span class="w">  </span><span class="m">38</span>.75862686,<span class="w"> </span><span class="m">122</span>.5587927<span class="w"> </span>,
+<span class="w">            </span><span class="m">67</span>.0762565<span class="w"> </span>,<span class="w">  </span><span class="m">95</span>.73990864,<span class="w">  </span><span class="m">81</span>.97454563,<span class="w">  </span><span class="m">92</span>.54264805,
+<span class="w">            </span><span class="m">59</span>.37035153,<span class="w">  </span><span class="m">77</span>.76828101,<span class="w">  </span><span class="m">52</span>.30752166,<span class="w">  </span><span class="m">64</span>.43109931,
+<span class="w">            </span><span class="m">62</span>.63695351,<span class="w">  </span><span class="m">90</span>.04616138,<span class="w">  </span><span class="m">75</span>.70009094,<span class="w">  </span><span class="m">49</span>.87586877,
+<span class="w">            </span><span class="m">80</span>.22002414,<span class="w">  </span><span class="m">68</span>.56708848,<span class="w">  </span><span class="m">76</span>.27791052,<span class="w">  </span><span class="m">67</span>.24343975,
+<span class="w">            </span><span class="m">81</span>.86363935,<span class="w">  </span><span class="m">78</span>.22703433,<span class="w"> </span><span class="m">102</span>.85737041,<span class="w">  </span><span class="m">65</span>.15700341,
+<span class="w">            </span><span class="m">84</span>.87033426,<span class="w">  </span><span class="m">76</span>.7569997<span class="w"> </span>,<span class="w">  </span><span class="m">64</span>.61321853,<span class="w">  </span><span class="m">67</span>.37244562,
+<span class="w">            </span><span class="m">74</span>.4068773<span class="w"> </span>,<span class="w">  </span><span class="m">58</span>.65119655,<span class="w">  </span><span class="m">71</span>.66488727,<span class="w">  </span><span class="m">53</span>.42458179,
+<span class="w">            </span><span class="m">70</span>.26872028,<span class="w">  </span><span class="m">60</span>.96588544,<span class="w">  </span><span class="m">83</span>.56129414,<span class="w">  </span><span class="m">72</span>.14255326,
+<span class="w">            </span><span class="m">81</span>.00787609,<span class="w">  </span><span class="m">71</span>.81264853,<span class="w">  </span><span class="m">72</span>.64168853,<span class="w">  </span><span class="m">86</span>.56608717,
+<span class="w">            </span><span class="m">94</span>.94667321,<span class="w">  </span><span class="m">82</span>.32676973,<span class="w">  </span><span class="m">70</span>.5165446<span class="w"> </span>,<span class="w">  </span><span class="m">85</span>.43061003,
+<span class="w">            </span><span class="m">72</span>.45526212,<span class="w">  </span><span class="m">87</span>.34681775,<span class="w">  </span><span class="m">87</span>.69911217,<span class="w"> </span><span class="m">103</span>.02831489,
+<span class="w">            </span><span class="m">75</span>.28598596,<span class="w">  </span><span class="m">67</span>.17806893,<span class="w">  </span><span class="m">92</span>.41274447,<span class="w"> </span><span class="m">101</span>.06662611,
+<span class="w">            </span><span class="m">87</span>.70013935,<span class="w">  </span><span class="m">70</span>.73980645,<span class="w">  </span><span class="m">46</span>.40368207,<span class="w">  </span><span class="m">50</span>.17947092,
+<span class="w">            </span><span class="m">61</span>.75618542,<span class="w">  </span><span class="m">90</span>.26191397,<span class="w">  </span><span class="m">78</span>.63968639,<span class="w">  </span><span class="m">70</span>.84550744,
+<span class="w">            </span><span class="m">88</span>.91826581,<span class="w"> </span><span class="m">103</span>.91474733,<span class="w">  </span><span class="m">66</span>.3064638<span class="w"> </span>,<span class="w">  </span><span class="m">79</span>.49726264,
+<span class="w">            </span><span class="m">70</span>.81087439,<span class="w">  </span><span class="m">83</span>.90130623,<span class="w">  </span><span class="m">87</span>.58555972,<span class="w">  </span><span class="m">59</span>.95462521<span class="o">])</span>
+</code></pre></div>
+<h2 id="numpy-and-statistics">Numpy and Statistics<a class="headerlink" href="#numpy-and-statistics" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_array</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="o">(</span>array<span class="o">([</span><span class="m">2</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">4</span>.,<span class="w"> </span><span class="m">3</span>.,
+<span class="w">            </span><span class="m">4</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">7</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">5</span>.,<span class="w"> </span><span class="m">4</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">4</span>.,<span class="w"> </span><span class="m">3</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">5</span>.,<span class="w"> </span><span class="m">3</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">3</span>.,<span class="w"> </span><span class="m">2</span>.,
+<span class="w">            </span><span class="m">1</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">3</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">0</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">])</span>,
+<span class="w">     </span>array<span class="o">([</span><span class="w"> </span><span class="m">38</span>.69307086,<span class="w">  </span><span class="m">40</span>.37038529,<span class="w">  </span><span class="m">42</span>.04769973,<span class="w">  </span><span class="m">43</span>.72501417,
+<span class="w">             </span><span class="m">45</span>.4023286<span class="w"> </span>,<span class="w">  </span><span class="m">47</span>.07964304,<span class="w">  </span><span class="m">48</span>.75695748,<span class="w">  </span><span class="m">50</span>.43427191,
+<span class="w">             </span><span class="m">52</span>.11158635,<span class="w">  </span><span class="m">53</span>.78890079,<span class="w">  </span><span class="m">55</span>.46621523,<span class="w">  </span><span class="m">57</span>.14352966,
+<span class="w">             </span><span class="m">58</span>.8208441<span class="w"> </span>,<span class="w">  </span><span class="m">60</span>.49815854,<span class="w">  </span><span class="m">62</span>.17547297,<span class="w">  </span><span class="m">63</span>.85278741,
+<span class="w">             </span><span class="m">65</span>.53010185,<span class="w">  </span><span class="m">67</span>.20741628,<span class="w">  </span><span class="m">68</span>.88473072,<span class="w">  </span><span class="m">70</span>.56204516,
+<span class="w">             </span><span class="m">72</span>.23935959,<span class="w">  </span><span class="m">73</span>.91667403,<span class="w">  </span><span class="m">75</span>.59398847,<span class="w">  </span><span class="m">77</span>.27130291,
+<span class="w">             </span><span class="m">78</span>.94861734,<span class="w">  </span><span class="m">80</span>.62593178,<span class="w">  </span><span class="m">82</span>.30324622,<span class="w">  </span><span class="m">83</span>.98056065,
+<span class="w">             </span><span class="m">85</span>.65787509,<span class="w">  </span><span class="m">87</span>.33518953,<span class="w">  </span><span class="m">89</span>.01250396,<span class="w">  </span><span class="m">90</span>.6898184<span class="w"> </span>,
+<span class="w">             </span><span class="m">92</span>.36713284,<span class="w">  </span><span class="m">94</span>.04444727,<span class="w">  </span><span class="m">95</span>.72176171,<span class="w">  </span><span class="m">97</span>.39907615,
+<span class="w">             </span><span class="m">99</span>.07639058,<span class="w"> </span><span class="m">100</span>.75370502,<span class="w"> </span><span class="m">102</span>.43101946,<span class="w"> </span><span class="m">104</span>.1083339<span class="w"> </span>,
+<span class="w">            </span><span class="m">105</span>.78564833,<span class="w"> </span><span class="m">107</span>.46296277,<span class="w"> </span><span class="m">109</span>.14027721,<span class="w"> </span><span class="m">110</span>.81759164,
+<span class="w">            </span><span class="m">112</span>.49490608,<span class="w"> </span><span class="m">114</span>.17222052,<span class="w"> </span><span class="m">115</span>.84953495,<span class="w"> </span><span class="m">117</span>.52684939,
+<span class="w">            </span><span class="m">119</span>.20416383,<span class="w"> </span><span class="m">120</span>.88147826,<span class="w"> </span><span class="m">122</span>.5587927<span class="w"> </span><span class="o">])</span>,
+<span class="w">     </span>&lt;a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span><span class="m">50</span><span class="w"> </span>Patch<span class="w"> </span>objects&gt;<span class="o">)</span>
+</code></pre></div>
+<h3 id="matrix-in-numpy">Matrix in numpy<a class="headerlink" href="#matrix-in-numpy" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">four_by_four_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">four_by_four_matrix</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>matrix<span class="o">([[</span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">]</span>,
+<span class="w">            </span><span class="o">[</span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">]</span>,
+<span class="w">            </span><span class="o">[</span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">]</span>,
+<span class="w">            </span><span class="o">[</span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">four_by_four_matrix</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">four_by_four_matrix</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>matrix<span class="o">([[</span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">]</span>,
+<span class="w">            </span><span class="o">[</span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">]</span>,
+<span class="w">            </span><span class="o">[</span><span class="m">2</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">2</span>.,<span class="w"> </span><span class="m">2</span>.<span class="o">]</span>,
+<span class="w">            </span><span class="o">[</span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.,<span class="w"> </span><span class="m">1</span>.<span class="o">]])</span>
+</code></pre></div>
+<h3 id="numpy-numpyarange">Numpy numpy.arange()<a class="headerlink" href="#numpy-numpyarange" title="Permanent link">¶</a></h3>
+<h4 id="what-is-arrange">What is Arrange?<a class="headerlink" href="#what-is-arrange" title="Permanent link">¶</a></h4>
+<p>Sometimes, you want to create values that are evenly spaced within a defined interval. For instance, you want to create values from 1 to 10; you can use numpy.arange() function</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># creating list using range(starting, stop, step)</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lst</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</code></pre></div>
+<p>```sh 0
+    2
+    4
+    6
+    8
+    10
+</p><div class="highlight"><pre><span></span><code>```py
+# Similar to range arange numpy.arange(start, stop, step)
+whole_numbers = np.arange(0, 20, 1)
+whole_numbers
+</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code>array<span class="o">([</span><span class="w"> </span><span class="m">0</span>,<span class="w">  </span><span class="m">1</span>,<span class="w">  </span><span class="m">2</span>,<span class="w">  </span><span class="m">3</span>,<span class="w">  </span><span class="m">4</span>,<span class="w">  </span><span class="m">5</span>,<span class="w">  </span><span class="m">6</span>,<span class="w">  </span><span class="m">7</span>,<span class="w">  </span><span class="m">8</span>,<span class="w">  </span><span class="m">9</span>,<span class="w"> </span><span class="m">10</span>,<span class="w"> </span><span class="m">11</span>,<span class="w"> </span><span class="m">12</span>,<span class="w"> </span><span class="m">13</span>,<span class="w"> </span><span class="m">14</span>,<span class="w"> </span><span class="m">15</span>,<span class="w"> </span><span class="m">16</span>,
+<span class="w">           </span><span class="m">17</span>,<span class="w"> </span><span class="m">18</span>,<span class="w"> </span><span class="m">19</span><span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">natural_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">natural_numbers</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">odd_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">odd_numbers</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="w"> </span><span class="m">1</span>,<span class="w">  </span><span class="m">3</span>,<span class="w">  </span><span class="m">5</span>,<span class="w">  </span><span class="m">7</span>,<span class="w">  </span><span class="m">9</span>,<span class="w"> </span><span class="m">11</span>,<span class="w"> </span><span class="m">13</span>,<span class="w"> </span><span class="m">15</span>,<span class="w"> </span><span class="m">17</span>,<span class="w"> </span><span class="m">19</span><span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">even_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">even_numbers</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="w"> </span><span class="m">2</span>,<span class="w">  </span><span class="m">4</span>,<span class="w">  </span><span class="m">6</span>,<span class="w">  </span><span class="m">8</span>,<span class="w"> </span><span class="m">10</span>,<span class="w"> </span><span class="m">12</span>,<span class="w"> </span><span class="m">14</span>,<span class="w"> </span><span class="m">16</span>,<span class="w"> </span><span class="m">18</span><span class="o">])</span>
+</code></pre></div>
+<h3 id="creating-sequence-of-numbers-using-linspace">Creating sequence of numbers using linspace<a class="headerlink" href="#creating-sequence-of-numbers-using-linspace" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># numpy.linspace()</span>
+<span class="c1"># numpy.logspace() in Python with Example</span>
+<span class="c1"># For instance, it can be used to create 10 values from 1 to 5 evenly spaced.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="m">1</span>.<span class="w">        </span>,<span class="w"> </span><span class="m">1</span>.44444444,<span class="w"> </span><span class="m">1</span>.88888889,<span class="w"> </span><span class="m">2</span>.33333333,<span class="w"> </span><span class="m">2</span>.77777778,
+<span class="w">           </span><span class="m">3</span>.22222222,<span class="w"> </span><span class="m">3</span>.66666667,<span class="w"> </span><span class="m">4</span>.11111111,<span class="w"> </span><span class="m">4</span>.55555556,<span class="w"> </span><span class="m">5</span>.<span class="w">        </span><span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># not to include the last value in the interval</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([1. , 1.8, 2.6, 3.4, 4.2])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># LogSpace</span>
+<span class="c1"># LogSpace returns even spaced numbers on a log scale. Logspace has the same parameters as np.linspace.</span>
+
+<span class="c1"># Syntax:</span>
+
+<span class="c1"># numpy.logspace(start, stop, num, endpoint)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array<span class="o">([</span><span class="w">  </span><span class="m">100</span>.<span class="w">        </span>,<span class="w">   </span><span class="m">464</span>.15888336,<span class="w">  </span><span class="m">2154</span>.43469003,<span class="w"> </span><span class="m">10000</span>.<span class="w">        </span><span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># to check the size of an array</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">x</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([</span><span class="m">1</span>.+0.j,<span class="w"> </span><span class="m">2</span>.+0.j,<span class="w"> </span><span class="m">3</span>.+0.j<span class="o">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="o">.</span><span class="n">itemsize</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="m">16</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># indexing and Slicing NumPy Arrays in Python</span>
+<span class="n">np_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="n">np_list</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">6</span><span class="o">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">'First row: '</span><span class="p">,</span> <span class="n">np_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Second row: '</span><span class="p">,</span> <span class="n">np_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>First<span class="w"> </span>row:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">    </span>Second<span class="w"> </span>row:<span class="w">  </span><span class="o">[</span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="o">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>print('First column: ', np_list[:,0])
+print('Second column: ', np_list[:,1])
+print('Third column: ', np_list[:,2])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>First<span class="w"> </span>column:<span class="w">  </span><span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="o">]</span>
+<span class="w">    </span>Second<span class="w"> </span>column:<span class="w">  </span><span class="o">[</span><span class="m">2</span><span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="w">    </span>Third<span class="w"> </span>column:<span class="w">  </span><span class="o">[</span><span class="m">3</span><span class="w"> </span><span class="m">6</span><span class="o">]</span>
+</code></pre></div>
+<h3 id="numpy-statistical-functions-with-example">NumPy Statistical Functions with Example<a class="headerlink" href="#numpy-statistical-functions-with-example" title="Permanent link">¶</a></h3>
+<p>NumPy has quite useful statistical functions for finding minimum, maximum, mean, median, percentile,standard deviation and variance, etc from the given elements in the array.
+The functions are explained as follows −
+Statistical function
+Numpy is equipped with the robust statistical function as listed below</p>
+<ul>
+<li>Numpy Functions</li>
+<li>Min np.min()</li>
+<li>Max np.max()</li>
+<li>Mean np.mean()</li>
+<li>Median np.median()</li>
+<li>Variance</li>
+<li>Percentile</li>
+<li>Standard deviation np.std()</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">np_normal_dis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">np_normal_dis</span>
+<span class="c1">## min, max, mean, median, sd</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'min: '</span><span class="p">,</span> <span class="n">two_dimension_array</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'max: '</span><span class="p">,</span> <span class="n">two_dimension_array</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'mean: '</span><span class="p">,</span><span class="n">two_dimension_array</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="c1"># print('median: ', two_dimension_array.median())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'sd: '</span><span class="p">,</span> <span class="n">two_dimension_array</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>min:  1
+max:  55
+mean:  14.777777777777779
+sd:  18.913709183069525
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">min</span><span class="p">:</span>  <span class="mi">1</span>
+<span class="nb">max</span><span class="p">:</span>  <span class="mi">55</span>
+<span class="n">mean</span><span class="p">:</span>  <span class="mf">14.777777777777779</span>
+<span class="n">sd</span><span class="p">:</span>  <span class="mf">18.913709183069525</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Column with minimum: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Column with maximum: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'=== Row =='</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Row with minimum: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Row with maximum: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">two_dimension_array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[ 1  2  3]
+ [ 4 55 44]
+ [ 7  8  9]]
+Column with minimum:  [1 2 3]
+Column with maximum:  [ 7 55 44]
+=== Row ==
+Row with minimum:  [1 4 7]
+Row with maximum:  [ 3 55  9]
+</code></pre></div>
+<h3 id="how-to-create-repeating-sequences">How to create repeating sequences?<a class="headerlink" href="#how-to-create-repeating-sequences" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Repeat whole of 'a' two times</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Tile:   '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Repeat each element of 'a' two times</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Repeat: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Tile:    [1 2 3 1 2 3]
+Repeat:  [1 1 2 2 3 3]
+</code></pre></div>
+<h3 id="how-to-generate-random-numbers">How to generate random numbers?<a class="headerlink" href="#how-to-generate-random-numbers" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># One random number between [0,1)</span>
+<span class="n">one_random_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">one_random_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">one_random_num</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.6149403282678213
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="mf">0.4763968133790438</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.4763968133790438
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Random numbers between [0,1) of shape 2,3</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[0.13031737 0.4429537  0.1129527 ]
+ [0.76811539 0.88256594 0.6754075 ]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span> <span class="s1">'u'</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>['u' 'o' 'o' 'i' 'e' 'e' 'u' 'o' 'u' 'a']
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">'i'</span> <span class="s1">'u'</span> <span class="s1">'e'</span> <span class="s1">'o'</span> <span class="s1">'a'</span> <span class="s1">'i'</span> <span class="s1">'e'</span> <span class="s1">'u'</span> <span class="s1">'o'</span> <span class="s1">'i'</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>['iueoaieuoi']
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">## Random numbers between [0, 1] of shape 2, 2</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rand</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[0.97992598, 0.79642484],
+       [0.65263629, 0.55763145]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">rand2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rand2</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[ 1.65593322, -0.52326621],
+       [ 0.39071179, -2.03649407]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Random integers between [0, 10) of shape 2,5</span>
+<span class="n">rand_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">rand_int</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[0, 7, 5],
+       [4, 1, 4],
+       [3, 5, 3],
+       [4, 3, 8],
+       [4, 6, 7]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="n">np_normal_dis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># mean, standard deviation, number of samples</span>
+<span class="n">np_normal_dis</span>
+<span class="c1">## min, max, mean, median, sd</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'min: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np_normal_dis</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'max: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np_normal_dis</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'mean: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np_normal_dis</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'median: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">np_normal_dis</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'mode: '</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">np_normal_dis</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'sd: '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">np_normal_dis</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>min:<span class="w">  </span><span class="m">3</span>.557811005458804
+<span class="w">    </span>max:<span class="w">  </span><span class="m">6</span>.876317743643499
+<span class="w">    </span>mean:<span class="w">  </span><span class="m">5</span>.035832048106663
+<span class="w">    </span>median:<span class="w">  </span><span class="m">5</span>.020161980441937
+<span class="w">    </span>mode:<span class="w">  </span>ModeResult<span class="o">(</span><span class="nv">mode</span><span class="o">=</span>array<span class="o">([</span><span class="m">3</span>.55781101<span class="o">])</span>,<span class="w"> </span><span class="nv">count</span><span class="o">=</span>array<span class="o">([</span><span class="m">1</span><span class="o">]))</span>
+<span class="w">    </span>sd:<span class="w">  </span><span class="m">0</span>.489682424165213
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np_normal_dis</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../test_files/test_121_0.png" data-desc-position="bottom"><img alt="png" src="../test_files/test_121_0.png"></a></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># numpy.dot(): Dot Product in Python using Numpy</span>
+<span class="c1"># Dot Product</span>
+<span class="c1"># Numpy is powerful library for matrices computation. For instance, you can compute the dot product with np.dot</span>
+
+<span class="c1"># Syntax</span>
+
+<span class="c1"># numpy.dot(x, y, out=None)</span>
+</code></pre></div>
+<h3 id="linear-algebra">Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permanent link">¶</a></h3>
+<ol>
+<li>Dot Product</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">## Linear algebra</span>
+<span class="c1">### Dot product: product of two arrays</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="c1">### 1*4+2*5 + 3*6</span>
+<span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>  <span class="c1"># 23</span>
+</code></pre></div>
+<h3 id="numpy-matrix-multiplication-with-npmatmul">NumPy Matrix Multiplication with np.matmul()<a class="headerlink" href="#numpy-matrix-multiplication-with-npmatmul" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">### Matmul: matruc product of two arrays</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span>
+<span class="c1">### 1*5+2*7 = 19</span>
+<span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>array<span class="o">([[</span><span class="m">19</span>,<span class="w"> </span><span class="m">22</span><span class="o">]</span>,
+<span class="w">           </span><span class="o">[</span><span class="m">43</span>,<span class="w"> </span><span class="m">50</span><span class="o">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">## Determinant 2*2 matrix</span>
+<span class="c1">### 5*8-7*6np.linalg.det(i)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>-1.999999999999999
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Z</span><span class="p">[::</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">Z</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[0., 1., 0., 1., 0., 1., 0., 1.],
+       [1., 0., 1., 0., 1., 0., 1., 0.],
+       [0., 1., 0., 1., 0., 1., 0., 1.],
+       [1., 0., 1., 0., 1., 0., 1., 0.],
+       [0., 1., 0., 1., 0., 1., 0., 1.],
+       [1., 0., 1., 0., 1., 0., 1., 0.],
+       [0., 1., 0., 1., 0., 1., 0., 1.],
+       [1., 0., 1., 0., 1., 0., 1., 0.]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">new_list</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">np_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">np_arr</span> <span class="o">+</span> <span class="mi">2</span>
+</code></pre></div>
+<p>array([ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])</p>
+<p>We use linear equation for quantities which have linear relationship. Let's see the example below:</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">pressure</span>
+</code></pre></div>
+<p>array([ 7, 9, 11, 13, 15])</p>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">pressure</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Temperature in oC'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Pressure in atm'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Temperature vs Pressure'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../test_files/test_141_0.png" data-desc-position="bottom"><img alt="png" src="../test_files/test_141_0.png"></a></p>
+<p>To draw the Gaussian normal distribution using numpy. As you can see below, the numpy can generate random numbers. To create random sample, we need the mean(mu), sigma(standard deviation), number of data points.</p>
+<div class="highlight"><pre><span></span><code><span class="n">mu</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="mi">100000</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">samples</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../test_files/test_143_0.png" data-desc-position="bottom"><img alt="png" src="../test_files/test_143_0.png"></a></p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h1>
+<p>To summarize, the main differences with python lists are:</p>
+<ol>
+<li>Arrays support vectorized operations, while lists don’t.</li>
+<li>Once an array is created, you cannot change its size. You will have to create a new array or overwrite the existing one.</li>
+<li>Every array has one and only one dtype. All items in it should be of that dtype.</li>
+<li>An equivalent numpy array occupies much less space than a python list of lists.</li>
+<li>numpy arrays support boolean indexing.</li>
+</ol>
+<h2 id="exercises-day-24">💻 Exercises: Day 24<a class="headerlink" href="#exercises-day-24" title="Permanent link">¶</a></h2>
+<ol>
+<li>Repeat all the examples</li>
+</ol>
+<p>🎉 CONGRATULATIONS ! 🎉</p>
+<p><a href="../../23_Day_Virtual_environment/23_virtual_environment/">&lt;&lt; Day 23</a> | <a href="../../25_Day_Pandas/25_pandas/">Day 25 &gt;&gt;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

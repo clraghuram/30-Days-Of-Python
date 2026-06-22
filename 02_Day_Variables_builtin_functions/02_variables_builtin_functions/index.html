@@ -1,0 +1,1745 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Python learning guide for beginners">
+      
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/02_Day_Variables_builtin_functions/02_variables_builtin_functions/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../03_Day_Operators/03_operators/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/python-favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Day 2 - Variables &amp; Built-in Functions - 30 Days of Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="30 Days of Python" class="md-header__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            30 Days of Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 2 - Variables &amp; Built-in Functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01_Day_Introduction/helloworld.md" class="md-tabs__link">
+          
+  
+  
+  Days
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="30 Days of Python" class="md-nav__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    30 Days of Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Days
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Days
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Day_Introduction/helloworld.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 - Variables &amp; Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 - Variables &amp; Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#built-in-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built in functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaring-multiple-variable-in-a-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declaring Multiple Variable in a Line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-data-types-and-casting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking Data types and Casting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numbers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-day-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Exercises - Day 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Exercises - Day 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercises-level-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Level 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercises-level-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Level 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Day_Operators/03_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 - Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Day_Strings/04_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 - Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Day_Lists/05_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 - Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Day_Tuples/06_tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 6 - Tuples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07_Day_Sets/07_sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 7 - Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_Day_Dictionaries/08_dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 8 - Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09_Day_Conditionals/09_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 9 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10_Day_Loops/10_loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 10 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11_Day_Functions/11_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 11 - Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12_Day_Modules/12_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 12 - Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13_Day_List_comprehension/13_list_comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 13 - List Comprehension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14_Day_Higher_order_functions/14_higher_order_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 14 - Higher Order Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15_Day_Python_type_errors/15_python_type_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 15 - Type Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16_Day_Python_date_time/16_python_datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 16 - Date &amp; Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17_Day_Exception_handling/17_exception_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 17 - Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18_Day_Regular_expressions/18_regular_expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 18 - Regular Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19_Day_File_handling/19_file_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 19 - File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_Day_Python_package_manager/20_python_package_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Package Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 21 - Classes &amp; Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22_Day_Web_scraping/22_web_scraping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 22 - Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../23_Day_Virtual_environment/23_virtual_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 23 - Virtual Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../24_Day_Statistics/24_statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25_Day_Pandas/25_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../26_Day_Python_web/26_python_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 26 - Python Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27_Day_Python_with_mongodb/27_python_with_mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 27 - MongoDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../28_Day_API/28_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 28 - API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../29_Day_Building_API/29_building_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 29 - Building API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30_Day_Conclusions/30_conclusions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 30 - Conclusions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div align="center">
+  <h1> 30 Days Of Python: Day 2 - Variables, Builtin Functions</h1>
+  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
+  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&amp;logo=linkedin&amp;style=social">
+  </a>
+  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
+  </a>
+
+<sub>Author:
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+<small> Second Edition: July, 2021</small>
+</sub>
+
+</div>
+
+<p><a href="../readme.md">&lt;&lt; Day 1</a> | <a href="../../03_Day_Operators/03_operators/">Day 3 &gt;&gt;</a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/30DaysOfPython_banner3@2x.png" data-desc-position="bottom"><img alt="30DaysOfPython" src="../images/30DaysOfPython_banner3@2x.png"></a></p>
+<ul>
+<li><a href="#-day-2">📘 Day 2</a></li>
+<li><a href="#built-in-functions">Built in functions</a></li>
+<li><a href="#variables">Variables</a><ul>
+<li><a href="#declaring-multiple-variable-in-a-line">Declaring Multiple Variable in a Line</a></li>
+</ul>
+</li>
+<li><a href="#data-types">Data Types</a></li>
+<li><a href="#checking-data-types-and-casting">Checking Data types and Casting</a></li>
+<li><a href="#numbers">Numbers</a></li>
+<li><a href="#-exercises---day-2">💻 Exercises - Day 2</a><ul>
+<li><a href="#exercises-level-1">Exercises: Level 1</a></li>
+<li><a href="#exercises-level-2">Exercises: Level 2</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="day-2">📘 Day 2<a class="headerlink" href="#day-2" title="Permanent link">¶</a></h1>
+<h2 id="built-in-functions">Built in functions<a class="headerlink" href="#built-in-functions" title="Permanent link">¶</a></h2>
+<p>In Python we have lots of built-in functions. Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. Some of the most commonly used Python built-in functions are the following: <em>print()</em>, <em>len()</em>, <em>type()</em>, <em>int()</em>, <em>float()</em>, <em>str()</em>, <em>input()</em>, <em>list()</em>, <em>dict()</em>, <em>min()</em>, <em>max()</em>, <em>sum()</em>, <em>sorted()</em>, <em>open()</em>, <em>file()</em>, <em>help()</em>, and <em>dir()</em>. In the following table you will see an exhaustive list of Python built-in functions taken from <a href="https://docs.python.org/3/library/functions.html">python documentation</a>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/builtin-functions.png" data-desc-position="bottom"><img alt="Built-in Functions" src="../images/builtin-functions.png"></a></p>
+<p>Let us open the Python shell and start using some of the most common built-in functions.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/builtin-functions_practice.png" data-desc-position="bottom"><img alt="Built-in functions" src="../images/builtin-functions_practice.png"></a></p>
+<p>Let us practice more by using different built-in functions</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/help_and_dir_builtin.png" data-desc-position="bottom"><img alt="Help and Dir Built in Functions" src="../images/help_and_dir_builtin.png"></a></p>
+<p>As you can see from the terminal above, Python has got reserved words. We do not use reserved words to declare variables or functions. We will cover variables in the next section.</p>
+<p>I believe, by now you are familiar with built-in functions. Let us do one more practice of built-in functions and we will move on to the next section.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/builtin-functional-final.png" data-desc-position="bottom"><img alt="Min Max Sum" src="../images/builtin-functional-final.png"></a></p>
+<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">¶</a></h2>
+<p>Variables store data in a computer memory. Mnemonic variables are recommended to use in many programming languages. A mnemonic variable is a variable name that can be easily remembered and associated. A variable refers to a memory address in which data is stored.
+Number at the beginning, special character, hyphen are not allowed when naming a variable. A variable can have a short name (like x, y, z), but a more descriptive name (firstname, lastname, age, country) is highly recommended.</p>
+<p>Python Variable Name Rules</p>
+<ul>
+<li>A variable name must start with a letter or the underscore character</li>
+<li>A variable name cannot start with a number</li>
+<li>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+<li>Variable names are case-sensitive (firstname, Firstname, FirstName and FIRSTNAME) are different variables)</li>
+</ul>
+<p>Here are some example of valid variable names:</p>
+<div class="highlight"><pre><span></span><code>firstname
+lastname
+age
+country
+city
+first_name
+last_name
+capital_city
+_if<span class="w"> </span><span class="c1"># if we want to use reserved word as a variable</span>
+year_2021
+year2021
+current_year_2021
+birth_year
+num1
+num2
+</code></pre></div>
+<p>Invalid variables names</p>
+<div class="highlight"><pre><span></span><code>first-name
+first@name
+first<span class="nv">$name</span>
+num-1
+1num
+</code></pre></div>
+<p>We will use standard Python variable naming style which has been adopted by many Python developers. Python developers use snake case(snake_case) variable naming convention. We use underscore character after each word for a variable containing more than one word(eg. first_name, last_name, engine_rotation_speed).  The example below is an example of standard naming of variables, underscore is required when the variable name is more than one word.</p>
+<p>When we assign a certain data type to a variable, it is called variable declaration. For instance in the example below my first name is assigned to a variable first_name. The equal sign is an assignment operator. Assigning means storing data in the variable. The equal sign in Python is not equality as in Mathematics.</p>
+<p><em>Example:</em></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Variables in Python</span>
+<span class="n">first_name</span> <span class="o">=</span> <span class="s1">'Asabeneh'</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s1">'Yetayeh'</span>
+<span class="n">country</span> <span class="o">=</span> <span class="s1">'Finland'</span>
+<span class="n">city</span> <span class="o">=</span> <span class="s1">'Helsinki'</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">is_married</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">skills</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'HTML'</span><span class="p">,</span> <span class="s1">'CSS'</span><span class="p">,</span> <span class="s1">'JS'</span><span class="p">,</span> <span class="s1">'React'</span><span class="p">,</span> <span class="s1">'Python'</span><span class="p">]</span>
+<span class="n">person_info</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">'firstname'</span><span class="p">:</span><span class="s1">'Asabeneh'</span><span class="p">,</span>
+   <span class="s1">'lastname'</span><span class="p">:</span><span class="s1">'Yetayeh'</span><span class="p">,</span>
+   <span class="s1">'country'</span><span class="p">:</span><span class="s1">'Finland'</span><span class="p">,</span>
+   <span class="s1">'city'</span><span class="p">:</span><span class="s1">'Helsinki'</span>
+   <span class="p">}</span>
+</code></pre></div>
+<p>Let us use the <em>print()</em> and <em>len()</em> built-in functions. Print function takes unlimited number of arguments. An argument is a value which we can be passed or put inside the function parenthesis, see the example below.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">'Hello, World!'</span><span class="p">)</span> <span class="c1"># The text Hello, World! is an argument</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">,</span><span class="s1">','</span><span class="p">,</span> <span class="s1">'World'</span><span class="p">,</span><span class="s1">'!'</span><span class="p">)</span> <span class="c1"># it can take multiple arguments, four arguments have been passed</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">'Hello, World!'</span><span class="p">))</span> <span class="c1"># it takes only one argument</span>
+</code></pre></div>
+<p>Let us print and also find the length of the variables declared at the top:</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Printing the values stored in the variables</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'First name:'</span><span class="p">,</span> <span class="n">first_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'First name length:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">first_name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Last name: '</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Last name length: '</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">last_name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Country: '</span><span class="p">,</span> <span class="n">country</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'City: '</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Age: '</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Married: '</span><span class="p">,</span> <span class="n">is_married</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Skills: '</span><span class="p">,</span> <span class="n">skills</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Person information: '</span><span class="p">,</span> <span class="n">person_info</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="declaring-multiple-variable-in-a-line">Declaring Multiple Variable in a Line<a class="headerlink" href="#declaring-multiple-variable-in-a-line" title="Permanent link">¶</a></h3>
+<p>Multiple variables can also be declared in one line:</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">is_married</span> <span class="o">=</span> <span class="s1">'Asabeneh'</span><span class="p">,</span> <span class="s1">'Yetayeh'</span><span class="p">,</span> <span class="s1">'Helsink'</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">is_married</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'First name:'</span><span class="p">,</span> <span class="n">first_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Last name: '</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Country: '</span><span class="p">,</span> <span class="n">country</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Age: '</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Married: '</span><span class="p">,</span> <span class="n">is_married</span><span class="p">)</span>
+</code></pre></div>
+<p>Getting user input using the <em>input()</em> built-in function. Let us assign the data we get from a user into first_name and age variables.
+<strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">first_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'What is your name: '</span><span class="p">)</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'How old are you? '</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">first_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permanent link">¶</a></h2>
+<p>There are several data types in Python. To identify the data type we use the <em>type</em> built-in function. I would like to ask you to focus on understanding different data types very well. When it comes to programming, it is all about data types. I introduced data types at the very beginning and it comes again, because every topic is related to data types. We will cover data types in more detail in their respective sections.</p>
+<h2 id="checking-data-types-and-casting">Checking Data types and Casting<a class="headerlink" href="#checking-data-types-and-casting" title="Permanent link">¶</a></h2>
+<ul>
+<li>Check Data types: To check the data type of certain data/variable we use the <em>type</em>
+  <strong>Examples:</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Different python data types</span>
+<span class="c1"># Let's declare variables with various data types</span>
+
+<span class="n">first_name</span> <span class="o">=</span> <span class="s1">'Asabeneh'</span>     <span class="c1"># str</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s1">'Yetayeh'</span>       <span class="c1"># str</span>
+<span class="n">country</span> <span class="o">=</span> <span class="s1">'Finland'</span>         <span class="c1"># str</span>
+<span class="n">city</span><span class="o">=</span> <span class="s1">'Helsinki'</span>            <span class="c1"># str</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">250</span>                   <span class="c1"># int, it is not my real age, don't worry about it</span>
+
+<span class="c1"># Printing out types</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s1">'Asabeneh'</span><span class="p">))</span>          <span class="c1"># str</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">first_name</span><span class="p">))</span>          <span class="c1"># str</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>                  <span class="c1"># int</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">))</span>                <span class="c1"># float</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="p">))</span>              <span class="c1"># complex</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>                <span class="c1"># bool</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>        <span class="c1"># list</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span><span class="s1">'Asabeneh'</span><span class="p">}))</span> <span class="c1"># dict</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>               <span class="c1"># tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])))</span>    <span class="c1"># zip</span>
+</code></pre></div>
+<ul>
+<li>Casting: Converting one data type to another data type. We use <em>int()</em>, <em>float()</em>, <em>str()</em>, <em>list</em>, <em>set</em>
+  When we do arithmetic operations string numbers should be first converted to int or float otherwise it will return an error. If we concatenate a number with a string, the number should be first converted to a string. We will talk about concatenation in String section.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># int to float</span>
+<span class="n">num_int</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'num_int'</span><span class="p">,</span><span class="n">num_int</span><span class="p">)</span>         <span class="c1"># 10</span>
+<span class="n">num_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'num_float:'</span><span class="p">,</span> <span class="n">num_float</span><span class="p">)</span>   <span class="c1"># 10.0</span>
+
+<span class="c1"># float to int</span>
+<span class="n">gravity</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">gravity</span><span class="p">))</span>             <span class="c1"># 9</span>
+
+<span class="c1"># int to str</span>
+<span class="n">num_int</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_int</span><span class="p">)</span>                  <span class="c1"># 10</span>
+<span class="n">num_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_str</span><span class="p">)</span>                  <span class="c1"># '10'</span>
+
+<span class="c1"># str to int or float</span>
+<span class="n">num_str</span> <span class="o">=</span> <span class="s1">'10.6'</span>
+<span class="n">num_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_str</span><span class="p">)</span>  <span class="c1"># Convert the string to a float first</span>
+<span class="n">num_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_float</span><span class="p">)</span>    <span class="c1"># Then convert the float to an integer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'num_int'</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_str</span><span class="p">))</span>      <span class="c1"># 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'num_float'</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_str</span><span class="p">))</span>  <span class="c1"># 10.6</span>
+<span class="n">num_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_float</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'num_int'</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_int</span><span class="p">))</span>      <span class="c1"># 10</span>
+
+<span class="c1"># str to list</span>
+<span class="n">first_name</span> <span class="o">=</span> <span class="s1">'Asabeneh'</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_name</span><span class="p">)</span>               <span class="c1"># 'Asabeneh'</span>
+<span class="n">first_name_to_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">first_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_name_to_list</span><span class="p">)</span>            <span class="c1"># ['A', 's', 'a', 'b', 'e', 'n', 'e', 'h']</span>
+</code></pre></div>
+<h2 id="numbers">Numbers<a class="headerlink" href="#numbers" title="Permanent link">¶</a></h2>
+<p>Number data types in Python:</p>
+<ol>
+<li>
+<p>Integers: Integer(negative, zero and positive) numbers
+   Example:
+   ... -3, -2, -1, 0, 1, 2, 3 ...</p>
+</li>
+<li>
+<p>Floating Point Numbers(Decimal numbers)
+   Example:
+   ... -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5 ...</p>
+</li>
+<li>
+<p>Complex Numbers
+   Example:
+   1 + j, 2 + 4j, 1 - 1j</p>
+</li>
+</ol>
+<p>🌕 You are awesome. You have just completed day 2 challenges and you are two steps ahead on your way to greatness. Now do some exercises for your brain and muscles.</p>
+<h2 id="exercises-day-2">💻 Exercises - Day 2<a class="headerlink" href="#exercises-day-2" title="Permanent link">¶</a></h2>
+<h3 id="exercises-level-1">Exercises: Level 1<a class="headerlink" href="#exercises-level-1" title="Permanent link">¶</a></h3>
+<ol>
+<li>Inside 30DaysOfPython create a folder called day_2. Inside this folder create a file named variables.py</li>
+<li>Write a python comment saying 'Day 2: 30 Days of python programming'</li>
+<li>Declare a first name variable and assign a value to it</li>
+<li>Declare a last name variable and assign a value to it</li>
+<li>Declare a full name variable and assign a value to it</li>
+<li>Declare a country variable and assign a value to it</li>
+<li>Declare a city variable and assign a value to it</li>
+<li>Declare an age variable and assign a value to it</li>
+<li>Declare a year variable and assign a value to it</li>
+<li>Declare a variable is_married and assign a value to it</li>
+<li>Declare a variable is_true and assign a value to it</li>
+<li>Declare a variable is_light_on and assign a value to it</li>
+<li>Declare multiple variable on one line</li>
+</ol>
+<h3 id="exercises-level-2">Exercises: Level 2<a class="headerlink" href="#exercises-level-2" title="Permanent link">¶</a></h3>
+<ol>
+<li>Check the data type of all your variables using type() built-in function</li>
+<li>Using the <em>len()</em> built-in function, find the length of your first name</li>
+<li>Compare the length of your first name and your last name</li>
+<li>Declare 5 as num_one and 4 as num_two</li>
+<li>Add num_one and num_two and assign the value to a variable total</li>
+<li>Subtract num_two from num_one and assign the value to a variable diff</li>
+<li>Multiply num_two and num_one and assign the value to a variable product</li>
+<li>Divide num_one by num_two and assign the value to a variable division</li>
+<li>Use modulus division to find num_two divided by num_one and assign the value to a variable remainder</li>
+<li>Calculate num_one to the power of num_two and assign the value to a variable exp</li>
+<li>Find floor division of num_one by num_two and assign the value to a variable floor_division</li>
+<li>The radius of a circle is 30 meters.<ol>
+<li>Calculate the area of a circle and assign the value to a variable name of <em>area_of_circle</em></li>
+<li>Calculate the circumference of a circle and assign the value to a variable name of <em>circum_of_circle</em></li>
+<li>Take radius as user input and calculate the area.</li>
+</ol>
+</li>
+<li>Use the built-in input function to get first name, last name, country and age from a user and store the value to their corresponding variable names</li>
+<li>Run help('keywords') in Python shell or in your file to check for the Python reserved words or keywords</li>
+</ol>
+<p>🎉 CONGRATULATIONS ! 🎉</p>
+<p><a href="../readme.md">&lt;&lt; Day 1</a> | <a href="../../03_Day_Operators/03_operators/">Day 3 &gt;&gt;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

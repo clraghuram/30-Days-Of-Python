@@ -1,0 +1,1923 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Python learning guide for beginners">
+      
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/07_Day_Sets/07_sets/">
+      
+      
+        <link rel="prev" href="../../06_Day_Tuples/06_tuples/">
+      
+      
+        <link rel="next" href="../../08_Day_Dictionaries/08_dictionaries/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/python-favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Day 7 - Sets - 30 Days of Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-7" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="30 Days of Python" class="md-header__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            30 Days of Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 7 - Sets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01_Day_Introduction/helloworld.md" class="md-tabs__link">
+          
+  
+  
+  Days
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="30 Days of Python" class="md-nav__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    30 Days of Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Days
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Days
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Day_Introduction/helloworld.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Day_Variables_builtin_functions/02_variables_builtin_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 - Variables &amp; Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Day_Operators/03_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 - Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Day_Strings/04_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 - Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Day_Lists/05_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 - Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Day_Tuples/06_tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 6 - Tuples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 7 - Sets
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 7 - Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-sets-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Set's Length
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-items-in-a-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Items in a Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-an-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking an Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-items-to-a-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Items to a Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-items-from-a-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing Items from a Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearing-items-in-a-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clearing Items in a Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleting-a-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting a Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-list-to-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting List to Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joining-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joining Sets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-intersection-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Intersection Items
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-subset-and-super-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking Subset and Super Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-difference-between-two-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking the Difference Between Two Sets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-symmetric-difference-between-two-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Symmetric Difference Between Two Sets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joining-sets_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joining Sets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-day-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Exercises: Day 7
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Exercises: Day 7">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercises-level-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Level 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercises-level-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Level 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercises-level-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Level 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_Day_Dictionaries/08_dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 8 - Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09_Day_Conditionals/09_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 9 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10_Day_Loops/10_loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 10 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11_Day_Functions/11_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 11 - Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12_Day_Modules/12_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 12 - Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13_Day_List_comprehension/13_list_comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 13 - List Comprehension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14_Day_Higher_order_functions/14_higher_order_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 14 - Higher Order Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15_Day_Python_type_errors/15_python_type_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 15 - Type Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16_Day_Python_date_time/16_python_datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 16 - Date &amp; Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17_Day_Exception_handling/17_exception_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 17 - Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18_Day_Regular_expressions/18_regular_expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 18 - Regular Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19_Day_File_handling/19_file_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 19 - File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_Day_Python_package_manager/20_python_package_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Package Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 21 - Classes &amp; Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22_Day_Web_scraping/22_web_scraping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 22 - Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../23_Day_Virtual_environment/23_virtual_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 23 - Virtual Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../24_Day_Statistics/24_statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25_Day_Pandas/25_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../26_Day_Python_web/26_python_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 26 - Python Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27_Day_Python_with_mongodb/27_python_with_mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 27 - MongoDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../28_Day_API/28_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 28 - API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../29_Day_Building_API/29_building_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 29 - Building API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30_Day_Conclusions/30_conclusions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 30 - Conclusions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div align="center">
+  <h1> 30 Days Of Python: Day 7 - Sets</h1>
+  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
+  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&amp;logo=linkedin&amp;style=social">
+  </a>
+  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
+  </a>
+
+<sub>Author:
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+<small> Second Edition: July, 2021</small>
+</sub>
+
+</div>
+
+<p><a href="../../06_Day_Tuples/06_tuples/">&lt;&lt; Day 6</a> | <a href="../../08_Day_Dictionaries/08_dictionaries/">Day 8 &gt;&gt;</a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/30DaysOfPython_banner3@2x.png" data-desc-position="bottom"><img alt="30DaysOfPython" src="../images/30DaysOfPython_banner3@2x.png"></a></p>
+<ul>
+<li><a href="#-day-7">📘 Day 7</a></li>
+<li><a href="#sets">Sets</a><ul>
+<li><a href="#creating-a-set">Creating a Set</a></li>
+<li><a href="#getting-sets-length">Getting Set's Length</a></li>
+<li><a href="#accessing-items-in-a-set">Accessing Items in a Set</a></li>
+<li><a href="#checking-an-item">Checking an Item</a></li>
+<li><a href="#adding-items-to-a-set">Adding Items to a Set</a></li>
+<li><a href="#removing-items-from-a-set">Removing Items from a Set</a></li>
+<li><a href="#clearing-items-in-a-set">Clearing Items in a Set</a></li>
+<li><a href="#deleting-a-set">Deleting a Set</a></li>
+<li><a href="#converting-list-to-set">Converting List to Set</a></li>
+<li><a href="#joining-sets">Joining Sets</a></li>
+<li><a href="#finding-intersection-items">Finding Intersection Items</a></li>
+<li><a href="#checking-subset-and-super-set">Checking Subset and Super Set</a></li>
+<li><a href="#checking-the-difference-between-two-sets">Checking the Difference Between Two Sets</a></li>
+<li><a href="#finding-symmetric-difference-between-two-sets">Finding Symmetric Difference Between Two Sets</a></li>
+<li><a href="#joining-sets-1">Joining Sets</a></li>
+</ul>
+</li>
+<li><a href="#-exercises-day-7">💻 Exercises: Day 7</a><ul>
+<li><a href="#exercises-level-1">Exercises: Level 1</a></li>
+<li><a href="#exercises-level-2">Exercises: Level 2</a></li>
+<li><a href="#exercises-level-3">Exercises: Level 3</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="day-7">📘 Day 7<a class="headerlink" href="#day-7" title="Permanent link">¶</a></h1>
+<h2 id="sets">Sets<a class="headerlink" href="#sets" title="Permanent link">¶</a></h2>
+<p>Set is a collection of items. Let me take you back to your elementary or high school Mathematics lesson. The Mathematics definition of a set can be applied also in Python. Set is a collection of unordered and un-indexed distinct elements. In Python set is used to store unique items, and it is possible to find the <em>union</em>, <em>intersection</em>, <em>difference</em>, <em>symmetric difference</em>, <em>subset</em>, <em>super set</em> and <em>disjoint set</em> among sets.</p>
+<h3 id="creating-a-set">Creating a Set<a class="headerlink" href="#creating-a-set" title="Permanent link">¶</a></h3>
+<p>To create an empty set, we use the set() function. Empty curly brackets {} will create a dictionary. </p>
+<ul>
+<li>Creating an empty set</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>Creating a set with initial items</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="getting-sets-length">Getting Set's Length<a class="headerlink" href="#getting-sets-length" title="Permanent link">¶</a></h3>
+<p>We use <strong>len()</strong> method to find the length of a set.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="accessing-items-in-a-set">Accessing Items in a Set<a class="headerlink" href="#accessing-items-in-a-set" title="Permanent link">¶</a></h3>
+<p>We use loops to access items. We will see this in loop section</p>
+<h3 id="checking-an-item">Checking an Item<a class="headerlink" href="#checking-an-item" title="Permanent link">¶</a></h3>
+<p>To check if an item exist in a list we use <em>in</em> membership operator.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Does set st contain item3? "</span><span class="p">,</span> <span class="s1">'item3'</span> <span class="ow">in</span> <span class="n">st</span><span class="p">)</span> <span class="c1"># Does set st contain item3? True</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'mango'</span> <span class="ow">in</span> <span class="n">fruits</span> <span class="p">)</span> <span class="c1"># True</span>
+</code></pre></div>
+<h3 id="adding-items-to-a-set">Adding Items to a Set<a class="headerlink" href="#adding-items-to-a-set" title="Permanent link">¶</a></h3>
+<p>Once a set is created we cannot change any items and we can also add additional items.</p>
+<ul>
+<li>Add one item using <em>add()</em></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'item5'</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'lime'</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Add multiple items using <em>update()</em>
+  The <em>update()</em> allows to add multiple items to a set. The <em>update()</em> takes a list argument.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">'item5'</span><span class="p">,</span><span class="s1">'item6'</span><span class="p">,</span><span class="s1">'item7'</span><span class="p">])</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="n">vegetables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'tomato'</span><span class="p">,</span> <span class="s1">'potato'</span><span class="p">,</span> <span class="s1">'cabbage'</span><span class="p">,</span><span class="s1">'onion'</span><span class="p">,</span> <span class="s1">'carrot'</span><span class="p">)</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">vegetables</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="removing-items-from-a-set">Removing Items from a Set<a class="headerlink" href="#removing-items-from-a-set" title="Permanent link">¶</a></h3>
+<p>We can remove an item from a set using <em>remove()</em> method. If the item is not found <em>remove()</em> method will raise errors, so it is good to check if the item exist in the given set. However, <em>discard()</em> method doesn't raise any errors.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'item2'</span><span class="p">)</span>
+</code></pre></div>
+<p>The pop() methods remove a random item from a list and it returns the removed item.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># removes a random item from the set</span>
+</code></pre></div>
+<p>If we are interested in the removed item.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="n">removed_item</span> <span class="o">=</span> <span class="n">fruits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> 
+</code></pre></div>
+<h3 id="clearing-items-in-a-set">Clearing Items in a Set<a class="headerlink" href="#clearing-items-in-a-set" title="Permanent link">¶</a></h3>
+<p>If we want to clear or empty the set we use <em>clear</em> method.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="c1"># set()</span>
+</code></pre></div>
+<h3 id="deleting-a-set">Deleting a Set<a class="headerlink" href="#deleting-a-set" title="Permanent link">¶</a></h3>
+<p>If we want to delete the set itself we use <em>del</em> operator.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="k">del</span> <span class="n">st</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="k">del</span> <span class="n">fruits</span>
+</code></pre></div>
+<h3 id="converting-list-to-set">Converting List to Set<a class="headerlink" href="#converting-list-to-set" title="Permanent link">¶</a></h3>
+<p>We can convert list to set and set to list. Converting list to set removes duplicates and only unique items will be reserved.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">,</span> <span class="s1">'item1'</span><span class="p">]</span>
+<span class="n">st</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>  <span class="c1"># {'item2', 'item4', 'item1', 'item3'} - the order is random, because sets in general are unordered</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">,</span><span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">]</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="c1"># {'mango', 'lemon', 'banana', 'orange'}</span>
+</code></pre></div>
+<h3 id="joining-sets">Joining Sets<a class="headerlink" href="#joining-sets" title="Permanent link">¶</a></h3>
+<p>We can join two sets using the <em>union()</em> or <em>update()</em> method or <em>|</em> symbol .</p>
+<ul>
+<li>Union
+  This method returns a new set</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item5'</span><span class="p">,</span> <span class="s1">'item6'</span><span class="p">,</span> <span class="s1">'item7'</span><span class="p">,</span> <span class="s1">'item8'</span><span class="p">}</span>
+<span class="n">st3</span> <span class="o">=</span> <span class="n">st1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">st2</span><span class="p">)</span> <span class="c1">#st3 = st1 | st2</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="n">vegetables</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'tomato'</span><span class="p">,</span> <span class="s1">'potato'</span><span class="p">,</span> <span class="s1">'cabbage'</span><span class="p">,</span><span class="s1">'onion'</span><span class="p">,</span> <span class="s1">'carrot'</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">vegetables</span><span class="p">))</span> <span class="c1"># {'lemon', 'carrot', 'tomato', 'banana', 'mango', 'orange', 'cabbage', 'potato', 'onion'}</span>
+<span class="c1"># or using this : print(fruits | vegetables)</span>
+</code></pre></div>
+<ul>
+<li>Update
+  This method inserts a set into a given set</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item5'</span><span class="p">,</span> <span class="s1">'item6'</span><span class="p">,</span> <span class="s1">'item7'</span><span class="p">,</span> <span class="s1">'item8'</span><span class="p">}</span>
+<span class="n">st1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">st2</span><span class="p">)</span> <span class="c1"># st2 contents are added to st1</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">}</span>
+<span class="n">vegetables</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'tomato'</span><span class="p">,</span> <span class="s1">'potato'</span><span class="p">,</span> <span class="s1">'cabbage'</span><span class="p">,</span><span class="s1">'onion'</span><span class="p">,</span> <span class="s1">'carrot'</span><span class="p">}</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">vegetables</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="c1"># {'lemon', 'carrot', 'tomato', 'banana', 'mango', 'orange', 'cabbage', 'potato', 'onion'}</span>
+</code></pre></div>
+<h3 id="finding-intersection-items">Finding Intersection Items<a class="headerlink" href="#finding-intersection-items" title="Permanent link">¶</a></h3>
+<p>Intersection returns a set of items which are in both the sets or using <em>&amp;</em> symbol. See the example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">}</span>
+<span class="n">st1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">st2</span><span class="p">)</span> <span class="c1"># {'item3', 'item2'}</span>
+<span class="c1"># or using thia : st1 &amp; st2</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">whole_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">even_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">whole_numbers</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span> <span class="c1"># {0, 2, 4, 6, 8, 10}</span>
+
+<span class="n">python</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'p'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'t'</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">dragon</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">python</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">dragon</span><span class="p">)</span>     <span class="c1"># {'o', 'n'}</span>
+<span class="c1"># python &amp; dragon</span>
+</code></pre></div>
+<h3 id="checking-subset-and-super-set">Checking Subset and Super Set<a class="headerlink" href="#checking-subset-and-super-set" title="Permanent link">¶</a></h3>
+<p>A set can be a subset or super set of other sets:</p>
+<ul>
+<li>Subset: <em>issubset()</em></li>
+<li>Super set: <em>issuperset</em></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">}</span>
+<span class="n">st2</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">st1</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="n">st1</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">st2</span><span class="p">)</span> <span class="c1"># True</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">whole_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">even_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">whole_numbers</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span> <span class="c1"># False, because it is a super set</span>
+<span class="n">whole_numbers</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span> <span class="c1"># True</span>
+
+<span class="n">python</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'p'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'t'</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">dragon</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">python</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">dragon</span><span class="p">)</span>     <span class="c1"># False</span>
+</code></pre></div>
+<h3 id="checking-the-difference-between-two-sets">Checking the Difference Between Two Sets<a class="headerlink" href="#checking-the-difference-between-two-sets" title="Permanent link">¶</a></h3>
+<p>It returns the difference between two sets or using <em>-</em> symbol .</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">}</span>
+<span class="n">st2</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">st1</span><span class="p">)</span> <span class="c1"># set() : st2 - st1</span>
+<span class="n">st1</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">st2</span><span class="p">)</span> <span class="c1"># {'item1', 'item4'} =&gt; st1\st2  : st2 - st1</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">whole_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">even_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">whole_numbers</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span> <span class="c1"># {1, 3, 5, 7, 9}</span>
+
+<span class="n">python</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'p'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'t'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">dragon</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">python</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">dragon</span><span class="p">)</span>     <span class="c1"># {'p', 'y', 't'}  - the result is unordered (characteristic of sets)</span>
+<span class="c1"># python - dragon</span>
+<span class="n">dragon</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">python</span><span class="p">)</span>     <span class="c1"># {'d', 'r', 'a', 'g'}</span>
+<span class="c1"># dragon - python</span>
+</code></pre></div>
+<h3 id="finding-symmetric-difference-between-two-sets">Finding Symmetric Difference Between Two Sets<a class="headerlink" href="#finding-symmetric-difference-between-two-sets" title="Permanent link">¶</a></h3>
+<p>It returns the symmetric difference between two sets. It means that it returns a set that contains all items from both sets, except items that are present in both sets, mathematically: (A\B) ∪ (B\A)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">}</span>
+<span class="c1"># it means (A\B)∪(B\A)</span>
+<span class="n">st2</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">st1</span><span class="p">)</span> <span class="c1"># {'item1', 'item4'} : st2 ^ st1</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">whole_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">some_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">whole_numbers</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">some_numbers</span><span class="p">)</span> <span class="c1"># {0, 6, 7, 8, 9, 10}</span>
+
+<span class="n">python</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'p'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'t'</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">dragon</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">python</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">dragon</span><span class="p">)</span>  <span class="c1"># {'r', 't', 'p', 'y', 'g', 'a', 'd', 'h'}</span>
+<span class="c1"># python ^ dragon</span>
+</code></pre></div>
+<h3 id="joining-sets_1">Joining Sets<a class="headerlink" href="#joining-sets_1" title="Permanent link">¶</a></h3>
+<p>If two sets do not have a common item or items we call them disjoint sets. We can check if two sets are joint or disjoint using <em>isdisjoint()</em> method.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">st1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">}</span>
+<span class="n">st2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'item2'</span><span class="p">,</span> <span class="s1">'item3'</span><span class="p">}</span>
+<span class="n">st2</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">st1</span><span class="p">)</span> <span class="c1"># False</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">even_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
+<span class="n">odd_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">}</span>
+<span class="n">even_numbers</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">)</span> <span class="c1"># True, because no common item</span>
+
+<span class="n">python</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'p'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'t'</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">dragon</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'d'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span><span class="s1">'n'</span><span class="p">}</span>
+<span class="n">python</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">dragon</span><span class="p">)</span>  <span class="c1"># False, there are common items {'o', 'n'}</span>
+</code></pre></div>
+<p>🌕 You are a rising star . You have just completed day 7 challenges and you are 7 steps ahead in to your way to greatness. Now do some exercises for your brain and muscles.</p>
+<h2 id="exercises-day-7">💻 Exercises: Day 7<a class="headerlink" href="#exercises-day-7" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># sets</span>
+<span class="n">it_companies</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Facebook'</span><span class="p">,</span> <span class="s1">'Google'</span><span class="p">,</span> <span class="s1">'Microsoft'</span><span class="p">,</span> <span class="s1">'Apple'</span><span class="p">,</span> <span class="s1">'IBM'</span><span class="p">,</span> <span class="s1">'Oracle'</span><span class="p">,</span> <span class="s1">'Amazon'</span><span class="p">}</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">{</span><span class="mi">19</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">}</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="mi">19</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">27</span><span class="p">}</span>
+<span class="n">age</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="exercises-level-1">Exercises: Level 1<a class="headerlink" href="#exercises-level-1" title="Permanent link">¶</a></h3>
+<ol>
+<li>Find the length of the set it_companies</li>
+<li>Add 'Twitter' to it_companies</li>
+<li>Insert multiple IT companies at once to the set it_companies</li>
+<li>Remove one of the companies from the set it_companies</li>
+<li>What is the difference between remove and discard</li>
+</ol>
+<h3 id="exercises-level-2">Exercises: Level 2<a class="headerlink" href="#exercises-level-2" title="Permanent link">¶</a></h3>
+<ol>
+<li>Join A and B</li>
+<li>Find A intersection B</li>
+<li>Is A subset of B</li>
+<li>Are A and B disjoint sets</li>
+<li>Join A with B and B with A</li>
+<li>What is the symmetric difference between A and B</li>
+<li>Delete the sets completely</li>
+</ol>
+<h3 id="exercises-level-3">Exercises: Level 3<a class="headerlink" href="#exercises-level-3" title="Permanent link">¶</a></h3>
+<ol>
+<li>Convert the ages to a set and compare the length of the list and the set, which one is bigger?</li>
+<li>Explain the difference between the following data types: string, list, tuple and set</li>
+<li><em>I am a teacher and I love to inspire and teach people.</em> How many unique words have been used in the sentence? Use the split methods and set to get the unique words.</li>
+</ol>
+<p>🎉 CONGRATULATIONS ! 🎉</p>
+<p><a href="../../06_Day_Tuples/06_tuples/">&lt;&lt; Day 6</a> | <a href="../../08_Day_Dictionaries/08_dictionaries/">Day 8 &gt;&gt;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

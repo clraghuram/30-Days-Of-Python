@@ -1,0 +1,2106 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Python learning guide for beginners">
+      
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/05_Day_Lists/05_lists/">
+      
+      
+        <link rel="prev" href="../../04_Day_Strings/04_strings/">
+      
+      
+        <link rel="next" href="../../06_Day_Tuples/06_tuples/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/python-favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Day 5 - Lists - 30 Days of Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="30 Days of Python" class="md-header__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            30 Days of Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 5 - Lists
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01_Day_Introduction/helloworld.md" class="md-tabs__link">
+          
+  
+  
+  Days
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="30 Days of Python" class="md-nav__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    30 Days of Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Days
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Days
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Day_Introduction/helloworld.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Day_Variables_builtin_functions/02_variables_builtin_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 - Variables &amp; Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Day_Operators/03_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 - Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Day_Strings/04_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 - Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 - Lists
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 - Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-create-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Create a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-list-items-using-positive-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing List Items Using Positive Indexing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-list-items-using-negative-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing List Items Using Negative Indexing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unpacking-list-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unpacking List Items
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slicing-items-from-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slicing Items from a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modifying Lists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-items-in-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking Items in a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-items-to-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Items to a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inserting-items-into-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inserting Items into a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-items-from-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing Items from a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-items-using-pop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing Items Using Pop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-items-using-del" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing Items Using Del
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearing-list-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clearing List Items
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copying-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joining-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joining Lists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counting-items-in-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counting Items in a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-index-of-an-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Index of an Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reversing-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reversing a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting-list-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting List Items
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-day-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Exercises: Day 5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Exercises: Day 5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercises-level-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Level 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercises-level-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Level 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Day_Tuples/06_tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 6 - Tuples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07_Day_Sets/07_sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 7 - Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_Day_Dictionaries/08_dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 8 - Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09_Day_Conditionals/09_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 9 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10_Day_Loops/10_loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 10 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11_Day_Functions/11_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 11 - Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12_Day_Modules/12_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 12 - Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13_Day_List_comprehension/13_list_comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 13 - List Comprehension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14_Day_Higher_order_functions/14_higher_order_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 14 - Higher Order Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15_Day_Python_type_errors/15_python_type_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 15 - Type Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16_Day_Python_date_time/16_python_datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 16 - Date &amp; Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17_Day_Exception_handling/17_exception_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 17 - Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18_Day_Regular_expressions/18_regular_expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 18 - Regular Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19_Day_File_handling/19_file_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 19 - File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_Day_Python_package_manager/20_python_package_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Package Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 21 - Classes &amp; Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22_Day_Web_scraping/22_web_scraping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 22 - Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../23_Day_Virtual_environment/23_virtual_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 23 - Virtual Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../24_Day_Statistics/24_statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25_Day_Pandas/25_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../26_Day_Python_web/26_python_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 26 - Python Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27_Day_Python_with_mongodb/27_python_with_mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 27 - MongoDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../28_Day_API/28_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 28 - API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../29_Day_Building_API/29_building_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 29 - Building API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30_Day_Conclusions/30_conclusions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 30 - Conclusions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div align="center">
+  <h1> 30 Days Of Python: Day 5 - Lists</h1>
+  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
+  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&amp;logo=linkedin&amp;style=social">
+  </a>
+  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
+  </a>
+
+<sub>Author:
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+<small> Second Edition: July - 2021</small>
+</sub>
+
+</div>
+
+<p><a href="../../04_Day_Strings/04_strings/">&lt;&lt; Day 4</a> | <a href="../../06_Day_Tuples/06_tuples/">Day 6 &gt;&gt;</a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/30DaysOfPython_banner3@2x.png" data-desc-position="bottom"><img alt="30DaysOfPython" src="../images/30DaysOfPython_banner3@2x.png"></a></p>
+<ul>
+<li><a href="#day-5">Day 5</a></li>
+<li><a href="#lists">Lists</a><ul>
+<li><a href="#how-to-create-a-list">How to Create a List</a></li>
+<li><a href="#accessing-list-items-using-positive-indexing">Accessing List Items Using Positive Indexing</a></li>
+<li><a href="#accessing-list-items-using-negative-indexing">Accessing List Items Using Negative Indexing</a></li>
+<li><a href="#unpacking-list-items">Unpacking List Items</a></li>
+<li><a href="#slicing-items-from-a-list">Slicing Items from a List</a></li>
+<li><a href="#modifying-lists">Modifying Lists</a></li>
+<li><a href="#checking-items-in-a-list">Checking Items in a List</a></li>
+<li><a href="#adding-items-to-a-list">Adding Items to a List</a></li>
+<li><a href="#inserting-items-into-a-list">Inserting Items into a List</a></li>
+<li><a href="#removing-items-from-a-list">Removing Items from a List</a></li>
+<li><a href="#removing-items-using-pop">Removing Items Using Pop</a></li>
+<li><a href="#removing-items-using-del">Removing Items Using Del</a></li>
+<li><a href="#clearing-list-items">Clearing List Items</a></li>
+<li><a href="#copying-a-list">Copying a List</a></li>
+<li><a href="#joining-lists">Joining Lists</a></li>
+<li><a href="#counting-items-in-a-list">Counting Items in a List</a></li>
+<li><a href="#finding-index-of-an-item">Finding Index of an Item</a></li>
+<li><a href="#reversing-a-list">Reversing a List</a></li>
+<li><a href="#sorting-list-items">Sorting List Items</a></li>
+</ul>
+</li>
+<li><a href="#-exercises-day-5">💻 Exercises: Day 5</a><ul>
+<li><a href="#exercises-level-1">Exercises: Level 1</a></li>
+<li><a href="#exercises-level-2">Exercises: Level 2</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="day-5">Day 5<a class="headerlink" href="#day-5" title="Permanent link">¶</a></h1>
+<h2 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">¶</a></h2>
+<p>There are four collection data types in Python :</p>
+<ul>
+<li>List: is a collection which is ordered and changeable(modifiable). Allows duplicate members.</li>
+<li>Tuple: is a collection which is ordered and unchangeable or unmodifiable(immutable). Allows duplicate members.</li>
+<li>Set: is a collection which is unordered, un-indexed and unmodifiable, but we can add new items to the set. Duplicate members are not allowed.</li>
+<li>Dictionary: is a collection which is unordered, changeable(modifiable) and indexed. No duplicate members.</li>
+</ul>
+<p>A list is collection of different data types which is ordered and modifiable(mutable). A list can be empty or it may have different data type items.</p>
+<h3 id="how-to-create-a-list">How to Create a List<a class="headerlink" href="#how-to-create-a-list" title="Permanent link">¶</a></h3>
+<p>In Python we can create lists in two ways:</p>
+<ul>
+<li>Using list built-in function</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">empty_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span> <span class="c1"># this is an empty list, no item in the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">empty_list</span><span class="p">))</span> <span class="c1"># 0</span>
+</code></pre></div>
+<ul>
+<li>Using square brackets, []</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># this is an empty list, no item in the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">empty_list</span><span class="p">))</span> <span class="c1"># 0</span>
+</code></pre></div>
+<p>Lists with initial values. We use <em>len()</em> to find the length of a list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>                     <span class="c1"># list of fruits</span>
+<span class="n">vegetables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Tomato'</span><span class="p">,</span> <span class="s1">'Potato'</span><span class="p">,</span> <span class="s1">'Cabbage'</span><span class="p">,</span><span class="s1">'Onion'</span><span class="p">,</span> <span class="s1">'Carrot'</span><span class="p">]</span>      <span class="c1"># list of vegetables</span>
+<span class="n">animal_products</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'milk'</span><span class="p">,</span> <span class="s1">'meat'</span><span class="p">,</span> <span class="s1">'butter'</span><span class="p">,</span> <span class="s1">'yoghurt'</span><span class="p">]</span>             <span class="c1"># list of animal products</span>
+<span class="n">web_techs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'HTML'</span><span class="p">,</span> <span class="s1">'CSS'</span><span class="p">,</span> <span class="s1">'JS'</span><span class="p">,</span> <span class="s1">'React'</span><span class="p">,</span><span class="s1">'Redux'</span><span class="p">,</span> <span class="s1">'Node'</span><span class="p">,</span> <span class="s1">'MongDB'</span><span class="p">]</span> <span class="c1"># list of web technologies</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Finland'</span><span class="p">,</span> <span class="s1">'Estonia'</span><span class="p">,</span> <span class="s1">'Denmark'</span><span class="p">,</span> <span class="s1">'Sweden'</span><span class="p">,</span> <span class="s1">'Norway'</span><span class="p">]</span> 
+
+<span class="c1"># Print the lists and its length</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Fruits:'</span><span class="p">,</span> <span class="n">fruits</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of fruits:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fruits</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Vegetables:'</span><span class="p">,</span> <span class="n">vegetables</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of vegetables:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vegetables</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Animal products:'</span><span class="p">,</span><span class="n">animal_products</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of animal products:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">animal_products</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Web technologies:'</span><span class="p">,</span> <span class="n">web_techs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of web technologies:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">web_techs</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Countries:'</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of countries:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>output
+Fruits:<span class="w"> </span><span class="o">[</span><span class="s1">'banana'</span>,<span class="w"> </span><span class="s1">'orange'</span>,<span class="w"> </span><span class="s1">'mango'</span>,<span class="w"> </span><span class="s1">'lemon'</span><span class="o">]</span>
+Number<span class="w"> </span>of<span class="w"> </span>fruits:<span class="w"> </span><span class="m">4</span>
+Vegetables:<span class="w"> </span><span class="o">[</span><span class="s1">'Tomato'</span>,<span class="w"> </span><span class="s1">'Potato'</span>,<span class="w"> </span><span class="s1">'Cabbage'</span>,<span class="w"> </span><span class="s1">'Onion'</span>,<span class="w"> </span><span class="s1">'Carrot'</span><span class="o">]</span>
+Number<span class="w"> </span>of<span class="w"> </span>vegetables:<span class="w"> </span><span class="m">5</span>
+Animal<span class="w"> </span>products:<span class="w"> </span><span class="o">[</span><span class="s1">'milk'</span>,<span class="w"> </span><span class="s1">'meat'</span>,<span class="w"> </span><span class="s1">'butter'</span>,<span class="w"> </span><span class="s1">'yoghurt'</span><span class="o">]</span>
+Number<span class="w"> </span>of<span class="w"> </span>animal<span class="w"> </span>products:<span class="w"> </span><span class="m">4</span>
+Web<span class="w"> </span>technologies:<span class="w"> </span><span class="o">[</span><span class="s1">'HTML'</span>,<span class="w"> </span><span class="s1">'CSS'</span>,<span class="w"> </span><span class="s1">'JS'</span>,<span class="w"> </span><span class="s1">'React'</span>,<span class="w"> </span><span class="s1">'Redux'</span>,<span class="w"> </span><span class="s1">'Node'</span>,<span class="w"> </span><span class="s1">'MongDB'</span><span class="o">]</span>
+Number<span class="w"> </span>of<span class="w"> </span>web<span class="w"> </span>technologies:<span class="w"> </span><span class="m">7</span>
+Countries:<span class="w"> </span><span class="o">[</span><span class="s1">'Finland'</span>,<span class="w"> </span><span class="s1">'Estonia'</span>,<span class="w"> </span><span class="s1">'Denmark'</span>,<span class="w"> </span><span class="s1">'Sweden'</span>,<span class="w"> </span><span class="s1">'Norway'</span><span class="o">]</span>
+Number<span class="w"> </span>of<span class="w"> </span>countries:<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<ul>
+<li>Lists can have items of different data types</li>
+</ul>
+<div class="highlight"><pre><span></span><code> <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Asabeneh'</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">{</span><span class="s1">'country'</span><span class="p">:</span><span class="s1">'Finland'</span><span class="p">,</span> <span class="s1">'city'</span><span class="p">:</span><span class="s1">'Helsinki'</span><span class="p">}]</span> <span class="c1"># list containing different data types</span>
+</code></pre></div>
+<h3 id="accessing-list-items-using-positive-indexing">Accessing List Items Using Positive Indexing<a class="headerlink" href="#accessing-list-items-using-positive-indexing" title="Permanent link">¶</a></h3>
+<p>We access each item in a list using their index. A list index starts from 0. The picture below shows clearly where the index starts
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/list_index.png" data-desc-position="bottom"><img alt="List index" src="../images/list_index.png"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">first_fruit</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># we are accessing the first item using its index</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_fruit</span><span class="p">)</span>      <span class="c1"># banana</span>
+<span class="n">second_fruit</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_fruit</span><span class="p">)</span>     <span class="c1"># orange</span>
+<span class="n">last_fruit</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_fruit</span><span class="p">)</span> <span class="c1"># lemon</span>
+<span class="c1"># Last index</span>
+<span class="n">last_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">last_fruit</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="n">last_index</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="accessing-list-items-using-negative-indexing">Accessing List Items Using Negative Indexing<a class="headerlink" href="#accessing-list-items-using-negative-indexing" title="Permanent link">¶</a></h3>
+<p>Negative indexing means beginning from the end, -1 refers to the last item, -2 refers to the second last item.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/list_negative_indexing.png" data-desc-position="bottom"><img alt="List negative indexing" src="../images/list_negative_indexing.png"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">first_fruit</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">last_fruit</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">second_last</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_fruit</span><span class="p">)</span>      <span class="c1"># banana</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_fruit</span><span class="p">)</span>       <span class="c1"># lemon</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_last</span><span class="p">)</span>      <span class="c1"># mango</span>
+</code></pre></div>
+<h3 id="unpacking-list-items">Unpacking List Items<a class="headerlink" href="#unpacking-list-items" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span><span class="s1">'item2'</span><span class="p">,</span><span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">,</span> <span class="s1">'item5'</span><span class="p">]</span>
+<span class="n">first_item</span><span class="p">,</span> <span class="n">second_item</span><span class="p">,</span> <span class="n">third_item</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">lst</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_item</span><span class="p">)</span>     <span class="c1"># item1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_item</span><span class="p">)</span>    <span class="c1"># item2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">third_item</span><span class="p">)</span>     <span class="c1"># item3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>           <span class="c1"># ['item4', 'item5']</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># First Example</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">,</span><span class="s1">'lime'</span><span class="p">,</span><span class="s1">'apple'</span><span class="p">]</span>
+<span class="n">first_fruit</span><span class="p">,</span> <span class="n">second_fruit</span><span class="p">,</span> <span class="n">third_fruit</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">fruits</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">first_fruit</span><span class="p">)</span>     <span class="c1"># banana</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_fruit</span><span class="p">)</span>    <span class="c1"># orange</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">third_fruit</span><span class="p">)</span>     <span class="c1"># mango</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>           <span class="c1"># ['lemon','lime','apple']</span>
+<span class="c1"># Second Example about unpacking list</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span><span class="o">*</span><span class="n">rest</span><span class="p">,</span> <span class="n">tenth</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>          <span class="c1"># 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second</span><span class="p">)</span>         <span class="c1"># 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">third</span><span class="p">)</span>          <span class="c1"># 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>           <span class="c1"># [4,5,6,7,8,9]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tenth</span><span class="p">)</span>          <span class="c1"># 10</span>
+<span class="c1"># Third Example about unpacking list</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Germany'</span><span class="p">,</span> <span class="s1">'France'</span><span class="p">,</span><span class="s1">'Belgium'</span><span class="p">,</span><span class="s1">'Sweden'</span><span class="p">,</span><span class="s1">'Denmark'</span><span class="p">,</span><span class="s1">'Finland'</span><span class="p">,</span><span class="s1">'Norway'</span><span class="p">,</span><span class="s1">'Iceland'</span><span class="p">,</span><span class="s1">'Estonia'</span><span class="p">]</span>
+<span class="n">gr</span><span class="p">,</span> <span class="n">fr</span><span class="p">,</span> <span class="n">bg</span><span class="p">,</span> <span class="n">sw</span><span class="p">,</span> <span class="o">*</span><span class="n">scandic</span><span class="p">,</span> <span class="n">es</span> <span class="o">=</span> <span class="n">countries</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">fr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sw</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scandic</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">es</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="slicing-items-from-a-list">Slicing Items from a List<a class="headerlink" href="#slicing-items-from-a-list" title="Permanent link">¶</a></h3>
+<ul>
+<li>Positive Indexing: We can specify a range of positive indexes by specifying the start, end and step, the return value will be a new list. (default values for start = 0, end = len(lst) - 1 (last item), step = 1)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">all_fruits</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># it returns all the fruits</span>
+<span class="c1"># this will also give the same result as the one above</span>
+<span class="n">all_fruits</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span> <span class="c1"># if we don't set where to stop it takes all the rest</span>
+<span class="n">orange_and_mango</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># it does not include the first index</span>
+<span class="n">orange_mango_lemon</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">orange_and_lemon</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># here we used a 3rd argument, step. It will take every 2cnd item - ['banana', 'mango']</span>
+</code></pre></div>
+<ul>
+<li>Negative Indexing: We can specify a range of negative indexes by specifying the start, end and step, the return value will be a new list.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">all_fruits</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="c1"># it returns all the fruits</span>
+<span class="n">orange_and_mango</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># it does not include the last index,['orange', 'mango']</span>
+<span class="n">orange_mango_lemon</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="c1"># this will give starting from -3 to the end,['orange', 'mango', 'lemon']</span>
+<span class="n">reverse_fruits</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># a negative step will take the list in reverse order,['lemon', 'mango', 'orange', 'banana']</span>
+</code></pre></div>
+<h3 id="modifying-lists">Modifying Lists<a class="headerlink" href="#modifying-lists" title="Permanent link">¶</a></h3>
+<p>List is a mutable or modifiable ordered collection of items. Lets modify the fruit list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'avocado'</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1">#  ['avocado', 'orange', 'mango', 'lemon']</span>
+<span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'apple'</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1">#  ['avocado', 'apple', 'mango', 'lemon']</span>
+<span class="n">last_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">fruits</span><span class="p">[</span><span class="n">last_index</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'lime'</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>        <span class="c1">#  ['avocado', 'apple', 'mango', 'lime']</span>
+</code></pre></div>
+<h3 id="checking-items-in-a-list">Checking Items in a List<a class="headerlink" href="#checking-items-in-a-list" title="Permanent link">¶</a></h3>
+<p>Checking an item if it is a member of a list using <em>in</em> operator. See the example below.</p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">does_exist</span> <span class="o">=</span> <span class="s1">'banana'</span> <span class="ow">in</span> <span class="n">fruits</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">does_exist</span><span class="p">)</span>  <span class="c1"># True</span>
+<span class="n">does_exist</span> <span class="o">=</span> <span class="s1">'lime'</span> <span class="ow">in</span> <span class="n">fruits</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">does_exist</span><span class="p">)</span>  <span class="c1"># False</span>
+</code></pre></div>
+<h3 id="adding-items-to-a-list">Adding Items to a List<a class="headerlink" href="#adding-items-to-a-list" title="Permanent link">¶</a></h3>
+<p>To add item to the end of an existing list we use the method <em>append()</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'apple'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>           <span class="c1"># ['banana', 'orange', 'mango', 'lemon', 'apple']</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'lime'</span><span class="p">)</span>   <span class="c1"># ['banana', 'orange', 'mango', 'lemon', 'apple', 'lime']</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="inserting-items-into-a-list">Inserting Items into a List<a class="headerlink" href="#inserting-items-into-a-list" title="Permanent link">¶</a></h3>
+<p>We can use <em>insert()</em> method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The <em>insert()</em> methods takes two arguments:index and an item to insert.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'apple'</span><span class="p">)</span> <span class="c1"># insert apple between orange and mango</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>           <span class="c1"># ['banana', 'orange', 'apple', 'mango', 'lemon']</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'lime'</span><span class="p">)</span>   <span class="c1"># ['banana', 'orange', 'apple', 'lime', 'mango', 'lemon']</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="removing-items-from-a-list">Removing Items from a List<a class="headerlink" href="#removing-items-from-a-list" title="Permanent link">¶</a></h3>
+<p>The remove method removes a specified item from a list</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'banana'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>  <span class="c1"># ['orange', 'mango', 'lemon', 'banana'] - this method removes the first occurrence of the item in the list</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'lemon'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>  <span class="c1"># ['orange', 'mango', 'banana']</span>
+</code></pre></div>
+<h3 id="removing-items-using-pop">Removing Items Using Pop<a class="headerlink" href="#removing-items-using-pop" title="Permanent link">¶</a></h3>
+<p>The <em>pop()</em> method removes the specified index, (or the last item if index is not specified):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>       <span class="c1"># last item</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1"># ['banana', 'orange', 'mango']</span>
+
+<span class="n">fruits</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1"># ['orange', 'mango']</span>
+</code></pre></div>
+<h3 id="removing-items-using-del">Removing Items Using Del<a class="headerlink" href="#removing-items-using-del" title="Permanent link">¶</a></h3>
+<p>The <em>del</em> keyword removes the specified index and it can also be used to delete items within index range. It can also delete the list completely</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">lst</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="c1"># only a single item</span>
+<span class="k">del</span> <span class="n">lst</span>        <span class="c1"># to delete the list completely</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">,</span> <span class="s1">'kiwi'</span><span class="p">,</span> <span class="s1">'lime'</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1"># ['orange', 'mango', 'lemon', 'kiwi', 'lime']</span>
+<span class="k">del</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1"># ['orange', 'lemon', 'kiwi', 'lime']</span>
+<span class="k">del</span> <span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>     <span class="c1"># this deletes items between given indexes, so it does not delete the item with index 3!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1"># ['orange', 'lime']</span>
+<span class="k">del</span> <span class="n">fruits</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1"># This should give: NameError: name 'fruits' is not defined</span>
+</code></pre></div>
+<h3 id="clearing-list-items">Clearing List Items<a class="headerlink" href="#clearing-list-items" title="Permanent link">¶</a></h3>
+<p>The <em>clear()</em> method empties the list:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>       <span class="c1"># []</span>
+</code></pre></div>
+<h3 id="copying-a-list">Copying a List<a class="headerlink" href="#copying-a-list" title="Permanent link">¶</a></h3>
+<p>It is possible to copy a list by reassigning it to a new variable in the following way: list2 = list1. Now, list2 is a reference of list1, any changes we make in list2 will also modify the original, list1. But there are lots of case in which we do not like to modify the original instead we like to have a different copy. One of way of avoiding the problem above is using <em>copy()</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst_copy</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits_copy</span> <span class="o">=</span> <span class="n">fruits</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits_copy</span><span class="p">)</span>       <span class="c1"># ['banana', 'orange', 'mango', 'lemon']</span>
+</code></pre></div>
+<h3 id="joining-lists">Joining Lists<a class="headerlink" href="#joining-lists" title="Permanent link">¶</a></h3>
+<p>There are several ways to join, or concatenate, two or more lists in Python.</p>
+<ul>
+<li>Plus Operator (+)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">list3</span> <span class="o">=</span> <span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">positive_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">zero</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">negative_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">integers</span> <span class="o">=</span> <span class="n">negative_numbers</span> <span class="o">+</span> <span class="n">zero</span> <span class="o">+</span> <span class="n">positive_numbers</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integers</span><span class="p">)</span> <span class="c1"># [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">vegetables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Tomato'</span><span class="p">,</span> <span class="s1">'Potato'</span><span class="p">,</span> <span class="s1">'Cabbage'</span><span class="p">,</span> <span class="s1">'Onion'</span><span class="p">,</span> <span class="s1">'Carrot'</span><span class="p">]</span>
+<span class="n">fruits_and_vegetables</span> <span class="o">=</span> <span class="n">fruits</span> <span class="o">+</span> <span class="n">vegetables</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits_and_vegetables</span> <span class="p">)</span> <span class="c1"># ['banana', 'orange', 'mango', 'lemon', 'Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']</span>
+</code></pre></div>
+<ul>
+<li>Joining using extend() method
+  The <em>extend()</em> method allows to append list in a list. See the example below.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item3'</span><span class="p">,</span> <span class="s1">'item4'</span><span class="p">,</span> <span class="s1">'item5'</span><span class="p">]</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span> <span class="c1"># ['item1', 'item2', 'item3', 'item4', 'item5']</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">num1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">num2</span><span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">num1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Numbers:'</span><span class="p">,</span> <span class="n">num1</span><span class="p">)</span> <span class="c1"># Numbers: [0, 1, 2, 3, 4, 5, 6]</span>
+<span class="n">negative_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">positive_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">zero</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">negative_numbers</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">zero</span><span class="p">)</span>
+<span class="n">negative_numbers</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">positive_numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Integers:'</span><span class="p">,</span> <span class="n">negative_numbers</span><span class="p">)</span> <span class="c1"># Integers: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">vegetables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Tomato'</span><span class="p">,</span> <span class="s1">'Potato'</span><span class="p">,</span> <span class="s1">'Cabbage'</span><span class="p">,</span> <span class="s1">'Onion'</span><span class="p">,</span> <span class="s1">'Carrot'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">vegetables</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Fruits and vegetables:'</span><span class="p">,</span> <span class="n">fruits</span> <span class="p">)</span> <span class="c1"># Fruits and vegetables: ['banana', 'orange', 'mango', 'lemon', 'Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']</span>
+</code></pre></div>
+<h3 id="counting-items-in-a-list">Counting Items in a List<a class="headerlink" href="#counting-items-in-a-list" title="Permanent link">¶</a></h3>
+<p>The <em>count()</em> method returns the number of times an item appears in a list:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'orange'</span><span class="p">))</span>   <span class="c1"># 1</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>           <span class="c1"># 3</span>
+</code></pre></div>
+<h3 id="finding-index-of-an-item">Finding Index of an Item<a class="headerlink" href="#finding-index-of-an-item" title="Permanent link">¶</a></h3>
+<p>The <em>index()</em> method returns the index of an item in the list:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'orange'</span><span class="p">))</span>   <span class="c1"># 1</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>           <span class="c1"># 2, the first occurrence</span>
+</code></pre></div>
+<h3 id="reversing-a-list">Reversing a List<a class="headerlink" href="#reversing-a-list" title="Permanent link">¶</a></h3>
+<p>The <em>reverse()</em> method reverses the order of a list.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="c1"># ['lemon', 'mango', 'orange', 'banana']</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+<span class="n">ages</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="c1"># [24, 25, 24, 26, 25, 24, 19, 22]</span>
+</code></pre></div>
+<h3 id="sorting-list-items">Sorting List Items<a class="headerlink" href="#sorting-list-items" title="Permanent link">¶</a></h3>
+<p>To sort lists we can use <em>sort()</em> method or <em>sorted()</em> built-in functions. The <em>sort()</em> method reorders the list items in ascending order and modifies the original list. If an argument of <em>sort()</em> method reverse is equal to true, it will arrange the list in descending order.</p>
+<ul>
+<li>sort(): this method modifies the original list</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># syntax</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'item1'</span><span class="p">,</span> <span class="s1">'item2'</span><span class="p">]</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>                <span class="c1"># ascending</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1"># descending</span>
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>             <span class="c1"># sorted in alphabetical order, ['banana', 'lemon', 'mango', 'orange']</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span> <span class="c1"># ['orange', 'mango', 'lemon', 'banana']</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+<span class="n">ages</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="c1">#  [19, 22, 24, 24, 24, 25, 25, 26]</span>
+
+<span class="n">ages</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="c1">#  [26, 25, 25, 24, 24, 24, 22, 19]</span>
+</code></pre></div>
+<p>sorted(): returns the ordered list without modifying the original list
+  <strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">fruits</span><span class="p">))</span>   <span class="c1"># ['banana', 'lemon', 'mango', 'orange']</span>
+<span class="c1"># Reverse order</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'banana'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'lemon'</span><span class="p">]</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">fruits</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>     <span class="c1"># ['orange', 'mango', 'lemon', 'banana']</span>
+</code></pre></div>
+<p>🌕 You are diligent and you have already achieved quite a lot. You have just completed day 5 challenges and you are 5 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.</p>
+<h2 id="exercises-day-5">💻 Exercises: Day 5<a class="headerlink" href="#exercises-day-5" title="Permanent link">¶</a></h2>
+<h3 id="exercises-level-1">Exercises: Level 1<a class="headerlink" href="#exercises-level-1" title="Permanent link">¶</a></h3>
+<ol>
+<li>Declare an empty list</li>
+<li>Declare a list with more than 5 items</li>
+<li>Find the length of your list</li>
+<li>Get the first item, the middle item and the last item of the list</li>
+<li>Declare a list called mixed_data_types, put your(name, age, height, marital status, address)</li>
+<li>Declare a list variable named it_companies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon.</li>
+<li>Print the list using <em>print()</em></li>
+<li>Print the number of companies in the list</li>
+<li>Print the first, middle and last company</li>
+<li>Print the list after modifying one of the companies</li>
+<li>Add an IT company to it_companies</li>
+<li>Insert an IT company in the middle of the companies list</li>
+<li>Change one of the it_companies names to uppercase (IBM excluded!)</li>
+<li>Join the it_companies with a string '#;&nbsp; '</li>
+<li>Check if a certain company exists in the it_companies list.</li>
+<li>Sort the list using sort() method</li>
+<li>Reverse the list in descending order using reverse() method</li>
+<li>Slice out the first 3 companies from the list</li>
+<li>Slice out the last 3 companies from the list</li>
+<li>Slice out the middle IT company or companies from the list</li>
+<li>Remove the first IT company from the list</li>
+<li>Remove the middle IT company or companies from the list</li>
+<li>Remove the last IT company from the list</li>
+<li>Remove all IT companies from the list</li>
+<li>Destroy the IT companies list</li>
+<li>
+<p>Join the following lists:</p>
+<div class="highlight"><pre><span></span><code><span class="n">front_end</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'HTML'</span><span class="p">,</span> <span class="s1">'CSS'</span><span class="p">,</span> <span class="s1">'JS'</span><span class="p">,</span> <span class="s1">'React'</span><span class="p">,</span> <span class="s1">'Redux'</span><span class="p">]</span>
+<span class="n">back_end</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Node'</span><span class="p">,</span><span class="s1">'Express'</span><span class="p">,</span> <span class="s1">'MongoDB'</span><span class="p">]</span>
+</code></pre></div>
+</li>
+<li>
+<p>After joining the lists in question 26. Copy the joined list and assign it to a variable full_stack, then insert Python and SQL after Redux.</p>
+</li>
+</ol>
+<h3 id="exercises-level-2">Exercises: Level 2<a class="headerlink" href="#exercises-level-2" title="Permanent link">¶</a></h3>
+<ol>
+<li>The following is a list of 10 students ages:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nv">ages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">19</span>,<span class="w"> </span><span class="m">22</span>,<span class="w"> </span><span class="m">19</span>,<span class="w"> </span><span class="m">24</span>,<span class="w"> </span><span class="m">20</span>,<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="m">26</span>,<span class="w"> </span><span class="m">24</span>,<span class="w"> </span><span class="m">25</span>,<span class="w"> </span><span class="m">24</span><span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>Sort the list and find the min and max age</li>
+<li>Add the min age and the max age again to the list</li>
+<li>Find the median age (one middle item or two middle items divided by two)</li>
+<li>Find the average age (sum of all items divided by their number )</li>
+<li>Find the range of the ages (max minus min)</li>
+<li>
+<p>Compare the value of (min - average) and (max - average), use <em>abs()</em> method</p>
+</li>
+<li>
+<p>Find the middle country(ies) in the <a href="https://github.com/Asabeneh/30-Days-Of-Python/tree/master/data/countries.py">countries list</a></p>
+</li>
+<li>Divide the countries list into two equal lists if it is even if not one more country for the first half.</li>
+<li>['China', 'Russia', 'USA', 'Finland', 'Sweden', 'Norway', 'Denmark']. Unpack the first three countries and the rest as scandic countries.</li>
+</ul>
+<p>🎉 CONGRATULATIONS ! 🎉</p>
+<p><a href="../../04_Day_Strings/04_strings/">&lt;&lt; Day 4</a> | <a href="../../06_Day_Tuples/06_tuples/">Day 6 &gt;&gt;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

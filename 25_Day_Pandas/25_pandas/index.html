@@ -1,0 +1,2688 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive Python learning guide for beginners">
+      
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/25_Day_Pandas/25_pandas/">
+      
+      
+        <link rel="prev" href="../../24_Day_Statistics/24_statistics/">
+      
+      
+        <link rel="next" href="../../26_Day_Python_web/26_python_web/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/python-favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Day 25 - Pandas - 30 Days of Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-25" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="30 Days of Python" class="md-header__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            30 Days of Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 25 - Pandas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01_Day_Introduction/helloworld.md" class="md-tabs__link">
+          
+  
+  
+  Days
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="30 Days of Python" class="md-nav__button md-logo" aria-label="30 Days of Python" data-md-component="logo">
+      
+  <img src="../../images/python-logo.png" alt="logo">
+
+    </a>
+    30 Days of Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Asabeneh/30-Days-Of-Python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    30-Days-Of-Python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Days
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Days
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Day_Introduction/helloworld.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 - Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Day_Variables_builtin_functions/02_variables_builtin_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 - Variables &amp; Built-in Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Day_Operators/03_operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 - Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Day_Strings/04_strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 - Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Day_Lists/05_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 - Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Day_Tuples/06_tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 6 - Tuples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07_Day_Sets/07_sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 7 - Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_Day_Dictionaries/08_dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 8 - Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09_Day_Conditionals/09_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 9 - Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10_Day_Loops/10_loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 10 - Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11_Day_Functions/11_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 11 - Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12_Day_Modules/12_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 12 - Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13_Day_List_comprehension/13_list_comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 13 - List Comprehension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14_Day_Higher_order_functions/14_higher_order_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 14 - Higher Order Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15_Day_Python_type_errors/15_python_type_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 15 - Type Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../16_Day_Python_date_time/16_python_datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 16 - Date &amp; Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../17_Day_Exception_handling/17_exception_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 17 - Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18_Day_Regular_expressions/18_regular_expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 18 - Regular Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19_Day_File_handling/19_file_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 19 - File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_Day_Python_package_manager/20_python_package_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 20 - Package Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21_Day_Classes_and_objects/21_classes_and_objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 21 - Classes &amp; Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22_Day_Web_scraping/22_web_scraping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 22 - Web Scraping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../23_Day_Virtual_environment/23_virtual_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 23 - Virtual Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../24_Day_Statistics/24_statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 24 - Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Pandas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 25 - Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pandas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Pandas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing Pandas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-pandas-series-with-default-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Pandas Series with Default Index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-pandas-series-with-custom-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Pandas Series with custom index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-pandas-series-from-a-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Pandas Series from a Dictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-constant-pandas-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Constant Pandas Series
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-pandas-series-using-linspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Pandas Series Using Linspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataframes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DataFrames
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DataFrames">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-dataframes-from-list-of-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating DataFrames from List of Lists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-dataframe-using-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating DataFrame Using Dictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-dataframes-from-a-list-of-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating DataFrames from a List of Dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-csv-file-using-pandas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading CSV File Using Pandas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading CSV File Using Pandas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Exploration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-a-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modifying a DataFrame
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifying a DataFrame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a New Column
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-column-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modifying column values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting-dataframe-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatting DataFrame columns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-data-types-of-column-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking data types of Column values
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking data types of Column values">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolean-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boolean Indexing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-day-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercises: Day 25
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../26_Day_Python_web/26_python_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 26 - Python Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27_Day_Python_with_mongodb/27_python_with_mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 27 - MongoDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../28_Day_API/28_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 28 - API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../29_Day_Building_API/29_building_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 29 - Building API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30_Day_Conclusions/30_conclusions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 30 - Conclusions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div align="center">
+  <h1> 30 Days Of Python: Day 25 - Pandas </h1>
+  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
+  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&amp;logo=linkedin&amp;style=social">
+  </a>
+  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
+  </a>
+
+  <sub>Author:
+  <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+  <small>Second Edition: July, 2021</small>
+  </sub>
+
+</div>
+
+<p><a href="../../24_Day_Statistics/24_statistics/">&lt;&lt; Day 24</a> | <a href="../../26_Day_Python_web/26_python_web/">Day 26 &gt;&gt;</a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/30DaysOfPython_banner3@2x.png" data-desc-position="bottom"><img alt="30DaysOfPython" src="../images/30DaysOfPython_banner3@2x.png"></a></p>
+<ul>
+<li><a href="#-day-25">📘 Day 25</a></li>
+<li><a href="#pandas">Pandas</a><ul>
+<li><a href="#installing-pandas">Installing Pandas</a></li>
+<li><a href="#importing-pandas">Importing Pandas</a></li>
+<li><a href="#creating-pandas-series-with-default-index">Creating Pandas Series with Default Index</a></li>
+<li><a href="#creating--pandas-series-with-custom-index">Creating  Pandas Series with custom index</a></li>
+<li><a href="#creating-pandas-series-from-a-dictionary">Creating Pandas Series from a Dictionary</a></li>
+<li><a href="#creating-a-constant-pandas-series">Creating a Constant Pandas Series</a></li>
+<li><a href="#creating-a--pandas-series-using-linspace">Creating a  Pandas Series Using Linspace</a></li>
+</ul>
+</li>
+<li><a href="#dataframes">DataFrames</a><ul>
+<li><a href="#creating-dataframes-from-list-of-lists">Creating DataFrames from List of Lists</a></li>
+<li><a href="#creating-dataframe-using-dictionary">Creating DataFrame Using Dictionary</a></li>
+<li><a href="#creating-dataframes-from-a-list-of-dictionaries">Creating DataFrames from a List of Dictionaries</a></li>
+</ul>
+</li>
+<li><a href="#reading-csv-file-using-pandas">Reading CSV File Using Pandas</a><ul>
+<li><a href="#data-exploration">Data Exploration</a></li>
+</ul>
+</li>
+<li><a href="#modifying-a-dataframe">Modifying a DataFrame</a><ul>
+<li><a href="#creating-a-dataframe">Creating a DataFrame</a></li>
+<li><a href="#adding-a-new-column">Adding a New Column</a></li>
+<li><a href="#modifying-column-values">Modifying column values</a></li>
+<li><a href="#formatting-dataframe-columns">Formatting DataFrame columns</a></li>
+</ul>
+</li>
+<li><a href="#checking-data-types-of-column-values">Checking data types of Column values</a><ul>
+<li><a href="#boolean-indexing">Boolean Indexing</a></li>
+</ul>
+</li>
+<li><a href="#exercises-day-25">Exercises: Day 25</a></li>
+</ul>
+<h1 id="day-25">📘 Day 25<a class="headerlink" href="#day-25" title="Permanent link">¶</a></h1>
+<h2 id="pandas">Pandas<a class="headerlink" href="#pandas" title="Permanent link">¶</a></h2>
+<p>Pandas is an open source, high-performance, easy-to-use data structures and data analysis tools for the Python programming language.
+Pandas adds data structures and tools designed to work with table-like data which is <em>Series</em> and <em>Data Frames</em>.
+Pandas provides tools for data manipulation:</p>
+<ul>
+<li>reshaping</li>
+<li>merging</li>
+<li>sorting</li>
+<li>slicing</li>
+<li>aggregation</li>
+<li>imputation.
+If you are using anaconda, you do not have install pandas.</li>
+</ul>
+<h3 id="installing-pandas">Installing Pandas<a class="headerlink" href="#installing-pandas" title="Permanent link">¶</a></h3>
+<p>For Mac:
+</p><div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">conda</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">pandas</span>
+</code></pre></div><p></p>
+<p>For Windows:
+</p><div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">conda</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
+</code></pre></div><p></p>
+<p>Pandas data structure is based on <em>Series</em> and <em>DataFrames</em>.</p>
+<p>A <em>series</em> is a <em>column</em> and a DataFrame is a <em>multidimensional table</em> made up of collection of <em>series</em>. In order to create a pandas series we should use numpy to create a one dimensional arrays or a python list.
+Let us see an example of a series:</p>
+<p>Names Pandas Series</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/pandas-series-1.png" data-desc-position="bottom"><img alt="pandas series" src="../images/pandas-series-1.png"></a></p>
+<p>Countries Series</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/pandas-series-2.png" data-desc-position="bottom"><img alt="pandas series" src="../images/pandas-series-2.png"></a></p>
+<p>Cities Series</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/pandas-series-3.png" data-desc-position="bottom"><img alt="pandas series" src="../images/pandas-series-3.png"></a></p>
+<p>As you can see, pandas series is just one column of data. If we want to have multiple columns we use data frames. The example below shows pandas DataFrames.</p>
+<p>Let us see, an example of a pandas data frame:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/pandas-dataframe-1.png" data-desc-position="bottom"><img alt="Pandas data frame" src="../images/pandas-dataframe-1.png"></a></p>
+<p>Data frame is a collection of rows and columns. Look at the table below; it has many more columns than the example above:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/pandas-dataframe-2.png" data-desc-position="bottom"><img alt="Pandas data frame" src="../images/pandas-dataframe-2.png"></a></p>
+<p>Next, we will see how to import pandas and how to create Series and DataFrames using pandas</p>
+<h3 id="importing-pandas">Importing Pandas<a class="headerlink" href="#importing-pandas" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># importing pandas as pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># importing numpy as np</span>
+</code></pre></div>
+<h3 id="creating-pandas-series-with-default-index">Creating Pandas Series with Default Index<a class="headerlink" href="#creating-pandas-series-with-default-index" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">1</span>
+<span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">2</span>
+<span class="w">    </span><span class="m">2</span><span class="w">    </span><span class="m">3</span>
+<span class="w">    </span><span class="m">3</span><span class="w">    </span><span class="m">4</span>
+<span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">5</span>
+<span class="w">    </span>dtype:<span class="w"> </span>int64
+</code></pre></div>
+<h3 id="creating-pandas-series-with-custom-index">Creating  Pandas Series with custom index<a class="headerlink" href="#creating-pandas-series-with-custom-index" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">1</span>
+<span class="w">    </span><span class="m">2</span><span class="w">    </span><span class="m">2</span>
+<span class="w">    </span><span class="m">3</span><span class="w">    </span><span class="m">3</span>
+<span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">4</span>
+<span class="w">    </span><span class="m">5</span><span class="w">    </span><span class="m">5</span>
+<span class="w">    </span>dtype:<span class="w"> </span>int64
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Orange'</span><span class="p">,</span><span class="s1">'Banana'</span><span class="p">,</span><span class="s1">'Mango'</span><span class="p">]</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">fruits</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">1</span><span class="w">    </span>Orange
+<span class="w">    </span><span class="m">2</span><span class="w">    </span>Banana
+<span class="w">    </span><span class="m">3</span><span class="w">    </span>Mango
+<span class="w">    </span>dtype:<span class="w"> </span>object
+</code></pre></div>
+<h3 id="creating-pandas-series-from-a-dictionary">Creating Pandas Series from a Dictionary<a class="headerlink" href="#creating-pandas-series-from-a-dictionary" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span><span class="s1">'Asabeneh'</span><span class="p">,</span><span class="s1">'country'</span><span class="p">:</span><span class="s1">'Finland'</span><span class="p">,</span><span class="s1">'city'</span><span class="p">:</span><span class="s1">'Helsinki'</span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>name<span class="w">       </span>Asabeneh
+<span class="w">    </span>country<span class="w">     </span>Finland
+<span class="w">    </span>city<span class="w">       </span>Helsinki
+<span class="w">    </span>dtype:<span class="w"> </span>object
+</code></pre></div>
+<h3 id="creating-a-constant-pandas-series">Creating a Constant Pandas Series<a class="headerlink" href="#creating-a-constant-pandas-series" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">10</span>
+<span class="w">    </span><span class="m">2</span><span class="w">    </span><span class="m">10</span>
+<span class="w">    </span><span class="m">3</span><span class="w">    </span><span class="m">10</span>
+<span class="w">    </span>dtype:<span class="w"> </span>int64
+</code></pre></div>
+<h3 id="creating-a-pandas-series-using-linspace">Creating a  Pandas Series Using Linspace<a class="headerlink" href="#creating-a-pandas-series-using-linspace" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c1"># linspace(starting, end, items)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">0</span><span class="w">     </span><span class="m">5</span>.000000
+<span class="w">    </span><span class="m">1</span><span class="w">     </span><span class="m">6</span>.666667
+<span class="w">    </span><span class="m">2</span><span class="w">     </span><span class="m">8</span>.333333
+<span class="w">    </span><span class="m">3</span><span class="w">    </span><span class="m">10</span>.000000
+<span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">11</span>.666667
+<span class="w">    </span><span class="m">5</span><span class="w">    </span><span class="m">13</span>.333333
+<span class="w">    </span><span class="m">6</span><span class="w">    </span><span class="m">15</span>.000000
+<span class="w">    </span><span class="m">7</span><span class="w">    </span><span class="m">16</span>.666667
+<span class="w">    </span><span class="m">8</span><span class="w">    </span><span class="m">18</span>.333333
+<span class="w">    </span><span class="m">9</span><span class="w">    </span><span class="m">20</span>.000000
+<span class="w">    </span>dtype:<span class="w"> </span>float64
+</code></pre></div>
+<h2 id="dataframes">DataFrames<a class="headerlink" href="#dataframes" title="Permanent link">¶</a></h2>
+<p>Pandas data frames can be created in different ways.</p>
+<h3 id="creating-dataframes-from-list-of-lists">Creating DataFrames from List of Lists<a class="headerlink" href="#creating-dataframes-from-list-of-lists" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">'Asabeneh'</span><span class="p">,</span> <span class="s1">'Finland'</span><span class="p">,</span> <span class="s1">'Helsink'</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'David'</span><span class="p">,</span> <span class="s1">'UK'</span><span class="p">,</span> <span class="s1">'London'</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Sweden'</span><span class="p">,</span> <span class="s1">'Stockholm'</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Names'</span><span class="p">,</span><span class="s1">'Country'</span><span class="p">,</span><span class="s1">'City'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Names</th>
+      <th>Country</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsink</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="creating-dataframe-using-dictionary">Creating DataFrame Using Dictionary<a class="headerlink" href="#creating-dataframe-using-dictionary" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Asabeneh'</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="s1">'John'</span><span class="p">],</span> <span class="s1">'Country'</span><span class="p">:[</span>
+    <span class="s1">'Finland'</span><span class="p">,</span> <span class="s1">'UK'</span><span class="p">,</span> <span class="s1">'Sweden'</span><span class="p">],</span> <span class="s1">'City'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Helsiki'</span><span class="p">,</span> <span class="s1">'London'</span><span class="p">,</span> <span class="s1">'Stockholm'</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsiki</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="creating-dataframes-from-a-list-of-dictionaries">Creating DataFrames from a List of Dictionaries<a class="headerlink" href="#creating-dataframes-from-a-list-of-dictionaries" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">'Name'</span><span class="p">:</span> <span class="s1">'Asabeneh'</span><span class="p">,</span> <span class="s1">'Country'</span><span class="p">:</span> <span class="s1">'Finland'</span><span class="p">,</span> <span class="s1">'City'</span><span class="p">:</span> <span class="s1">'Helsinki'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'Name'</span><span class="p">:</span> <span class="s1">'David'</span><span class="p">,</span> <span class="s1">'Country'</span><span class="p">:</span> <span class="s1">'UK'</span><span class="p">,</span> <span class="s1">'City'</span><span class="p">:</span> <span class="s1">'London'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'Name'</span><span class="p">:</span> <span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Country'</span><span class="p">:</span> <span class="s1">'Sweden'</span><span class="p">,</span> <span class="s1">'City'</span><span class="p">:</span> <span class="s1">'Stockholm'</span><span class="p">}]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="reading-csv-file-using-pandas">Reading CSV File Using Pandas<a class="headerlink" href="#reading-csv-file-using-pandas" title="Permanent link">¶</a></h2>
+<p>To download the CSV file, what is needed in this example, console/command line is enough:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://raw.githubusercontent.com/Asabeneh/30-Days-Of-Python/master/data/weight-height.csv
+</code></pre></div>
+<p>Put the downloaded file in your working directory.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'weight-height.csv'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="data-exploration">Data Exploration<a class="headerlink" href="#data-exploration" title="Permanent link">¶</a></h3>
+<p>Let us read only the first 5 rows using head()</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span> <span class="c1"># give five rows we can increase the number of rows by passing argument to the head() method</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gender</th>
+      <th>Height</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Male</td>
+      <td>73.847017</td>
+      <td>241.893563</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Male</td>
+      <td>68.781904</td>
+      <td>162.310473</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Male</td>
+      <td>74.110105</td>
+      <td>212.740856</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Male</td>
+      <td>71.730978</td>
+      <td>220.042470</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Male</td>
+      <td>69.881796</td>
+      <td>206.349801</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Let us also explore the last recordings of the dataframe using the tail() methods.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span> <span class="c1"># tails give the last five rows, we can increase the rows by passing argument to tail method</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gender</th>
+      <th>Height</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9995</td>
+      <td>Female</td>
+      <td>66.172652</td>
+      <td>136.777454</td>
+    </tr>
+    <tr>
+      <td>9996</td>
+      <td>Female</td>
+      <td>67.067155</td>
+      <td>170.867906</td>
+    </tr>
+    <tr>
+      <td>9997</td>
+      <td>Female</td>
+      <td>63.867992</td>
+      <td>128.475319</td>
+    </tr>
+    <tr>
+      <td>9998</td>
+      <td>Female</td>
+      <td>69.034243</td>
+      <td>163.852461</td>
+    </tr>
+    <tr>
+      <td>9999</td>
+      <td>Female</td>
+      <td>61.944246</td>
+      <td>113.649103</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As you can see the csv file has three rows: Gender, Height and Weight. If the DataFrame would have a long rows, it would be hard to know all the columns. Therefore, we should use a method to know the columns.  we do not know the number of rows. Let's use shape method.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># as you can see 10000 rows and three columns</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>(10000, 3)
+</code></pre></div>
+<p>Let us get all the columns using columns.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Index(['Gender', 'Height', 'Weight'], dtype='object')
+</code></pre></div>
+<p>Now, let us get a specific column using the column key</p>
+<div class="highlight"><pre><span></span><code><span class="n">heights</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Height'</span><span class="p">]</span> <span class="c1"># this is now a series</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">0</span><span class="w">       </span><span class="m">73</span>.847017
+<span class="w">    </span><span class="m">1</span><span class="w">       </span><span class="m">68</span>.781904
+<span class="w">    </span><span class="m">2</span><span class="w">       </span><span class="m">74</span>.110105
+<span class="w">    </span><span class="m">3</span><span class="w">       </span><span class="m">71</span>.730978
+<span class="w">    </span><span class="m">4</span><span class="w">       </span><span class="m">69</span>.881796
+<span class="w">              </span>...
+<span class="w">    </span><span class="m">9995</span><span class="w">    </span><span class="m">66</span>.172652
+<span class="w">    </span><span class="m">9996</span><span class="w">    </span><span class="m">67</span>.067155
+<span class="w">    </span><span class="m">9997</span><span class="w">    </span><span class="m">63</span>.867992
+<span class="w">    </span><span class="m">9998</span><span class="w">    </span><span class="m">69</span>.034243
+<span class="w">    </span><span class="m">9999</span><span class="w">    </span><span class="m">61</span>.944246
+<span class="w">    </span>Name:<span class="w"> </span>Height,<span class="w"> </span>Length:<span class="w"> </span><span class="m">10000</span>,<span class="w"> </span>dtype:<span class="w"> </span>float64
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">weights</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Weight'</span><span class="p">]</span> <span class="c1"># this is now a series</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">0</span><span class="w">       </span><span class="m">241</span>.893563
+<span class="w">    </span><span class="m">1</span><span class="w">       </span><span class="m">162</span>.310473
+<span class="w">    </span><span class="m">2</span><span class="w">       </span><span class="m">212</span>.740856
+<span class="w">    </span><span class="m">3</span><span class="w">       </span><span class="m">220</span>.042470
+<span class="w">    </span><span class="m">4</span><span class="w">       </span><span class="m">206</span>.349801
+<span class="w">               </span>...
+<span class="w">    </span><span class="m">9995</span><span class="w">    </span><span class="m">136</span>.777454
+<span class="w">    </span><span class="m">9996</span><span class="w">    </span><span class="m">170</span>.867906
+<span class="w">    </span><span class="m">9997</span><span class="w">    </span><span class="m">128</span>.475319
+<span class="w">    </span><span class="m">9998</span><span class="w">    </span><span class="m">163</span>.852461
+<span class="w">    </span><span class="m">9999</span><span class="w">    </span><span class="m">113</span>.649103
+<span class="w">    </span>Name:<span class="w"> </span>Weight,<span class="w"> </span>Length:<span class="w"> </span><span class="m">10000</span>,<span class="w"> </span>dtype:<span class="w"> </span>float64
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+<p>The describe() method provides a descriptive statistical values of a dataset.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">heights</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span> <span class="c1"># give statistical information about height data</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>count<span class="w">    </span><span class="m">10000</span>.000000
+<span class="w">    </span>mean<span class="w">        </span><span class="m">66</span>.367560
+<span class="w">    </span>std<span class="w">          </span><span class="m">3</span>.847528
+<span class="w">    </span>min<span class="w">         </span><span class="m">54</span>.263133
+<span class="w">    </span><span class="m">25</span>%<span class="w">         </span><span class="m">63</span>.505620
+<span class="w">    </span><span class="m">50</span>%<span class="w">         </span><span class="m">66</span>.318070
+<span class="w">    </span><span class="m">75</span>%<span class="w">         </span><span class="m">69</span>.174262
+<span class="w">    </span>max<span class="w">         </span><span class="m">78</span>.998742
+<span class="w">    </span>Name:<span class="w"> </span>Height,<span class="w"> </span>dtype:<span class="w"> </span>float64
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>count<span class="w">    </span><span class="m">10000</span>.000000
+<span class="w">    </span>mean<span class="w">       </span><span class="m">161</span>.440357
+<span class="w">    </span>std<span class="w">         </span><span class="m">32</span>.108439
+<span class="w">    </span>min<span class="w">         </span><span class="m">64</span>.700127
+<span class="w">    </span><span class="m">25</span>%<span class="w">        </span><span class="m">135</span>.818051
+<span class="w">    </span><span class="m">50</span>%<span class="w">        </span><span class="m">161</span>.212928
+<span class="w">    </span><span class="m">75</span>%<span class="w">        </span><span class="m">187</span>.169525
+<span class="w">    </span>max<span class="w">        </span><span class="m">269</span>.989699
+<span class="w">    </span>Name:<span class="w"> </span>Weight,<span class="w"> </span>dtype:<span class="w"> </span>float64
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>  <span class="c1"># describe can also give statistical information from a dataFrame</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Height</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>66.367560</td>
+      <td>161.440357</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>3.847528</td>
+      <td>32.108439</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>54.263133</td>
+      <td>64.700127</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>63.505620</td>
+      <td>135.818051</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>66.318070</td>
+      <td>161.212928</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>69.174262</td>
+      <td>187.169525</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>78.998742</td>
+      <td>269.989699</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Similar to describe(), the info() method also give information about the dataset.</p>
+<h2 id="modifying-a-dataframe">Modifying a DataFrame<a class="headerlink" href="#modifying-a-dataframe" title="Permanent link">¶</a></h2>
+<p>Modifying a DataFrame:
+    * We can create a new DataFrame
+    * We can create a new column and add it to the DataFrame,
+    * we can remove an existing column from a DataFrame,
+    * we can modify an existing column in a DataFrame,
+    * we can change the data type of column values in the DataFrame</p>
+<h3 id="creating-a-dataframe">Creating a DataFrame<a class="headerlink" href="#creating-a-dataframe" title="Permanent link">¶</a></h3>
+<p>As always, first we import the necessary packages. Now, lets import pandas and numpy, two best friends ever.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"Asabeneh"</span><span class="p">,</span> <span class="s2">"Country"</span><span class="p">:</span><span class="s2">"Finland"</span><span class="p">,</span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Helsinki"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"David"</span><span class="p">,</span> <span class="s2">"Country"</span><span class="p">:</span><span class="s2">"UK"</span><span class="p">,</span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"London"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span> <span class="s2">"Country"</span><span class="p">:</span><span class="s2">"Sweden"</span><span class="p">,</span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Stockholm"</span><span class="p">}]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Adding a column to a DataFrame is like adding a key to a dictionary.</p>
+<p>First let's use the previous example to create a DataFrame. After we create the DataFrame, we will start modifying the columns and column values.</p>
+<h3 id="adding-a-new-column">Adding a New Column<a class="headerlink" href="#adding-a-new-column" title="Permanent link">¶</a></h3>
+<p>Let's add a weight column in the DataFrame</p>
+<div class="highlight"><pre><span></span><code><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">74</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">69</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Weight'</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span>
+<span class="n">df</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Let's add a height column into the DataFrame aswell</p>
+<div class="highlight"><pre><span></span><code><span class="n">heights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">173</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">169</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Height'</span><span class="p">]</span> <span class="o">=</span> <span class="n">heights</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+      <td>173</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+      <td>175</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+      <td>169</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As you can see in the DataFrame above, we did add new columns, Weight and Height. Let's add one additional column called BMI(Body Mass Index) by calculating their BMI using thier mass and height. BMI is mass divided by height squared (in meters) - Weight/Height * Height.</p>
+<p>As you can see, the height is in centimeters, so we shoud change it to meters. Let's modify the height row.</p>
+<h3 id="modifying-column-values">Modifying column values<a class="headerlink" href="#modifying-column-values" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">'Height'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Height'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.01</span>
+<span class="n">df</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+      <td>1.73</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+      <td>1.69</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Using functions makes our code clean, but you can calculate the bmi without one</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_bmi</span> <span class="p">():</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Weight'</span><span class="p">]</span>
+    <span class="n">heights</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Height'</span><span class="p">]</span>
+    <span class="n">bmi</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">w</span><span class="p">,</span><span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">heights</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">bmi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bmi</span>
+
+<span class="n">bmi</span> <span class="o">=</span> <span class="n">calculate_bmi</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">'BMI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">bmi</span>
+<span class="n">df</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+      <td>1.73</td>
+      <td>24.725183</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+      <td>1.75</td>
+      <td>25.469388</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+      <td>1.69</td>
+      <td>24.158818</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formatting-dataframe-columns">Formatting DataFrame columns<a class="headerlink" href="#formatting-dataframe-columns" title="Permanent link">¶</a></h3>
+<p>The BMI column values of the DataFrame are float with many significant digits after decimal. Let's change it to one significant digit after point.</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">'BMI'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'BMI'</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+      <td>1.73</td>
+      <td>24.7</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+      <td>1.75</td>
+      <td>25.5</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+      <td>1.69</td>
+      <td>24.2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The information in the DataFrame seems not yet complete, let's add birth year and current year columns.</p>
+<div class="highlight"><pre><span></span><code><span class="n">birth_year</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1769'</span><span class="p">,</span> <span class="s1">'1985'</span><span class="p">,</span> <span class="s1">'1990'</span><span class="p">]</span>
+<span class="n">current_year</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Birth Year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">birth_year</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Current Year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_year</span>
+<span class="n">df</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+      <th>Birth Year</th>
+      <th>Current Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+      <td>1.73</td>
+      <td>24.7</td>
+      <td>1769</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+      <td>1.75</td>
+      <td>25.5</td>
+      <td>1985</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+      <td>1.69</td>
+      <td>24.2</td>
+      <td>1990</td>
+      <td>2020</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="checking-data-types-of-column-values">Checking data types of Column values<a class="headerlink" href="#checking-data-types-of-column-values" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Weight</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>dtype<span class="o">(</span><span class="s1">'int64'</span><span class="o">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">'Birth Year'</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="c1"># it gives string object , we should change this to number</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">'Birth Year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Birth Year'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Birth Year'</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># let's check the data type now</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>dtype<span class="o">(</span><span class="s1">'int32'</span><span class="o">)</span>
+</code></pre></div>
+<p>Now same for the current year:</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">'Current Year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Current Year'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Current Year'</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>dtype<span class="o">(</span><span class="s1">'int32'</span><span class="o">)</span>
+</code></pre></div>
+<p>Now, the column values of birth year and current year are integers. We can calculate the age.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ages</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Current Year'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Birth Year'</span><span class="p">]</span>
+<span class="n">ages</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0    251
+1     35
+2     30
+dtype: int32
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">'Ages'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ages</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+      <th>Birth Year</th>
+      <th>Current Year</th>
+      <th>Ages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+      <td>1.73</td>
+      <td>24.7</td>
+      <td>1769</td>
+      <td>2019</td>
+      <td>250</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+      <td>1.75</td>
+      <td>25.5</td>
+      <td>1985</td>
+      <td>2019</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+      <td>1.69</td>
+      <td>24.2</td>
+      <td>1990</td>
+      <td>2019</td>
+      <td>29</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The person in the first row lived so far for 251 years. It is unlikely for someone to live so long. Either it is a typo or the data is cooked. So lets fill that data with average of the columns without including outlier.</p>
+<p>mean = (35 + 30)/ 2</p>
+<div class="highlight"><pre><span></span><code><span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">35</span> <span class="o">+</span> <span class="mi">30</span><span class="p">)</span><span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Mean: '</span><span class="p">,</span><span class="n">mean</span><span class="p">)</span>    <span class="c1">#it is good to add some description to the output, so we know what is what</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">   </span>Mean:<span class="w">  </span><span class="m">32</span>.5
+</code></pre></div>
+<h3 id="boolean-indexing">Boolean Indexing<a class="headerlink" href="#boolean-indexing" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Ages'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">])</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+      <th>Birth Year</th>
+      <th>Current Year</th>
+      <th>Ages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Asabeneh</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>74</td>
+      <td>1.73</td>
+      <td>24.7</td>
+      <td>1769</td>
+      <td>2020</td>
+      <td>251</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Ages'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">])</span>
+</code></pre></div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+      <th>Birth Year</th>
+      <th>Current Year</th>
+      <th>Ages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>David</td>
+      <td>UK</td>
+      <td>London</td>
+      <td>78</td>
+      <td>1.75</td>
+      <td>25.5</td>
+      <td>1985</td>
+      <td>2020</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>69</td>
+      <td>1.69</td>
+      <td>24.2</td>
+      <td>1990</td>
+      <td>2020</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="exercises-day-25">Exercises: Day 25<a class="headerlink" href="#exercises-day-25" title="Permanent link">¶</a></h2>
+<ol>
+<li>Read the hacker_news.csv file from data directory</li>
+<li>Get the first five rows</li>
+<li>Get the last five rows</li>
+<li>Get the title column as pandas series</li>
+<li>Count the number of rows and columns<ul>
+<li>Filter the titles which contain python</li>
+<li>Filter the titles which contain JavaScript</li>
+<li>Explore the data and make sense of it</li>
+</ul>
+</li>
+</ol>
+<p>🎉 CONGRATULATIONS ! 🎉</p>
+<p><a href="../../24_Day_Statistics/24_statistics/">&lt;&lt; Day 24</a> | <a href="../../26_Day_Python_web/26_python_web/">Day 26 &gt;&gt;</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
