@@ -7,13 +7,13 @@
       
       
       
-        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/23_Day_Virtual_environment/23_virtual_environment/">
+        <link rel="canonical" href="https://yourusername.github.io/30-Days-Of-Python/01_Day_Introduction/helloworld/">
       
       
-        <link rel="prev" href="../../22_Day_Web_scraping/22_web_scraping/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../../24_Day_Statistics/24_statistics/">
+        <link rel="next" href="../../02_Day_Variables_builtin_functions/02_variables_builtin_functions/">
       
       
         
@@ -24,7 +24,7 @@
     
     
       
-        <title>Day 23 - Virtual Environment - 30 Days of Python</title>
+        <title>Day 1 - Introduction - 30 Days of Python</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#day-23" class="md-skip">
+        <a href="#day-1-hello-world" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Day 23 - Virtual Environment
+              Day 1 - Introduction
             
           </span>
         </div>
@@ -254,7 +254,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../01_Day_Introduction/helloworld/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -400,10 +400,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../01_Day_Introduction/helloworld/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -419,6 +428,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1016,37 +1026,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Day 23 - Virtual Environment
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../23_Day_Virtual_environment/23_virtual_environment/" class="md-nav__link">
         
   
   
@@ -1062,48 +1045,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-virtual-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setting up Virtual Environments
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercises-day-23" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💻 Exercises: Day 23
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1332,82 +1273,15 @@
   
 
 
-<div align="center">
-  <h1> 30 Days Of Python: Day 23 - Virtual Environment </h1>
-  <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&amp;logo=linkedin&amp;style=social">
-  </a>
-  <a class="header-badge" target="_blank" href="https://twitter.com/Asabeneh">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
-  </a>
-
-<sub>Author:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Second Edition: July, 2021</small>
-</sub>
-</div>
-
-<p><a href="../../22_Day_Web_scraping/22_web_scraping/">&lt;&lt; Day 22</a> | <a href="../../24_Day_Statistics/24_statistics/">Day 24 &gt;&gt;</a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/30DaysOfPython_banner3@2x.png" data-desc-position="bottom"><img alt="30DaysOfPython" src="../images/30DaysOfPython_banner3@2x.png"></a></p>
-<ul>
-<li><a href="#-day-23">📘 Day 23</a></li>
-<li><a href="#setting-up-virtual-environments">Setting up Virtual Environments</a></li>
-<li><a href="#-exercises-day-23">💻 Exercises: Day 23</a></li>
-</ul>
-<h1 id="day-23">📘 Day 23<a class="headerlink" href="#day-23" title="Permanent link">¶</a></h1>
-<h2 id="setting-up-virtual-environments">Setting up Virtual Environments<a class="headerlink" href="#setting-up-virtual-environments" title="Permanent link">¶</a></h2>
-<p>To start with project, it would be better to have a virtual environment. Virtual environment can help us to create an isolated or separate environment. This will help us to avoid conflicts in dependencies across projects. If you write pip freeze on your terminal you will see all the installed packages on your computer. If we use virtualenv, we will access only packages which are specific for that project. Open your terminal and install virtualenv</p>
-<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>virtualenv
+<h1 id="day-1-hello-world">Day 1 — Hello World<a class="headerlink" href="#day-1-hello-world" title="Permanent link">¶</a></h1>
+<p>This page demonstrates the simple <code>Hello, World!</code> example.</p>
+<p>You can run the included Python example <code>helloworld.py</code> locally:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>01_Day_Introduction/helloworld.py
 </code></pre></div>
-<p>Inside the 30DaysOfPython folder create a flask_project folder.</p>
-<p>After installing the virtualenv package go to your project folder and create a virtual env by writing:</p>
-<p>For Mac/Linux:
-</p><div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project<span class="se">\$</span><span class="w"> </span>virtualenv<span class="w"> </span>venv
-</code></pre></div><p></p>
-<p>For Windows:
-</p><div class="highlight"><pre><span></span><code>C:<span class="se">\U</span>sers<span class="se">\U</span>ser<span class="se">\D</span>ocuments<span class="se">\3</span>0DaysOfPython<span class="se">\f</span>lask_project&gt;python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
-</code></pre></div><p></p>
-<p>I prefer to call the new project venv, but feel free to name it differently. Let us check if the the venv was created by using ls (or dir for windows command prompt) command.</p>
-<div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$<span class="w"> </span>ls
-venv/
+<p>Or view the example here:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
 </code></pre></div>
-<p>Let us activate the virtual environment by writing the following command at our project folder.</p>
-<p>For Mac/Linux:
-</p><div class="highlight"><pre><span></span><code>asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
-</code></pre></div>
-Activation of the virtual environment in Windows may very on Windows Power shell and git bash. <p></p>
-<p>For Windows Power Shell:
-</p><div class="highlight"><pre><span></span><code>C:<span class="se">\U</span>sers<span class="se">\U</span>ser<span class="se">\D</span>ocuments<span class="se">\3</span>0DaysOfPython<span class="se">\f</span>lask_project&gt;<span class="w"> </span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
-</code></pre></div><p></p>
-<p>For Windows Git bash:
-</p><div class="highlight"><pre><span></span><code>C:<span class="se">\U</span>sers<span class="se">\U</span>ser<span class="se">\D</span>ocuments<span class="se">\3</span>0DaysOfPython<span class="se">\f</span>lask_project&gt;<span class="w"> </span>venv<span class="se">\S</span>cripts<span class="se">\.</span><span class="w"> </span>activate
-</code></pre></div><p></p>
-<p>After you write the activation command, your project directory will start with venv. See the example below.</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$
-</code></pre></div>
-<p>Now, lets check the available packages in this project by writing pip freeze. You will not see any packages.</p>
-<p>We are going to do a small flask project so let us install flask package to this project.</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>Flask
-</code></pre></div>
-<p>Now, let us write pip freeze to see a list of installed packages in the project:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>asabeneh@Asabeneh:~/Desktop/30DaysOfPython/flask_project$<span class="w"> </span>pip<span class="w"> </span>freeze
-<span class="nv">Click</span><span class="o">==</span><span class="m">7</span>.0
-<span class="nv">Flask</span><span class="o">==</span><span class="m">1</span>.1.1
-<span class="nv">itsdangerous</span><span class="o">==</span><span class="m">1</span>.1.0
-<span class="nv">Jinja2</span><span class="o">==</span><span class="m">2</span>.10.3
-<span class="nv">MarkupSafe</span><span class="o">==</span><span class="m">1</span>.1.1
-<span class="nv">Werkzeug</span><span class="o">==</span><span class="m">0</span>.16.0
-</code></pre></div>
-<p>When you finish you should dactivate active project using <em>deactivate</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span><span class="w"> </span>asabeneh@Asabeneh:~/Desktop/30DaysOfPython$<span class="w"> </span>deactivate
-</code></pre></div>
-<p>The necessary modules to work with flask are installed. Now, your project directory is ready for a flask project. You should include the venv to your .gitignore file not to push it to github.</p>
-<h2 id="exercises-day-23">💻 Exercises: Day 23<a class="headerlink" href="#exercises-day-23" title="Permanent link">¶</a></h2>
-<ol>
-<li>Create a project directory with a virtual environment based on the example given above.</li>
-</ol>
-<p>🎉 CONGRATULATIONS ! 🎉</p>
-<p><a href="../../22_Day_Web_scraping/22_web_scraping/">&lt;&lt; Day 22</a> | <a href="../../24_Day_Statistics/24_statistics/">Day 24 &gt;&gt;</a></p>
+<p>Happy coding!</p>
 
 
 
