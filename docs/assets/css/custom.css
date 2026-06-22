@@ -1,40 +1,65 @@
 /* Clean, simple, modern styling for 30 Days of Python */
 
 :root {
-  /* Clean system-first font stack (no heavy web fonts) */
-  --md-text-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                  Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+  /* Inviting, highly readable font stack — clean, modern, and friendly.
+     Prioritizes Inter (excellent for long-form reading) with great system fallbacks.
+     Designed to feel approachable and make you want to keep reading. */
+  --md-text-font: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif,
                   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
   --md-code-font: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
                   "Liberation Mono", "Courier New", monospace;
 
-  /* Slightly calmer reading */
-  --md-body-font-size: 15.5px;
-  --md-body-line-height: 1.72;
+  /* Comfortable, inviting reading sizes */
+  --md-body-font-size: 16px;
+  --md-body-line-height: 1.78;
 }
 
-/* Body text: clean and readable */
+/* Main content — comfortable, inviting reading experience */
 .md-typeset {
   font-size: var(--md-body-font-size);
   line-height: var(--md-body-line-height);
   font-feature-settings: "kern" 1, "tnum" 0;
+  text-rendering: optimizeLegibility;
 }
 
-/* Headings: slightly tighter, clean */
+/* Make paragraphs feel a bit more welcoming with gentle rhythm */
+.md-typeset p {
+  margin-block: 0.95em;
+}
+
+/* Lists are easy on the eyes */
+.md-typeset ul,
+.md-typeset ol {
+  line-height: 1.7;
+}
+
+/* Headings — friendly and confident, encouraging you to dive in */
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3 {
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 650;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+}
+
+.md-typeset h1 {
+  font-size: 1.85rem;   /* a little more presence for day titles */
+}
+
+.md-typeset h2 {
+  font-size: 1.35rem;
+  margin-top: 1.6em;
 }
 
 /* Code: clean mono, soft background */
 .md-typeset code {
   font-family: var(--md-code-font);
-  font-size: 0.9em;
+  font-size: 0.92em;
   font-feature-settings: "tnum" 1;
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
+  padding: 0.12em 0.38em;
+  border-radius: 5px;
 }
 
 .md-typeset pre > code {
@@ -63,11 +88,12 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Table styling - clean */
+/* Table styling - clean and readable */
 .md-typeset table {
-  font-size: 0.92em;
+  font-size: 0.95em;
   border-radius: 6px;
   overflow: hidden;
+  line-height: 1.6;
 }
 
 /* Links: subtle and clear */
@@ -78,14 +104,52 @@
   text-decoration: underline;
 }
 
-/* Sidebar (toc + nav) - slightly refined */
+/* Sidebar navigation — bigger, comfortable, and inviting to browse */
 .md-nav {
-  font-size: 0.92em;
+  font-size: 15.2px;           /* noticeably larger than before */
+  line-height: 1.55;
 }
 
-/* Make the active nav item stand out a touch */
+/* Better breathing room and tap targets in the sidebar */
+.md-nav__list {
+  line-height: 1.5;
+}
+
+.md-nav__item {
+  margin: 1px 0;
+}
+
+.md-nav__link {
+  padding: 5px 0;
+  border-radius: 4px;
+}
+
+/* Active day stands out nicely — makes you feel good about progress */
 .md-nav__item--active > .md-nav__link {
   font-weight: 600;
+  color: var(--md-primary-fg-color);
+  position: relative;
+}
+
+.md-nav__item--active > .md-nav__link::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: var(--md-primary-fg-color);
+  border-radius: 3px;
+}
+
+/* Subtle hover to make exploring the days feel pleasant and rewarding */
+.md-nav__link:hover {
+  background-color: rgba(0, 0, 0, 0.035);
+  padding-left: 4px;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 /* Top nav bar feel */
@@ -93,11 +157,16 @@
   box-shadow: 0 1px 0 0 var(--md-default-fg-color--lightest);
 }
 
-/* Content container: comfortable reading width */
+/* Content container: comfortable reading width (encourages longer sessions) */
 .md-main__inner {
-  max-width: 980px;
+  max-width: 1020px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Gentle reading rhythm */
+.md-typeset {
+  --md-typeset-spacing: 0.9em;
 }
 
 /* Slightly nicer admonitions / callouts */
@@ -151,9 +220,12 @@
   font-size: 0.8em;
 }
 
-/* Make the "Days" section header in sidebar a bit more subtle */
+/* Sidebar headers and titles — readable and friendly */
 .md-nav__title,
 .md-nav__item--section > .md-nav__link {
+  font-size: 13.5px;
   font-weight: 600;
-  opacity: 0.95;
+  opacity: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
