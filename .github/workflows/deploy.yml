@@ -5,13 +5,24 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+
       - run: pip install mkdocs mkdocs-material mkdocs-glightbox
+
       - run: mkdocs gh-deploy --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
