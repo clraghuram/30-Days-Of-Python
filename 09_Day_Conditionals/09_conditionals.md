@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 8](../08_Day_Dictionaries/08_dictionaries.md) | [Day 10 >>](../10_Day_Loops/10_loops.md)
+[<< Day 8](/08_Day_Dictionaries/08_dictionaries/) | [Day 10 >>](/10_Day_Loops/10_loops/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 9](#-day-9)
   - [Conditionals](#conditionals)
@@ -284,4 +284,4 @@ Enter number two: 3
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 8](../08_Day_Dictionaries/08_dictionaries.md) | [Day 10 >>](../10_Day_Loops/10_loops.md)
+[<< Day 8](/08_Day_Dictionaries/08_dictionaries/) | [Day 10 >>](/10_Day_Loops/10_loops/)

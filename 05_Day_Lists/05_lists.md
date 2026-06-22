@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 4](../04_Day_Strings/04_strings.md) | [Day 6 >>](../06_Day_Tuples/06_tuples.md)
+[<< Day 4](/04_Day_Strings/04_strings/) | [Day 6 >>](/06_Day_Tuples/06_tuples/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [Day 5](#day-5)
   - [Lists](#lists)
@@ -129,7 +129,7 @@ Number of countries: 5
 ### Accessing List Items Using Positive Indexing
 
 We access each item in a list using their index. A list index starts from 0. The picture below shows clearly where the index starts
-![List index](../images/list_index.png)
+![List index](/images/list_index.png)
 
 ```py
 fruits = ['banana', 'orange', 'mango', 'lemon']
@@ -148,7 +148,7 @@ last_fruit = fruits[last_index]
 
 Negative indexing means beginning from the end, -1 refers to the last item, -2 refers to the second last item.
 
-![List negative indexing](../images/list_negative_indexing.png)
+![List negative indexing](/images/list_negative_indexing.png)
 
 ```py
 fruits = ['banana', 'orange', 'mango', 'lemon']
@@ -585,4 +585,4 @@ ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 4](../04_Day_Strings/04_strings.md) | [Day 6 >>](../06_Day_Tuples/06_tuples.md)
+[<< Day 4](/04_Day_Strings/04_strings/) | [Day 6 >>](/06_Day_Tuples/06_tuples/)

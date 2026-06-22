@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 26](../26_Day_Python_web/26_python_web.md) | [Day 28 >>](../28_Day_API/28_API.md)
+[<< Day 26](/26_Day_Python_web/26_python_web/) | [Day 28 >>](/28_Day_API/28_API/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 27](#-day-27)
 - [Python with MongoDB](#python-with-mongodb)
@@ -48,43 +48,43 @@ MongoDB is a NoSQL database. MongoDB stores data in a JSON like document which m
 
 ### SQL versus NoSQL
 
-![SQL versus NoSQL](../images/mongoDB/sql-vs-nosql.png)
+![SQL versus NoSQL](/images/mongoDB/sql-vs-nosql.png)
 
 In this section, we will focus on a NoSQL database MongoDB. Lets sign up on [mongoDB](https://www.mongodb.com/) by click on the sign in button then click register on the next page.
 
-![MongoDB Sign up pages](../images/mongoDB/mongodb-signup-page.png)
+![MongoDB Sign up pages](/images/mongoDB/mongodb-signup-page.png)
 
 Complete the fields and click continue
 
-![Mongodb register](../images/mongoDB/mongodb-register.png)
+![Mongodb register](/images/mongoDB/mongodb-register.png)
 
 Select the free plan
 
-![Mongodb free plan](../images/mongoDB/mongodb-free.png)
+![Mongodb free plan](/images/mongoDB/mongodb-free.png)
 
 Choose the proximate free region and give any name for you cluster.
 
-![Mongodb cluster name](../images/mongoDB/mongodb-cluster-name.png)
+![Mongodb cluster name](/images/mongoDB/mongodb-cluster-name.png)
 
 Now, a free sandbox is created
 
-![Mongodb sandbox](../images/mongoDB/mongodb-sandbox.png)
+![Mongodb sandbox](/images/mongoDB/mongodb-sandbox.png)
 
 All local host access
 
-![Mongodb allow ip access](../images/mongoDB/mongodb-allow-ip-access.png)
+![Mongodb allow ip access](/images/mongoDB/mongodb-allow-ip-access.png)
 
 Add user and password
 
-![Mongodb add user](../images/mongoDB/mongodb-add-user.png)
+![Mongodb add user](/images/mongoDB/mongodb-add-user.png)
 
 Create a mongoDB uri link
 
-![Mongodb create uri](../images/mongoDB/mongodb-create-uri.png)
+![Mongodb create uri](/images/mongoDB/mongodb-create-uri.png)
 
 Select Python 3.6 or above driver
 
-![Mongodb python driver](../images/mongoDB/mongodb-python-driver.png)
+![Mongodb python driver](/images/mongoDB/mongodb-python-driver.png)
 
 ### Getting Connection String(MongoDB URI)
 
@@ -179,7 +179,7 @@ Check your mongoDB cluster and you will see both the database and the collection
 
 If you see this on the mongoDB cluster, it means you have successfully created a database and a collection.
 
-![Creating database and collection](../images/mongoDB/mongodb-creating_database.png)
+![Creating database and collection](/images/mongoDB/mongodb-creating_database.png)
 
 If you have seen on the figure, the document has been created with a long id which acts as a primary key. Every time we create a document mongoDB create and unique id for it.
 
@@ -657,4 +657,4 @@ Now, we have deleted the students collection from the database.
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 26](../26_Day_Python_web/26_python_web.md) | [Day 28 >>](../28_Day_API/28_API.md)
+[<< Day 26](/26_Day_Python_web/26_python_web/) | [Day 28 >>](/28_Day_API/28_API/)

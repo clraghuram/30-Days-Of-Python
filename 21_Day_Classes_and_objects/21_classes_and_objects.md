@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 20](../20_Day_Python_package_manager/20_python_package_manager.md) | [Day 22 >>](../22_Day_Web_scraping/22_web_scraping.md)
+[<< Day 20](/20_Day_Python_package_manager/20_python_package_manager/) | [Day 22 >>](/22_Day_Web_scraping/22_web_scraping/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 21](#-day-21)
   - [Classes and Objects](#classes-and-objects)
@@ -364,4 +364,4 @@ Frequency Distribution: [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 20](../20_Day_Python_package_manager/20_python_package_manager.md) | [Day 22 >>](../22_Day_Web_scraping/22_web_scraping.md)
+[<< Day 20](/20_Day_Python_package_manager/20_python_package_manager/) | [Day 22 >>](/22_Day_Web_scraping/22_web_scraping/)

@@ -13,9 +13,9 @@
 </sub>
 </div>
 
-[<< Day 22](../22_Day_Web_scraping/22_web_scraping.md) | [Day 24 >>](../24_Day_Statistics/24_statistics.md)
+[<< Day 22](/22_Day_Web_scraping/22_web_scraping/) | [Day 24 >>](/24_Day_Statistics/24_statistics/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 23](#-day-23)
   - [Setting up Virtual Environments](#setting-up-virtual-environments)
@@ -111,4 +111,4 @@ The necessary modules to work with flask are installed. Now, your project direct
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 22](../22_Day_Web_scraping/22_web_scraping.md) | [Day 24 >>](../24_Day_Statistics/24_statistics.md)
+[<< Day 22](/22_Day_Web_scraping/22_web_scraping/) | [Day 24 >>](/24_Day_Statistics/24_statistics/)

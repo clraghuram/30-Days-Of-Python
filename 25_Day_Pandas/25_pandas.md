@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 24](../24_Day_Statistics/24_statistics.md) | [Day 26 >>](../26_Day_Python_web/26_python_web.md)
+[<< Day 24](/24_Day_Statistics/24_statistics/) | [Day 26 >>](/26_Day_Python_web/26_python_web/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 25](#-day-25)
   - [Pandas](#pandas)
@@ -79,25 +79,25 @@ Let us see an example of a series:
 
 Names Pandas Series
 
-![pandas series](../images/pandas-series-1.png)
+![pandas series](/images/pandas-series-1.png)
 
 Countries Series
 
-![pandas series](../images/pandas-series-2.png)
+![pandas series](/images/pandas-series-2.png)
 
 Cities Series
 
-![pandas series](../images/pandas-series-3.png)
+![pandas series](/images/pandas-series-3.png)
 
 As you can see, pandas series is just one column of data. If we want to have multiple columns we use data frames. The example below shows pandas DataFrames.
 
 Let us see, an example of a pandas data frame:
 
-![Pandas data frame](../images/pandas-dataframe-1.png)
+![Pandas data frame](/images/pandas-dataframe-1.png)
 
 Data frame is a collection of rows and columns. Look at the table below; it has many more columns than the example above:
 
-![Pandas data frame](../images/pandas-dataframe-2.png)
+![Pandas data frame](/images/pandas-dataframe-2.png)
 
 Next, we will see how to import pandas and how to create Series and DataFrames using pandas
 
@@ -1213,4 +1213,4 @@ print(df[df['Ages'] < 120])
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 24](../24_Day_Statistics/24_statistics.md) | [Day 26 >>](../26_Day_Python_web/26_python_web.md)
+[<< Day 24](/24_Day_Statistics/24_statistics/) | [Day 26 >>](/26_Day_Python_web/26_python_web/)

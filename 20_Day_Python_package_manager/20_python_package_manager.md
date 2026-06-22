@@ -13,9 +13,9 @@
 </sub>
 </div>
 
-[<< Day 19](../19_Day_File_handling/19_file_handling.md) | [Day 21 >>](../21_Day_Classes_and_objects/21_classes_and_objects.md)
+[<< Day 19](/19_Day_File_handling/19_file_handling/) | [Day 21 >>](/21_Day_Classes_and_objects/21_classes_and_objects/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 20](#-day-20)
   - [Python PIP - Python Package Manager](#python-pip---python-package-manager)
@@ -456,4 +456,4 @@ The **__init__**.py exposes specified resources from its modules to be imported 
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 19](../19_Day_File_handling/19_file_handling.md) | [Day 21 >>](../21_Day_Classes_and_objects/21_classes_and_objects.md)
+[<< Day 19](/19_Day_File_handling/19_file_handling/) | [Day 21 >>](/21_Day_Classes_and_objects/21_classes_and_objects/)

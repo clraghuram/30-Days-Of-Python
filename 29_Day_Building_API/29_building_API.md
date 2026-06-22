@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 28](../28_Day_API/28_API.md) | [Day 29 >>](../30_Day_Conclusions/30_conclusions.md)
+[<< Day 28](/28_Day_API/28_API/) | [Day 29 >>](/30_Day_Conclusions/30_conclusions/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [Day 29](#day-29)
 - [Building API](#building-api)
@@ -46,7 +46,7 @@ Examples of API
 
 [Postman](https://www.getpostman.com/) is a very popular tool when it comes to API development. So, if you like to do this section you need to [download postman](https://www.getpostman.com/). An alternative of Postman is [Insomnia](https://insomnia.rest/download).
 
-![Postman](../images/postman.png)
+![Postman](/images/postman.png)
 
 ### Structure of an API
 
@@ -123,11 +123,11 @@ if __name__ == '__main__':
 
 When you request the http://localhost:5000/api/v1.0/students url on the browser you will get this:
 
-![Get on browser](../images/get_on_browser.png)
+![Get on browser](/images/get_on_browser.png)
 
 When you request the http://localhost:5000/api/v1.0/students url on the browser you will get this:
 
-![Get on postman](../images/get_on_postman.png)
+![Get on postman](/images/get_on_postman.png)
 
 In stead of displaying dummy data let us connect the flask application with MongoDB and get data from mongoDB database.
 
@@ -500,4 +500,4 @@ if __name__ == '__main__':
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 28](../28_Day_API/28_API.md) | [Day 30 >>](../30_Day_Conclusions/30_conclusions.md)
+[<< Day 28](/28_Day_API/28_API/) | [Day 30 >>](/30_Day_Conclusions/30_conclusions/)

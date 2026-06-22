@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 7 ](../07_Day_Sets/07_sets.md) | [Day 9 >>](../09_Day_Conditionals/09_conditionals.md)
+[<< Day 7 ](/07_Day_Sets/07_sets/) | [Day 9 >>](/09_Day_Conditionals/09_conditionals/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 8](#-day-8)
   - [Dictionaries](#dictionaries)
@@ -339,4 +339,4 @@ print(values)     # dict_values(['value1', 'value2', 'value3', 'value4'])
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 7 ](../07_Day_Sets/07_sets.md) | [Day 9 >>](../09_Day_Conditionals/09_conditionals.md)
+[<< Day 7 ](/07_Day_Sets/07_sets/) | [Day 9 >>](/09_Day_Conditionals/09_conditionals/)

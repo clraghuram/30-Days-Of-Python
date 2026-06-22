@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 14](../14_Day_Higher_order_functions/14_higher_order_functions.md) | [Day 16 >>](../16_Day_Python_date_time/16_python_datetime.md)
+[<< Day 14](/14_Day_Higher_order_functions/14_higher_order_functions/) | [Day 16 >>](/16_Day_Python_date_time/16_python_datetime/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 - [📘 Day 15](#-day-15)
   - [Python Error Types](#python-error-types)
     - [SyntaxError](#syntaxerror)
@@ -358,4 +358,4 @@ If you are good at reading the error types, then you will be able to fix your bu
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 14](../14_Day_Higher_order_functions/14_higher_order_functions.md) | [Day 16 >>](../16_Day_Python_date_time/16_python_datetime.md)
+[<< Day 14](/14_Day_Higher_order_functions/14_higher_order_functions/) | [Day 16 >>](/16_Day_Python_date_time/16_python_datetime/)

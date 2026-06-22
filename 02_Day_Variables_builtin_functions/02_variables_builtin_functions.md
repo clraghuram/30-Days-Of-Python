@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 1](../readme.md) | [Day 3 >>](../03_Day_Operators/03_operators.md)
+[<< Day 1](/01_Day_Introduction/helloworld/) | [Day 3 >>](/03_Day_Operators/03_operators/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 2](#-day-2)
   - [Built in functions](#built-in-functions)
@@ -35,21 +35,21 @@
 
 In Python we have lots of built-in functions. Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. Some of the most commonly used Python built-in functions are the following: _print()_, _len()_, _type()_, _int()_, _float()_, _str()_, _input()_, _list()_, _dict()_, _min()_, _max()_, _sum()_, _sorted()_, _open()_, _file()_, _help()_, and _dir()_. In the following table you will see an exhaustive list of Python built-in functions taken from [python documentation](https://docs.python.org/3/library/functions.html).
 
-![Built-in Functions](../images/builtin-functions.png)
+![Built-in Functions](/images/builtin-functions.png)
 
 Let us open the Python shell and start using some of the most common built-in functions.
 
-![Built-in functions](../images/builtin-functions_practice.png)
+![Built-in functions](/images/builtin-functions_practice.png)
 
 Let us practice more by using different built-in functions
 
-![Help and Dir Built in Functions](../images/help_and_dir_builtin.png)
+![Help and Dir Built in Functions](/images/help_and_dir_builtin.png)
 
 As you can see from the terminal above, Python has got reserved words. We do not use reserved words to declare variables or functions. We will cover variables in the next section.
 
 I believe, by now you are familiar with built-in functions. Let us do one more practice of built-in functions and we will move on to the next section.
 
-![Min Max Sum](../images/builtin-functional-final.png)
+![Min Max Sum](/images/builtin-functional-final.png)
 
 ## Variables
 
@@ -301,4 +301,4 @@ Number data types in Python:
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 1](../readme.md) | [Day 3 >>](../03_Day_Operators/03_operators.md)
+[<< Day 1](/01_Day_Introduction/helloworld/) | [Day 3 >>](/03_Day_Operators/03_operators/)

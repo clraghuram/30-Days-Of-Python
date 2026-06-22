@@ -13,9 +13,9 @@
   </sub>
 </div>
 
-[<< Day 16](../16_Day_Python_date_time/16_python_datetime.md) | [Day 18 >>](../18_Day_Regular_expressions/18_regular_expressions.md)
+[<< Day 16](/16_Day_Python_date_time/16_python_datetime/) | [Day 18 >>](/18_Day_Regular_expressions/18_regular_expressions/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 17](#-day-17)
   - [Exception Handling](#exception-handling)
@@ -39,7 +39,7 @@ Python uses _try_ and _except_ to handle errors gracefully. A graceful exit (or 
 
 We have covered the different Python _error_ types in the previous section. If we use _try_ and _except_ in our program, then it will not raise errors in those blocks.
 
-![Try and Except](../images/try_except.png)
+![Try and Except](/images/try_except.png)
 
 ```py
 try:
@@ -304,4 +304,4 @@ print(fruits_and_veges)
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 16](../16_Day_Python_date_time/16_python_datetime.md) | [Day 18 >>](../18_Day_Regular_expressions/18_regular_expressions.md)
+[<< Day 16](/16_Day_Python_date_time/16_python_datetime/) | [Day 18 >>](/18_Day_Regular_expressions/18_regular_expressions/)

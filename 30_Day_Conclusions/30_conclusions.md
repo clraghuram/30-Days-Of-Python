@@ -16,8 +16,8 @@
 
 </div>
 
-[<< Day 29](../29_Day_Building_API/29_building_API.md)
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+[<< Day 29](/29_Day_Building_API/29_building_API/)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [Day 30](#day-30)
   - [Conclusions](#conclusions)
@@ -38,4 +38,4 @@ http://thirtydayofpython-api.herokuapp.com/feedback
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 29](../29_Day_Building_API/29_building_API.md)
+[<< Day 29](/29_Day_Building_API/29_building_API/)

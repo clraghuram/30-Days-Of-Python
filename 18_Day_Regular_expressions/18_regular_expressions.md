@@ -14,9 +14,9 @@
 </div>
 
 
-[<< Day 17](../17_Day_Exception_handling/17_exception_handling.md) | [Day 19>>](../19_Day_File_handling/19_file_handling.md)
+[<< Day 17](/17_Day_Exception_handling/17_exception_handling/) | [Day 19>>](/19_Day_File_handling/19_file_handling/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 18](#-day-18)
   - [Regular Expressions](#regular-expressions)
@@ -270,7 +270,7 @@ print(matches)  # ['Apple', 'apple']
   - r'apple|banana' means either apple or a banana
 - (): Capture and group
 
-![Regular Expression cheat sheet](../images/regex.png)
+![Regular Expression cheat sheet](/images/regex.png)
 
 Let us use examples to clarify the meta characters above
 
@@ -456,4 +456,4 @@ distance = 8 -(-12) # 20
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 17](../17_Day_Exception_handling/17_exception_handling.md) | [Day 19>>](../19_Day_File_handling/19_file_handling.md)
+[<< Day 17](/17_Day_Exception_handling/17_exception_handling/) | [Day 19>>](/19_Day_File_handling/19_file_handling/)

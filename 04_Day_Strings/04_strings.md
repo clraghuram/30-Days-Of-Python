@@ -14,9 +14,9 @@
 
 </div>
 
-[<< Day 3](../03_Day_Operators/03_operators.md) | [Day 5 >>](../05_Day_Lists/05_lists.md)
+[<< Day 3](/03_Day_Operators/03_operators/) | [Day 5 >>](/05_Day_Lists/05_lists/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [Day 4](#day-4)
   - [Strings](#strings)
@@ -229,7 +229,7 @@ print(f) # n
 
 In programming counting starts from zero. Therefore the first letter of a string is at zero index and the last letter of a string is the length of a string minus one.
 
-![String index](../images/string_index.png)
+![String index](/images/string_index.png)
 
 ```py
 language = 'Python'
@@ -600,6 +600,6 @@ The area of a circle with radius 10 is 314 meters square.
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 3](../03_Day_Operators/03_operators.md) | [Day 5 >>](../05_Day_Lists/05_lists.md)
+[<< Day 3](/03_Day_Operators/03_operators/) | [Day 5 >>](/05_Day_Lists/05_lists/)
 
 

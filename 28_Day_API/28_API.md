@@ -15,9 +15,9 @@
 </div>
 </div>
 
-[<< Day 27](../27_Day_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../29_Day_Building_API/29_building_API.md)
+[<< Day 27](/27_Day_Python_with_mongodb/27_python_with_mongodb/) | [Day 29 >>](/29_Day_Building_API/29_building_API/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 28](#-day-28)
 - [Application Programming Interface(API)](#application-programming-interfaceapi)
@@ -71,7 +71,7 @@ A browser is an HTTP client because it sends requests to an HTTP server (Web ser
 
 HTTP uses client-server model. An HTTP client opens a connection and sends a request message to an HTTP server and the HTTP server returns response message which is the requested resources. When the request response cycle completes the server closes the connection.
 
-![HTTP request response cycle](../images/http_request_response_cycle.png)
+![HTTP request response cycle](/images/http_request_response_cycle.png)
 
 The format of the request and response messages are similar. Both kinds of messages have
 
@@ -82,7 +82,7 @@ The format of the request and response messages are similar. Both kinds of messa
 
 Let us an example of request and response messages by navigating this site:https://thirtydaysofpython-v1-final.herokuapp.com/. This site has been deployed on Heroku free dyno and in some months may not work because of high request. Support this work to make the server run all the time. 
 
-![Request and Response header](../images/request_response_header.png)
+![Request and Response header](/images/request_response_header.png)
 
 ## Initial Request Line(Status Line)
 
@@ -159,4 +159,4 @@ The GET, POST, PUT and DELETE are the HTTP request methods which we are going to
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 27](../27_Day_Python_with_mongodb/27_python_with_mongodb.md) | [Day 29 >>](../29_Day_Building_API/29_building_API.md)
+[<< Day 27](/27_Day_Python_with_mongodb/27_python_with_mongodb/) | [Day 29 >>](/29_Day_Building_API/29_building_API/)

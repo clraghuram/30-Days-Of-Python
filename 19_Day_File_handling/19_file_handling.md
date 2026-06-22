@@ -12,9 +12,9 @@
 </sub>
 </div>
 
-[<< Day 18](../18_Day_Regular_expressions/18_regular_expressions.md) | [Day 20 >>](../20_Day_Python_package_manager/20_python_package_manager.md)
+[<< Day 18](/18_Day_Regular_expressions/18_regular_expressions/) | [Day 20 >>](/20_Day_Python_package_manager/20_python_package_manager/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 19](#-day-19)
   - [File Handling](#file-handling)
@@ -513,4 +513,4 @@ field: skills
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 18](../18_Day_Regular_expressions/18_regular_expressions.md) | [Day 20 >>](../20_Day_Python_package_manager/20_python_package_manager.md)
+[<< Day 18](/18_Day_Regular_expressions/18_regular_expressions/) | [Day 20 >>](/20_Day_Python_package_manager/20_python_package_manager/)

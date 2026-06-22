@@ -13,9 +13,9 @@
   </sub>
 </div>
 
-[<< Day 15](../15_Day_Python_type_errors/15_python_type_errors.md) | [Day 17 >>](../17_Day_Exception_handling/17_exception_handling.md)
+[<< Day 15](/15_Day_Python_type_errors/15_python_type_errors/) | [Day 17 >>](/17_Day_Exception_handling/17_exception_handling/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 - [📘 Day 16](#-day-16)
   - [Python *datetime*](#python-datetime)
     - [Getting *datetime* Information](#getting-datetime-information)
@@ -101,7 +101,7 @@ time two: 05/12/2019, 01:05:01
 
 Here are all the _strftime_ symbols we use to format time. An example of all the formats for this module.
 
-![strftime](../images/strftime.png)
+![strftime](/images/strftime.png)
 
 ### String to Time Using *strptime*
 Here is a [documentation](https://www.programiz.com/python-programming/datetime/strptime) hat helps to understand the format. 
@@ -205,4 +205,4 @@ print("t3 =", t3)
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 15](../15_Day_Python_type_errors/15_python_type_errors.md) | [Day 17 >>](../17_Day_Exception_handling/17_exception_handling.md)
+[<< Day 15](/15_Day_Python_type_errors/15_python_type_errors/) | [Day 17 >>](/17_Day_Exception_handling/17_exception_handling/)

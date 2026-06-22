@@ -13,9 +13,9 @@
 </sub>
 </div>
 
-[<< Day 2](../02_Day_Variables_builtin_functions/02_variables_builtin_functions.md) | [Day 4 >>](../04_Day_Strings/04_strings.md)
+[<< Day 2](/02_Day_Variables_builtin_functions/02_variables_builtin_functions/) | [Day 4 >>](/04_Day_Strings/04_strings/)
 
-![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
+![30DaysOfPython](/images/30DaysOfPython_banner3@2x.png)
 
 - [📘 Day 3](#-day-3)
   - [Boolean](#boolean)
@@ -46,7 +46,7 @@ Python language supports several types of operators. In this section, we will fo
 
 Assignment operators are used to assign values to variables. Let us take = as an example. Equal sign in mathematics shows that two values are equal, however in Python it means we are storing a value in a certain variable and we call it assignment or a assigning value to a variable. The table below shows the different types of python assignment operators, taken from [w3school](https://www.w3schools.com/python/python_operators.asp).
 
-![Assignment Operators](../images/assignment_operators.png)
+![Assignment Operators](/images/assignment_operators.png)
 
 ### Arithmetic Operators:
 
@@ -58,7 +58,7 @@ Assignment operators are used to assign values to variables. Let us take = as an
 - Floor division(//): a // b
 - Exponentiation(**): a ** b
 
-![Arithmetic Operators](../images/arithmetic_operators.png)
+![Arithmetic Operators](/images/arithmetic_operators.png)
 
 **Example:Integers**
 
@@ -182,7 +182,7 @@ print(density, 'Kg/m^3') # Adding unit to the density
 
 In programming we compare values, we use comparison operators to compare two values. We check if a value is greater or less or equal to other value. The following table shows Python comparison operators which was taken from [w3shool](https://www.w3schools.com/python/python_operators.asp).
 
-![Comparison Operators](../images/comparison_operators.png)
+![Comparison Operators](/images/comparison_operators.png)
 **Example: Comparison Operators**
 
 ```py
@@ -230,7 +230,7 @@ print('4 is 2 ** 2:', 4 is 2 ** 2)   # True
 
 Unlike other programming languages python uses keywords _and_, _or_ and _not_ for logical operators. Logical operators are used to combine conditional statements:
 
-![Logical Operators](../images/logical_operators.png)
+![Logical Operators](/images/logical_operators.png)
 
 ```py
 print(3 > 2 and 4 > 3) # True - because both statements are true
@@ -315,4 +315,4 @@ You have lived for 3153600000 seconds.
 
 🎉 CONGRATULATIONS ! 🎉
 
-[<< Day 2](../02_Day_Variables_builtin_functions/02_variables_builtin_functions.md) | [Day 4 >>](../04_Day_Strings/04_strings.md)
+[<< Day 2](/02_Day_Variables_builtin_functions/02_variables_builtin_functions/) | [Day 4 >>](/04_Day_Strings/04_strings/)

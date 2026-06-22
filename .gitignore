@@ -19,3 +19,15 @@ numpy.ipynb
 .vscode/
 *~
 test.py
+
+# Build artifacts (MkDocs, etc.)
+site/
+site
+*.pyc
+__pycache__/
+build/
+dist/
+
+# Dynamically generated for MkDocs build (copied by hooks.py)
+docs/images/
+docs/images
